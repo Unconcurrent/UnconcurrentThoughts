@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="fonts\Slabo27px-Regular.ttf" />
+    <Content Include="highlight.js\style.css" />
+    <None Include="highlight.js\highlight.js" />
+    <Compile Include="Stylize.fs" />
+    <Compile Include="Minify.fs" />
+    <Compile Include="JS.fs" />
+    <Compile Include="Authors.fs" />
+    <Compile Include="ArticleType.fs" />
+    <Compile Include="ArticleTools.fs" />
+    <Compile Include="Articles\ArticleTypeProvider.fs" />
+    <Compile Include="Articles.fs" />
+    <Compile Include="DefaultStyle.fs" />
+    <Compile Include="WebBuilder.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Giraffe.ViewEngine" Version="1.4.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.12.1" />
+    <PackageReference Include="Jint" Version="4.2.2" />
+  </ItemGroup>
+
+</Project>
