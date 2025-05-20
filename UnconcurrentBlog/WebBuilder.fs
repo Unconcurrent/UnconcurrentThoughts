@@ -54,7 +54,7 @@ let private page (fileName: string) headItems bodyItems =
             // Footer
             footer [] [
                 div [ _class "container footer-content" ] [
-                    p [ _class "copyright" ] [ strf "© %i Unconcurrent. All rights reserved." System.DateTime.Now.Year ]
+                    p [ _class "copyright" ] [ strf "© %i Unconcurrent. " System.DateTime.Now.Year; a [_href "/LICENSE.html"] [str "All rights reserved..."] ]
                     div [ _class "footer-links" ] [
                         a [ _href "https://github.com/Unconcurrent/UnconcurrentThoughts/discussions"; _target "blank" ] [ str "Have anything to say or ask?" ]
                     ]
@@ -157,6 +157,11 @@ let internal pages = [
     ]
 ]
 
+let private copyFile fileName sourceDir destDir =
+    let s = Path.Combine (sourceDir,fileName)
+    let d = Path.Combine (destDir,fileName)
+
+    File.Copy(s, d)
 
 let readerWebsiteInto (dirPath: string) =
     let writeWww fileName text =
@@ -176,3 +181,6 @@ let readerWebsiteInto (dirPath: string) =
         ignore (Directory.CreateDirectory fileDir)
 
     File.Copy (Path.Combine(__SOURCE_DIRECTORY__, "fonts", "Slabo27px-Regular.ttf"), filePath)
+    copyFile "LICENSE.md" (__SOURCE_DIRECTORY__ + "/..") dirPath
+    let licenseMarkdown = File.ReadAllText (__SOURCE_DIRECTORY__ + "/../" + "LICENSE.md")
+    File.WriteAllText (Path.Combine(dirPath, "LICENSE.html"), ArticleTools.renderMarkdown licenseMarkdown)

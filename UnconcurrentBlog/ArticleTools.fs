@@ -1,5 +1,5 @@
 ﻿module private ArticleTools
-open ArticleType
+open Microsoft.PowerShell.MarkdownRender
 open Giraffe.ViewEngine
 open System
 
@@ -40,3 +40,7 @@ let chapter name = div [] [
     h2 [] [str name]
     line
 ]
+
+let renderMarkdown mark =
+    for c in mark do if c >= char 127 then failwithf "Non ASCII char found in markdown: '%c'." c
+    MarkdownConverter.Convert(mark, MarkdownConversionType.HTML, PSMarkdownOptionInfo()).Html
