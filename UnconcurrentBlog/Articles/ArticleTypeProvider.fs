@@ -196,7 +196,7 @@ let private body = div [_style "font-size: 18px;"] [
     """
     texts [
         code [] [str "Ctrl+F5"]
-        str " and a window will pop up, displaying"
+        str " and a window will pop up, displaying "
         code [] [str "hello WORLD!"]
     ]
 
@@ -207,6 +207,10 @@ let private body = div [_style "font-size: 18px;"] [
         generation, and embedding metadata—which can be extended toward more sophisticated compile-time integrations.
         A good exercise might be to build a runtime O(1) Fibonacci calculator using compile-time generated types.
     """
+    texts [
+        br []
+        a [_href "https://github.com/Unconcurrent/UnconcurrentThoughts/discussions/1"] [str "Comments page."]
+    ]
 ]
 
 let internal get() = {
