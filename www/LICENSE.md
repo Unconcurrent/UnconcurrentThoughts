@@ -1,9 +1,10 @@
 # Unconcurrent Content License v1.0
+
 Copyright (c) Unconcurrent
 
 Permission is granted to any individual to read, use, learn from, and share this material, and use its technology under the following conditions. All rights not expressly granted herein are reserved by the author.
 
-### 1. SCOPE OF LICENSE
+## 1. SCOPE OF LICENSE
 
 This license applies to the entire contents of this repository, including:
 
@@ -12,17 +13,19 @@ This license applies to the entire contents of this repository, including:
 * All generated HTML, CSS, and supporting assets.
 * All visual identity and design elements, including site structure and typography.
 
-### 2. GRANT OF USE
+## 2. GRANT OF USE
 
 You are permitted to:
 
-**(a) Read and Learn**
+### (a) Read and Learn
+
 Freely access and learn from the source code, text, and ideas expressed in this project.
 
-**(b) Reuse Code Examples**
+### (b) Reuse Code Examples
+
 Copy code snippets from blog articles for your personal or professional work, including open-source and proprietary projects.
 
-**(c) Collaborate**
+### (c) Collaborate
 
 You are permitted and encouraged to engage with the project through any of the following forms of contribution:
 
@@ -62,7 +65,7 @@ You may republish or mirror the site, including code and content, only under the
 
 * No commercial use, monetization, or indirect revenue generation may be associated with the mirror, including through ads, paywalls, affiliate links, newsletter collection, SEO exploitation, or traffic redirection.
 
-Any action that modifies, recontextualizes, frames, indexes selectively, or presents the content with the intent to replace, compete with, or simulate the original source - whether technically, visually, or by implication - is expressly prohibited.
+Any action that modifies, recontextualizes, frames, indexes selectively, or presents the content with the intent to replace, or compete with the original source - whether technically, visually, or by implication - is expressly prohibited.
 
 ### 3. RESTRICTIONS
 
@@ -93,7 +96,14 @@ By using, viewing, copying, modifying, or contributing to this project, you agre
 
 The original author retains the sole right to define and publish new license versions under this name.
 
+### 7. WARRANTY
 
-### 7. LIABILITY
+THE WEBSITE AND ITS CONTENT/SERVICES ARE PROVIDED "AS IS," TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW. THE OPERATOR OF THIS WEBSITE AND ANY AFFILIATED PARTIES (COLLECTIVELY, "THE OPERATOR") DISCLAIM ALL WARRANTIES, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. THE ENTIRE RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE OF THE WEBSITE AND ITS CONTENT/SERVICES IS WITH YOU. SHOULD THE WEBSITE OR ITS CONTENT/SERVICES PROVE DEFECTIVE, YOU ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIR, OR CORRECTION.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+### 8. LIABILITY
+
+IN NO EVENT, UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING, SHALL THE OPERATOR OF THIS WEBSITE, ITS COPYRIGHT HOLDERS, OR ANY OTHER PARTY INVOLVED IN PROVIDING THE WEBSITE OR ITS CONTENT/SERVICES BE LIABLE TO YOU FOR ANY DAMAGES WHATSOEVER, INCLUDING ANY DIRECT, INDIRECT, GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES. THIS INCLUDES, BUT IS NOT LIMITED TO, DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE WEBSITE OR ITS CONTENT/SERVICES (SUCH AS LOSS OF DATA, INACCURATE DATA, LOSSES SUSTAINED BY YOU OR THIRD PARTIES, OR FAILURE OF THE WEBSITE TO OPERATE WITH OTHER APPLICATIONS), EVEN IF THE OPERATOR OR SUCH OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+### 9. Interpretation and Severability
+
+If any part of these disclaimers of warranty or limitations of liability cannot be given full legal effect according to their terms under applicable local law, the reviewing courts shall apply local law that most closely approximates an absolute waiver of all civil liability in connection with the Website and its Content/Services, unless a specific warranty or assumption of liability is explicitly provided and agreed upon in writing for a fee. If any provision of this license is held to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.

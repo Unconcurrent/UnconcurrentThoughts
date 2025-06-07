@@ -70,7 +70,6 @@ let internal defaultMetas = [
                 background-color: white;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 padding: 1rem 0;
-                position: sticky;
                 top: 0;
                 z-index: 100;
             }
@@ -123,8 +122,9 @@ let internal defaultMetas = [
                     
             /* Header */
             header {
-                padding: 4rem 0 2rem;
+                padding: 1rem;
                 text-align: center;
+                padding-bottom: 0;
             }
                     
             .welcome-title {
