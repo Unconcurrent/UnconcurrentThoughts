@@ -9,18 +9,18 @@ While excellent databases like LiteDB already existed, each had different design
 <p>I ran comprehensive benchmarks comparing SoloDB against LiteDB, while trying to make the tests as optimized as possible for both contenders. The results are appended to this document.</p><br>
 <h3 id="the-improvements">The Improvements</h3>
 <p>In a &quot;GroupBy and count users by username's first letter&quot; query, SoloDB is <strong>57% faster</strong> than LiteDB (21,50 ms vs 50,08 ms). But it's not just about raw speed - it's about ease of achieving these speeds.</p><br>
-<p>LiteDB uses its <a href="https://github.com/litedb-org/LiteDB/blob/master/LiteDB/Client/Database/ILiteQueryable.cs#L8" rel="noopener noreferrer" target="_blank">ILiteQueryable</a> interface with a custom query language, while SoloDB takes a different approach with standard <a href="https://learn.microsoft.com/en-us/dotnet/api/system.linq.iqueryable-1" rel="noopener noreferrer" target="_blank">IQueryable&lt;T&gt;</a> support</p><br>
+<p>LiteDB uses its <a href="https://github.com/litedb-org/LiteDB/blob/master/LiteDB/Client/Database/ILiteQueryable.cs#L8" rel="noopener noreferrer" target="_blank">ILiteQueryable</a> interface with a custom query language, while SoloDB takes a different approach with standard <a href="https://learn.microsoft.com/en-us/dotnet/api/system.linq.iqueryable-1" rel="noopener noreferrer" target="_blank">IQueryable&lt;T&gt;</a> support.</p><br>
 <p>And the most dramatic improvement was memory allocation. For the same query, LiteDB allocates <strong>30,37 MB</strong> while SoloDB uses just <strong>56,05 KB</strong> - that's a <strong>99.8% reduction</strong>!</p><br>
 <p>These performance improvements are primarily due to SQLite's highly optimized query engine and mature storage architecture that SoloDB builds upon.</p><br>
 <h2 id="the-groupby-comparison">The GroupBy Comparison</h2><hr style="opacity: 0.1;">
-<p>In a GroupBy query SoloDB outperforms LiteDB, here is how it is made:</p><br>
+<p>In a GroupBy query, SoloDB outperforms LiteDB, here is how it is done:</p><br>
 <p>In SoloDB, the test is implemented with LINQ:</p>
 <pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; width: 100%; min-width: fit-content; padding: 0.5em; border-radius: 0.2em;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> letterCounts = users
     .GroupBy(x =&gt; x.Username[<span class="hljs-number" style="color: #B8D7A3;">0</span>])
     .Select(x =&gt; <span class="hljs-keyword" style="color: #569CD6;">new</span> { Key = x.Key, Count = x.Count() })
     .ToDictionary(k =&gt; k.Key.ToString(), e =&gt; e.Count);
 </code></pre>
-<p>But in LiteDB is implemented using their query language(for speed):</p>
+<p>But in LiteDB it is implemented using their query language(for speed):</p>
 <pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; width: 100%; min-width: fit-content; padding: 0.5em; border-radius: 0.2em;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> letterCounts = users
     .Query()
     .GroupBy(BsonExpression.Create(<span class="hljs-string" style="color: #D69D85;">&quot;SUBSTRING(Username, 0, 1)&quot;</span>))
@@ -55,12 +55,12 @@ While excellent databases like LiteDB already existed, each had different design
 <pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; width: 100%; min-width: fit-content; padding: 0.5em; border-radius: 0.2em;"><code><span class="hljs-keyword" style="color: #569CD6;">SEARCH</span> UserSoloDB <span class="hljs-keyword" style="color: #569CD6;">USING</span> INDEX UserSoloDB_index_jsonb_extractValueUsername (<span class="hljs-operator">&lt;</span>expr<span class="hljs-operator">&gt;&gt;</span>? <span class="hljs-keyword" style="color: #569CD6;">AND</span> <span class="hljs-operator">&lt;</span>expr<span class="hljs-operator">&gt;</span><span class="hljs-operator">&lt;</span>?)
 </code></pre>
 <br><h2 id="the-architecture-advantage">The Architecture Advantage</h2><hr style="opacity: 0.1;">
-<p>SoloDB's foundation takes a different approach by building directly on SQLite's capabilities. And from them we get:</p>
+<p>SoloDB's foundation takes a different approach by building directly on SQLite's capabilities. This gives us:</p>
 <ol>
 <li><strong>Battle-tested reliability</strong>: Used in everything from browsers to spacecraft, SQLite is the most battle-tested database in existence.</li>
 <li><strong>Proper transactions</strong>: Full ACID compliance with SQLite's proven transaction system</li>
 <li><strong>Efficient storage</strong>: JSONB provides compact storage with fast access</li>
-<li><strong>Compressing Filesystem</strong>: The virtual filesystem is transparently compressed using <a href="https://github.com/brantburnett/Snappier" rel="noopener noreferrer" target="_blank">Snappy</a>.</li>
+<li><strong>Compressed Filesystem</strong>: The virtual filesystem is transparently compressed using <a href="https://github.com/brantburnett/Snappier" rel="noopener noreferrer" target="_blank">Snappy</a>.</li>
 <li><strong>SQL compatibility</strong>: You can use raw SQL when needed.</li>
 <li><strong>Better tooling</strong>: Any SQLite tool can inspect your database.</li>
 </ol>
@@ -77,7 +77,7 @@ While excellent databases like LiteDB already existed, each had different design
 <li>Perform indexed hash-based file lookups.</li>
 </ol>
 <br><h2 id="performance">Performance</h2><hr style="opacity: 0.1;">
-<p>By leveraging SQLite's mature architecture we can obtain the following results:</p><br>
+<p>By leveraging SQLite's mature architecture, we can obtain the following results:</p><br>
 <h3 id="operations-where-solodb-excels">Operations Where SoloDB Excels</h3>
 <ul>
 <li><strong>Inserting 10,000 users</strong>:
@@ -98,18 +98,18 @@ While excellent databases like LiteDB already existed, each had different design
 </ul>
 <h3 id="cases-where-litedb-has-the-edge">Cases Where LiteDB Has the Edge</h3>
 <ul>
-<li><p><strong>Searching within array properties</strong><br>
+<li><p><strong>Searching within array properties:</strong><br>
 LiteDB supports indexes on Properties that are arrays; SoloDB does not — yet.</p>
 </li>
-<li><p><strong>File write operations</strong><br>
+<li><p><strong>File write operations:</strong><br>
 LiteDB is faster when writing files due to its minimal overhead.</p>
 </li>
-<li><p><strong>Very simple queries</strong><br>
+<li><p><strong>Very simple queries:</strong><br>
 For ultra-fast, cache-resident queries, LiteDB may outperform SoloDB due to smaller query to engine pipeline.</p>
 </li>
 </ul>
 <br>
-<p>LiteDB excels at file write operations with without the overhead of:</p>
+<p>LiteDB excels at file write operations without the overhead of:</p>
 <ul>
 <li>Storing creation and modification timestamps.</li>
 <li>Updating all parent directory timestamps.</li>
@@ -152,15 +152,15 @@ db.WithTransaction(tx =&gt; {
 <ol>
 <li><strong>Custom ID generators</strong>: Implement your own ID strategy for <code style="background-color: #d7d7d7; color: black;">Int64</code>, <code style="background-color: #d7d7d7; color: black;">String</code>, or <code style="background-color: #d7d7d7; color: black;">Guid</code> — such as Version 7 GUIDs.</li>
 <li><strong>Attribute-based indexing</strong>: Use <code style="background-color: #d7d7d7; color: black;">[Indexed]</code> attributes for simplicity, or create indexes manually via code.</li>
-<li><strong>Hash based file lookup</strong>: All files are SHA-1 content-hashed.</li>
-<li><strong>Auto optimization</strong>: On startup, SoloDB runs <code style="background-color: #d7d7d7; color: black;">PRAGMA optimize;</code> enabling SQLite to gather fresh statistics and optimize future queries.</li>
+<li><strong>Hash-based file lookup</strong>: All files are SHA-1 content-hashed.</li>
+<li><strong>Auto optimization</strong>: On startup, SoloDB runs <code style="background-color: #d7d7d7; color: black;">PRAGMA optimize;</code>, enabling SQLite to gather fresh statistics and optimize future queries.</li>
 <li><strong>Object inheritance support</strong>: Collections support base and derived types.<br>
 An <code style="background-color: #d7d7d7; color: black;">Animal</code> collection can store a <code style="background-color: #d7d7d7; color: black;">Cat</code>, and type checks like <code style="background-color: #d7d7d7; color: black;">animal.GetType() == typeof(Cat)</code> are fully supported in queries.</li>
 <li><strong><a href="https://github.com/DapperLib/Dapper" rel="noopener noreferrer" target="_blank">Dapper</a>-like interoperability methods</strong>: Execute, Query&lt;T&gt;, QueryFirst&lt;T&gt;, ...</li>
 </ol>
 <br><h2 id="the-verdict">The Verdict</h2><hr style="opacity: 0.1;">
 <p>The benchmarks show that SoloDB's approach of building on SQLite's foundation delivers strong performance benefits for many common operations. This is largely thanks to SQLite's decades of optimization work.</p><br>
-<p>oth databases are excellent choices with different architectural philosophies:</p><br>
+<p>Both databases are excellent choices with different architectural philosophies:</p><br>
 <p><strong>SoloDB excels when you need:</strong></p>
 <ul>
 <li>Standard LINQ support without learning new syntax</li>
@@ -178,7 +178,7 @@ An <code style="background-color: #d7d7d7; color: black;">Animal</code> collecti
 <p><strong>Ready to choose?</strong> Download <a href="https://www.nuget.org/packages/SoloDB" rel="noopener noreferrer" target="_blank">SoloDB</a> if SQLite's foundation appeals to you, or stick with <a href="https://www.nuget.org/packages/LiteDB" rel="noopener noreferrer" target="_blank">LiteDB</a> if it's already serving you well.</p><br>
 <p>And if you don't like SoloDB?<br>
 Just <em>delete it</em> — and keep using your data directly with SQL.<br>
-After all, all the way down, it's just plain old SQLite.</p><br>
+At the end of the day, all the way down, it's just plain old SQLite.</p><br>
 <h2 id="data">Data</h2><hr style="opacity: 0.1;">
 <ul>
 <li>LiteDB(5.0.21) vs SoloDB(0.2.2)</li>

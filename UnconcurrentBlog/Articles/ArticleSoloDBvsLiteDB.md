@@ -17,7 +17,7 @@ I ran comprehensive benchmarks comparing SoloDB against LiteDB, while trying to 
 
 In a "GroupBy and count users by username's first letter" query, SoloDB is **57% faster** than LiteDB (21,50 ms vs 50,08 ms). But it's not just about raw speed - it's about ease of achieving these speeds.
 
-LiteDB uses its [ILiteQueryable](https://github.com/litedb-org/LiteDB/blob/master/LiteDB/Client/Database/ILiteQueryable.cs#L8) interface with a custom query language, while SoloDB takes a different approach with standard [IQueryable\<T\>](https://learn.microsoft.com/en-us/dotnet/api/system.linq.iqueryable-1) support
+LiteDB uses its [ILiteQueryable](https://github.com/litedb-org/LiteDB/blob/master/LiteDB/Client/Database/ILiteQueryable.cs#L8) interface with a custom query language, while SoloDB takes a different approach with standard [IQueryable\<T\>](https://learn.microsoft.com/en-us/dotnet/api/system.linq.iqueryable-1) support.
 
 And the most dramatic improvement was memory allocation. For the same query, LiteDB allocates **30,37 MB** while SoloDB uses just **56,05 KB** - that's a **99.8% reduction**!
 
@@ -25,7 +25,7 @@ These performance improvements are primarily due to SQLite's highly optimized qu
 
 ## The GroupBy Comparison
 
-In a GroupBy query SoloDB outperforms LiteDB, here is how it is made:
+In a GroupBy query, SoloDB outperforms LiteDB, here is how it is done:
 
 In SoloDB, the test is implemented with LINQ:
 
@@ -36,7 +36,7 @@ var letterCounts = users
     .ToDictionary(k => k.Key.ToString(), e => e.Count);
 ```
 
-But in LiteDB is implemented using their query language(for speed):
+But in LiteDB it is implemented using their query language(for speed):
 
 ```csharp
 var letterCounts = users
@@ -84,12 +84,12 @@ SEARCH UserSoloDB USING INDEX UserSoloDB_index_jsonb_extractValueUsername (<expr
 
 ## The Architecture Advantage
 
-SoloDB's foundation takes a different approach by building directly on SQLite's capabilities. And from them we get:
+SoloDB's foundation takes a different approach by building directly on SQLite's capabilities. This gives us:
 
 1. **Battle-tested reliability**: Used in everything from browsers to spacecraft, SQLite is the most battle-tested database in existence.
 2. **Proper transactions**: Full ACID compliance with SQLite's proven transaction system
 3. **Efficient storage**: JSONB provides compact storage with fast access
-4. **Compressing Filesystem**: The virtual filesystem is transparently compressed using [Snappy](https://github.com/brantburnett/Snappier).
+4. **Compressed Filesystem**: The virtual filesystem is transparently compressed using [Snappy](https://github.com/brantburnett/Snappier).
 5. **SQL compatibility**: You can use raw SQL when needed.
 6. **Better tooling**: Any SQLite tool can inspect your database.
 
@@ -109,7 +109,7 @@ Both databases support file storage, but SoloDB implements a hierarchical virtua
 
 ## Performance
 
-By leveraging SQLite's mature architecture we can obtain the following results:
+By leveraging SQLite's mature architecture, we can obtain the following results:
 
 ### Operations Where SoloDB Excels
 
@@ -122,18 +122,18 @@ By leveraging SQLite's mature architecture we can obtain the following results:
 
 ### Cases Where LiteDB Has the Edge
 
-- **Searching within array properties**
+- **Searching within array properties:**
   LiteDB supports indexes on Properties that are arrays; SoloDB does not — yet.
 
-- **File write operations**
+- **File write operations:**
   LiteDB is faster when writing files due to its minimal overhead.
 
-- **Very simple queries**
+- **Very simple queries:**
   For ultra-fast, cache-resident queries, LiteDB may outperform SoloDB due to smaller query to engine pipeline.
 
 <br>
 
-LiteDB excels at file write operations with without the overhead of:
+LiteDB excels at file write operations without the overhead of:
 
 - Storing creation and modification timestamps.
 - Updating all parent directory timestamps.
@@ -183,8 +183,8 @@ Here are some modern features that were not highlighted yet.
 
 1. **Custom ID generators**: Implement your own ID strategy for `Int64`, `String`, or `Guid` — such as Version 7 GUIDs.
 2. **Attribute-based indexing**: Use `[Indexed]` attributes for simplicity, or create indexes manually via code.
-3. **Hash based file lookup**: All files are SHA-1 content-hashed.
-4. **Auto optimization**: On startup, SoloDB runs ```PRAGMA optimize;``` enabling SQLite to gather fresh statistics and optimize future queries.
+3. **Hash-based file lookup**: All files are SHA-1 content-hashed.
+4. **Auto optimization**: On startup, SoloDB runs ```PRAGMA optimize;```, enabling SQLite to gather fresh statistics and optimize future queries.
 5. **Object inheritance support**: Collections support base and derived types.
                                    An `Animal` collection can store a `Cat`, and type checks like ```animal.GetType() == typeof(Cat)``` are fully supported in queries.
 6. **[Dapper](https://github.com/DapperLib/Dapper)-like interoperability methods**: Execute, Query\<T\>, QueryFirst\<T\>, ...
@@ -193,7 +193,7 @@ Here are some modern features that were not highlighted yet.
 
 The benchmarks show that SoloDB's approach of building on SQLite's foundation delivers strong performance benefits for many common operations. This is largely thanks to SQLite's decades of optimization work.
 
-oth databases are excellent choices with different architectural philosophies:
+Both databases are excellent choices with different architectural philosophies:
 
 **SoloDB excels when you need:**
 - Standard LINQ support without learning new syntax
@@ -212,7 +212,7 @@ oth databases are excellent choices with different architectural philosophies:
 
 And if you don't like SoloDB?
 Just *delete it* — and keep using your data directly with SQL.
-After all, all the way down, it's just plain old SQLite.
+At the end of the day, all the way down, it's just plain old SQLite.
 
 ## Data
 
