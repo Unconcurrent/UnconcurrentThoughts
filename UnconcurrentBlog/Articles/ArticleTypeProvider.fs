@@ -218,6 +218,7 @@ let internal get() = {
     Date = DateTimeOffset(2025, 05, 19, 20, 0, 0, TimeSpan.Zero)
     Tags = ["F# Type Providers"; "F#"; "Tutorial"; "Compile-time"]
     Title = "Tutorial on Implementing a F# Type Provider At Home"
+    Authors = [Authors.Unconcurrent]
     Description = "A detailed walkthrough on creating a compile-time F# Type Provider that transforms strings using case inversion using Visual Studio 2022."
     Body = body
 }

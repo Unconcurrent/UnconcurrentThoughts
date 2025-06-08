@@ -17,6 +17,7 @@ let internal get() = {
     Date = DateTimeOffset(2025, 06, 08, 0, 0, 0, TimeSpan.Zero)
     Tags = ["SoloDB"; "LiteDB"; "Comparison"; "Showcase"]
     Title = "SoloDB vs LiteDB: A Performance and Usability Deep Dive"
+    Authors = [Authors.Unconcurrent]
     Description = "An in-depth comparison of SoloDB and LiteDB, showcasing SoloDB’s faster query performance, superior DX, and dramatic memory savings."
     Body = body
 }

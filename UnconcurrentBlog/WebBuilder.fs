@@ -9,6 +9,9 @@ open System.IO
 let private renderTag (tag: string) =
     span [ _class "tag" ] [ str tag ]
 
+let private authors article =
+    p [ _class "article-authors" ] [ for author in article.Authors do a (match author.Link with None -> [] | Some link -> [_href link; _target "blank"]) [str author.Name] ]
+
 // Helper function to render a single article card
 let private renderArticleCard (article: Article) =
     div [ _class "article-card"; ] [
@@ -18,6 +21,7 @@ let private renderArticleCard (article: Article) =
             ]
             div [ _class "article-tags" ] (article.Tags |> List.map renderTag)
             a [ _href $"/articles/{article.Id}.html"; _class "article-title" ] [h2 [] [ str article.Title ]]
+            authors article
             p [ _class "article-description" ] [ str article.Description ]
             a [ _href $"/articles/{article.Id}.html"] [span [ _class "read-more" ] [ str "Read more →" ]]
         ]
@@ -74,6 +78,7 @@ let private renderArticle (article: Article) =
                 h1 [ _class "welcome-title" ] [ str article.Title ]
                 div [_style "display: flex; flex-wrap: wrap; margin-bottom: 0.5rem; justify-content: space-evenly;"] [
                     div [ _class "article-tags" ] (article.Tags |> List.map renderTag)
+                    authors article
                 ]
             ]
         ]

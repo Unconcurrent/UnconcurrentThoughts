@@ -12,6 +12,7 @@
     <Compile Include="Stylize.fs" />
     <Compile Include="Minify.fs" />
     <Compile Include="JS.fs" />
+    <Compile Include="Authors.fs" />
     <Compile Include="ArticleType.fs" />
     <Compile Include="ArticleTools.fs" />
     <None Include="Articles\ArticleSoloDBvsLiteDB.md" />

@@ -67,8 +67,9 @@ let markdown (mark: string) =
         let highTxt = JS.highlight lang innerText
         ignore (codeElements.ParentNode.ReplaceChild(HtmlAgilityPack.HtmlNode.CreateNode(highTxt),codeElements))
 
-    for h2 in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "h2" && d.PreviousSibling <> null && d.PreviousSibling.Name <> "div") |> Seq.toList do
-        ignore (h2.ParentNode.InsertBefore(HtmlAgilityPack.HtmlNode.CreateNode("<br>"), h2))
+    for h2 in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "h2") |> Seq.toList do
+        if h2.PreviousSibling <> null && h2.PreviousSibling.Name <> "div" then
+            ignore (h2.ParentNode.InsertBefore(HtmlAgilityPack.HtmlNode.CreateNode("<br>"), h2))
         ignore (h2.ParentNode.InsertAfter(HtmlAgilityPack.HtmlNode.CreateNode("<hr style=\"opacity: 0.1;\">"), h2))
 
     for h3 in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "h3" && d.PreviousSibling <> null && d.PreviousSibling.Name <> "div") |> Seq.toList do
