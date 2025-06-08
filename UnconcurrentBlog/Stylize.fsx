@@ -1,4 +1,4 @@
-﻿module private Stylize
+﻿module internal Stylize
 
 open System.Text.RegularExpressions
 open System.IO

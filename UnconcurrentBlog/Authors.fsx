@@ -1,4 +1,4 @@
-﻿module private Authors
+﻿module internal Authors
 
 type Author = {
     Name: string

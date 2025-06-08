@@ -6,22 +6,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="runInteractive.cmd" />
     <Content Include="fonts\Slabo27px-Regular.ttf" />
     <Content Include="highlight.js\style.css" />
     <None Include="highlight.js\highlight.js" />
-    <Compile Include="Stylize.fs" />
-    <Compile Include="Minify.fs" />
-    <Compile Include="JS.fs" />
-    <Compile Include="Authors.fs" />
-    <Compile Include="ArticleType.fs" />
-    <Compile Include="ArticleTools.fs" />
+    <Compile Include="Stylize.fsx" />
+    <Compile Include="Minify.fsx" />
+    <Compile Include="JS.fsx" />
+    <Compile Include="Authors.fsx" />
+    <Compile Include="ArticleType.fsx" />
+    <Compile Include="ArticleTools.fsx" />
     <None Include="Articles\ArticleSoloDBvsLiteDB.md" />
-    <Compile Include="Articles\ArticleTypeProvider.fs" />
-    <Compile Include="Articles\ArticleSoloDBvsLiteDB.fs" />
-    <Compile Include="Articles.fs" />
-    <Compile Include="DefaultStyle.fs" />
-    <Compile Include="WebBuilder.fs" />
-    <Compile Include="Program.fs" />
+    <Compile Include="Articles\ArticleTypeProvider.fsx" />
+    <Compile Include="Articles\ArticleSoloDBvsLiteDB.fsx" />
+    <Compile Include="Articles.fsx" />
+    <Compile Include="DefaultStyle.fsx" />
+    <Compile Include="WebBuilder.fsx" />
+    <Compile Include="Program.fsx" />
   </ItemGroup>
 
   <ItemGroup>

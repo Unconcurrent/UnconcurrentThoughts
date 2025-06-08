@@ -1,4 +1,10 @@
-﻿module private ArticleTools
+﻿module internal ArticleTools
+
+#if INTERACTIVE
+#load "JS.fsx"
+#load "ArticleType.fsx"
+#endif
+
 open Markdig
 open Giraffe.ViewEngine
 open System

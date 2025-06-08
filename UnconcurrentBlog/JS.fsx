@@ -1,4 +1,9 @@
-﻿module private JS
+﻿module internal JS
+
+#if INTERACTIVE
+#load "Stylize.fsx"
+#load "Minify.fsx"
+#endif
 
 open System.IO
 open System.Web

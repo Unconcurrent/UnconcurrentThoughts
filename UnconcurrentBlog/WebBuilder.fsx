@@ -1,4 +1,10 @@
-﻿module private WebBuilder
+﻿module internal WebBuilder
+
+#if INTERACTIVE
+#load "ArticleType.fsx"
+#load "Articles.fsx"
+#load "DefaultStyle.fsx"
+#endif
 
 open ArticleType
 open Giraffe.ViewEngine
@@ -133,6 +139,9 @@ let readerWebsiteInto (dirPath: string) =
         let fileDir = Path.GetDirectoryName filePath
         if not (Directory.Exists fileDir) then
             ignore (Directory.CreateDirectory fileDir)
+
+        if File.Exists filePath then
+            failwithf "File rendered page already exists: %s" filePath
 
         File.WriteAllText (filePath, RenderView.AsString.htmlDocument text)
 

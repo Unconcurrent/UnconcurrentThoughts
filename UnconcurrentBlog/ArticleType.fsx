@@ -1,4 +1,8 @@
-﻿module private ArticleType
+﻿module internal ArticleType
+
+#if INTERACTIVE
+#load "Authors.fsx"
+#endif
 
 open Giraffe.ViewEngine
 open System

@@ -1,0 +1,1 @@
+dotnet.exe fsi --use:Program.fsx --exec --optimize-

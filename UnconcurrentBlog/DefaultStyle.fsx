@@ -1,4 +1,8 @@
-﻿module private DefaultStyle
+﻿module internal DefaultStyle
+
+#if INTERACTIVE
+#load "Minify.fsx"
+#endif
 
 open Giraffe.ViewEngine
 open System

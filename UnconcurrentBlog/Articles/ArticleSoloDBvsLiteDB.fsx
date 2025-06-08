@@ -1,4 +1,4 @@
-﻿module private ArticleSoloDBvsLiteDB
+﻿module internal ArticleSoloDBvsLiteDB
 
 open ArticleType
 open Giraffe.ViewEngine

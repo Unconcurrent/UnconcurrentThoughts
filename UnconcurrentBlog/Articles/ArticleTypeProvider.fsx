@@ -1,4 +1,4 @@
-﻿module private ArticleTypeProvider
+﻿module internal ArticleTypeProvider
 
 open ArticleType
 open Giraffe.ViewEngine

@@ -1,4 +1,4 @@
-﻿module private Minify
+﻿module internal Minify
 
 open System
 open System.Text.RegularExpressions
