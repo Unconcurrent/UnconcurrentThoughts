@@ -16,7 +16,7 @@ let private renderTag (tag: string) =
     span [ _class "tag" ] [ str tag ]
 
 let private authors article =
-    p [ _class "article-authors" ] [ for author in article.Authors do a (match author.Link with None -> [] | Some link -> [_href link; _target "blank"]) [str author.Name] ]
+    p [ _class "article-authors" ] [ for author in article.Authors do a (match author.Link with None -> [] | Some link -> [_href link; _target "_blank"; _rel "noopener noreferrer"]) [str author.Name] ]
 
 // Helper function to render a single article card
 let private renderArticleCard (article: Article) =
@@ -62,7 +62,7 @@ let private page (fileName: string) headItems bodyItems =
                     p [ _class "copyright" ] [ strf "© %i Unconcurrent" System.DateTime.Now.Year; ]
 
                     div [ _class "footer-links" ] [
-                        a [ _href "https://github.com/Unconcurrent/UnconcurrentThoughts/discussions/2"; _target "blank" ] [ str "GitHub discussions page" ]
+                        a [ _href "https://github.com/Unconcurrent/UnconcurrentThoughts/discussions/2"; _target "_blank"; _rel "noopener"] [ str "GitHub discussions page" ]
                     ]
 
                     div [ _class "footer-links" ] [

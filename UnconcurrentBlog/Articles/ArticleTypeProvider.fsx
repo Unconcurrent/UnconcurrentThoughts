@@ -20,8 +20,8 @@ let private body = div [_style "font-size: 18px;"] [
     chapter "Prerequirements"    
 
     ul [] [
-        li [] [str "Have "; a [_href "https://visualstudio.microsoft.com/vs/" ; _target "blank"] [str "Visual Studio 2022"]; str " installed."]
-        li [] [str "Have all of the "; a [_href "https://learn.microsoft.com/en-us/visualstudio/ide/fsharp-visual-studio?view=vs-2022"; _target "blank"] [str "F# tooling"]; str " installed for VS 2022."]
+        li [] [str "Have "; a [_href "https://visualstudio.microsoft.com/vs/" ; _target "_blank"; _rel "noopener noreferrer"] [str "Visual Studio 2022"]; str " installed."]
+        li [] [str "Have all of the "; a [_href "https://learn.microsoft.com/en-us/visualstudio/ide/fsharp-visual-studio?view=vs-2022"; _target "_blank"; _rel "noopener noreferrer"] [str "F# tooling"]; str " installed for VS 2022."]
     ]
 
     chapter "Materializing the Executable Project"
@@ -60,8 +60,8 @@ let private body = div [_style "font-size: 18px;"] [
         str """
             To obtain ProvidedTypes.fsi and ProvidedTypes.fs, go to the 
         """; 
-        a [_href "https://github.com/fsprojects/FSharp.TypeProviders.SDK"; _target "blank"] [code [] [str "fsprojects/FSharp.TypeProviders.SDK"]]
-        str """ repository on GitHub, select the latest commit where the tests are passing (e.g., """; a [_href "https://github.com/fsprojects/FSharp.TypeProviders.SDK/tree/1f9af4aa63008b863ddc74d3af92524d86ecf8c9"; _target "blank"] [str "this one"];
+        a [_href "https://github.com/fsprojects/FSharp.TypeProviders.SDK"; _target "_blank"; _rel "noopener noreferrer"] [code [] [str "fsprojects/FSharp.TypeProviders.SDK"]]
+        str """ repository on GitHub, select the latest commit where the tests are passing (e.g., """; a [_href "https://github.com/fsprojects/FSharp.TypeProviders.SDK/tree/1f9af4aa63008b863ddc74d3af92524d86ecf8c9"; _target "_blank"; _rel "noopener noreferrer"] [str "this one"];
         str "). Navigate to the "; code [] [str "src"]; str """ directory and manually copy or download these two files into your Library Project.
         Here is the correct order in which the project compiles, you can move them in the .fsproj file or by using the """; code [] [str "Alt+(up arrow)"]; str "|"; code [] [str "Alt+(down arrow)"]; str " shortcut combo in the Solution window."
         ol [] [
@@ -209,7 +209,7 @@ let private body = div [_style "font-size: 18px;"] [
     """
     texts [
         br []
-        a [_href "https://github.com/Unconcurrent/UnconcurrentThoughts/discussions/1"] [str "Comments page."]
+        a [_href "https://github.com/Unconcurrent/UnconcurrentThoughts/discussions/1"; _target "_blank"; _rel "noopener"] [str "Comments page."]
     ]
 ]
 

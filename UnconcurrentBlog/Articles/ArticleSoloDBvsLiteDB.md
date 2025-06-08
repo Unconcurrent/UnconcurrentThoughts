@@ -18,10 +18,9 @@ I ran comprehensive benchmarks comparing SoloDB against LiteDB, while trying to 
 In a "GroupBy and count users by username's first letter" query, SoloDB is **57% faster** than LiteDB (21,50 ms vs 50,08 ms). But it's not just about raw speed - it's about ease of achieving these speeds.
 
 LiteDB's [ILiteQueryable](https://github.com/litedb-org/LiteDB/blob/master/LiteDB/Client/Database/ILiteQueryable.cs#L8) interface limits the methods you can use and when, sometimes requiring a fallback to its [custom query language](https://www.litedb.org/api/).
-
 SoloDB supports [39 different](https://github.com/Unconcurrent/SoloDB/blob/035ae3f7f0cb6774bc80e4498548efad287d5632/SoloDB/Queryable.fs#L17) nested [IQueryable\<T\>](https://learn.microsoft.com/en-us/dotnet/api/system.linq.iqueryable-1) methods, all of which convert directly into SQL.
 
-And the most dramatic improvement was memory allocation. For the same query, LiteDB allocates 30,37 MB while SoloDB uses just 56,05 KB - that's a **99.8% reduction**!
+And the most dramatic improvement was memory allocation. For the same query, LiteDB allocates **30,37 MB** while SoloDB uses just **56,05 KB** - that's a **99.8% reduction**!
 
 By leveraging SQLite's optimized query engine instead of reinventing the wheel, SoloDB achieves managed memory efficiency that LiteDB simply cannot match without a rewrite of the full project.
 
@@ -120,9 +119,9 @@ Both databases support file storage, but SoloDB's integrated filesystem is far m
 ### Retrieving 100 files with associated usernames and metadata
 
 - LiteDB: 17,26 ms, 17,07 MB allocated;
-- SoloDB:  2,46 ms,  6,99 KB allocated.
+- SoloDB: 2,46 ms, 6,99 KB allocated.
 
-That's an 85,7% speed improvement and nearly 100% less memory.
+That's an **85,7%** speed improvement and nearly 100% less memory.
 Why? SoloDB's filesystem is not bolted on — it's baked into the SQL engine itself.
 
 ## Performance Across the Board
@@ -132,28 +131,24 @@ Let me share more benchmark highlights:
 ### Operations Where SoloDB Excels
 
 - **Inserting 10,000 users**:
-  - SoloDB is 29,3% faster, with 94,9% less memory allocation
-- **Pagination queries**:
-  - SoloDB is 36,7% faster, with 90,6% less generated memory
-- **Delete operations**:
-  - 26,1% faster and 91,9% less memory usage
+  - SoloDB is 29,3% faster, with 94,9% less memory allocation (622,98 ms -> 440,52 ms)
 - **Reading random file chunks**:
-  - 41,0% faster, and 68,4% less memory used
-- **Retrieving files with usernames and metadata**:
-  - 85,7% faster, and essentially 100% less memory
+  - 41,0% faster, and 68,4% less memory used (14,35 ms -> 8,46 ms)
 - **Complex queries**:
-  - 95,7% faster, and 99,9% less memory
+  - 95,7% faster, and 99,9% less memory (24,84 ms -> 1,08 ms)
 
 ### Cases Where LiteDB Has the Edge
 
 - **Searching within array properties**
-  LiteDB supports indexes on arrays; SoloDB does not — yet.
+  LiteDB supports indexes on Properties that are arrays; SoloDB does not — yet.
 
 - **File write operations**
-  LiteDB is faster when writing files due to its minimal overhead. SoloDB performs more integrity and metadata checks by design.
+  LiteDB is faster when writing files due to its minimal overhead.
 
 - **Very simple queries**
   For ultra-fast, cache-resident queries, LiteDB may outperform SoloDB due to smaller query to engine pipeline.
+
+<br>
 
 I admit that writing to the filestorage is faster on LiteDB, because SoloDB performs more work during file writes, including:
 
@@ -182,7 +177,8 @@ users.EnsureIndex(u => u.UploadedFiles.Count);
 var gamingFiles = users
     .Where(u => u.InterestedCategories.Contains("Gaming") 
                 && u.UploadedFiles.Count > 5 /* Using the index */)
-    // Complex projection methods like SelectMany are supported — they translate cleanly into SQL when used with simple selectors.
+    // Complex projection methods like SelectMany are supported — 
+    // they translate cleanly into SQL when used with simple selectors.
     .SelectMany(u => u.UploadedFiles) 
     .OrderBy(f => f)
     .Skip(1)
@@ -206,22 +202,27 @@ Here are some modern features that were not highlighted yet.
 2. **Attribute-based indexing**: Use `[Indexed]` attributes for simplicity, or create indexes manually via code.
 3. **Hash based file lookup**: All files are SHA-1 content-hashed.
 4. **Auto optimization**: On startup, SoloDB runs ```PRAGMA optimize;``` enabling SQLite to gather fresh statistics and optimize future queries.
-5. **Object inheritance support**: Collections support base and derived types. An `Animal` collection can store a `Cat`, and type checks like ```animal.GetType() == typeof(Cat)``` are fully supported in queries.
+5. **Object inheritance support**: Collections support base and derived types.
+                                   An `Animal` collection can store a `Cat`, and type checks like ```animal.GetType() == typeof(Cat)``` are fully supported in queries.
 6. **[Dapper](https://github.com/DapperLib/Dapper)-like interoperability methods**: Execute, Query\<T\>, QueryFirst\<T\>, ...
 
 ## The Verdict
 
-After weighing the benchmarks, architecture, and day-to-day coding experience, one thing is clear: SoloDB is better.
+After weighing the benchmarks, architecture, and day-to-day coding experience, one thing is clear: **SoloDB is better**.
 
-Faster common operations, 90–99% lower memory usage overall, and seamless LINQ support that just feels right.
-No fragile strings. No surprises during refactors. Just clean, expressive queries backed by the full power of SQLite.
+1. Faster common operations,
+2. 90–99% lower memory usage overall, 
+3. and seamless LINQ support that just feels right.
+4. No fragile strings.
+5. No surprises during refactors.
+6. Just clean, expressive queries backed by the full power of SQLite.
 
 That alone would be a strong case. But SoloDB also brings peace of mind: ACID transactions you can trust, a mature storage engine proven in thousands of applications, and first-class compatibility with the entire SQLite ecosystem.
 
-Try it! Download the [SoloDB Nuget package](https://www.nuget.org/packages/SoloDB) and start building with it.
+**Try it!** Download the [SoloDB Nuget package](https://www.nuget.org/packages/SoloDB#readme-body-tab) and start building with it.
 
 And if you don't like it?
-Just delete it — and keep using your data directly with SQL.
+Just *delete it* — and keep using your data directly with SQL.
 After all, all the way down, it's just plain old SQLite.
 
 ## Data

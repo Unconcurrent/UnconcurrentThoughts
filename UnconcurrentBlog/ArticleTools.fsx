@@ -5,10 +5,14 @@
 #load "ArticleType.fsx"
 #endif
 
-open Markdig
+open Markdig.Renderers
+open Markdig.Renderers.Html
+open Markdig.Syntax
 open Giraffe.ViewEngine
 open System
 open System.Web
+open Markdig
+open HtmlAgilityPack
 
 // Helper function to create a paragraph with justified text
 let text (txt: string) = p [_style "text-align: justify;"] [str txt]
@@ -48,7 +52,7 @@ let chapter name = div [] [
     line
 ]
 
-let pipeline = MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+let pipeline = MarkdownPipelineBuilder().UseAdvancedExtensions().UseSoftlineBreakAsHardlineBreak().Build();
 
 let renderMarkdown mark =
     Markdown.ToHtml(markdown = mark, pipeline = pipeline)
@@ -56,6 +60,21 @@ let renderMarkdown mark =
 let renderASCIIMarkdown mark =
     for c in mark do if c >= char 127 then failwithf "Non ASCII char found in markdown: '%c'." c
     Markdown.ToHtml(markdown = mark, pipeline = pipeline)
+
+/// Returns the very next sibling that is an element (skipping text/comments), if any.
+let private nextElement (node: HtmlNode) =
+    let rec loop (n: HtmlNode) =
+        if isNull n then None
+        elif n.NodeType = HtmlNodeType.Element then Some n
+        else loop n.NextSibling
+    loop node.NextSibling
+
+let private prevElement (node: HtmlNode) =
+    let rec loop (n: HtmlNode) =
+        if isNull n then None
+        elif n.NodeType = HtmlNodeType.Element then Some n
+        else loop n.PreviousSibling
+    loop node.PreviousSibling
 
 let markdown (mark: string) =
     let mark = mark.Replace("@line", "--------------------------------------------------------")
@@ -73,17 +92,37 @@ let markdown (mark: string) =
         let highTxt = JS.highlight lang innerText
         ignore (codeElements.ParentNode.ReplaceChild(HtmlAgilityPack.HtmlNode.CreateNode(highTxt),codeElements))
 
-    for h2 in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "h2") |> Seq.toList do
-        if h2.PreviousSibling <> null && h2.PreviousSibling.Name <> "div" then
-            ignore (h2.ParentNode.InsertBefore(HtmlAgilityPack.HtmlNode.CreateNode("<br>"), h2))
-        ignore (h2.ParentNode.InsertAfter(HtmlAgilityPack.HtmlNode.CreateNode("<hr style=\"opacity: 0.1;\">"), h2))
-
-    for h3 in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "h3" && d.PreviousSibling <> null && d.PreviousSibling.Name <> "div") |> Seq.toList do
-        ignore (h3.ParentNode.InsertBefore(HtmlAgilityPack.HtmlNode.CreateNode("<br>"), h3))
+    // for h3 in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "h3" && d.PreviousSibling <> null && d.PreviousSibling.Name <> "div") |> Seq.toList do
+    //     ignore (h3.ParentNode.InsertBefore(HtmlAgilityPack.HtmlNode.CreateNode("<br>"), h3))
 
     for hr in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "hr" && not(d.Attributes.Contains "style")) |> Seq.toList do
         hr.Attributes.Add("style", "opacity: 0.1;")
 
+    for p in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "p") |> Seq.toList do
+        match nextElement p with
+        | None -> ()
+        | Some x when x.Name = "br" || x.Name = "pre" || x.Name = "ol" || x.Name = "ul" -> ()
+        | Some _ ->
+            // safe to insert <br>
+            p.ParentNode.InsertAfter(HtmlNode.CreateNode("<br>"), p)
+            |> ignore
+
+    for h2 in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "h2") |> Seq.toList do
+        match prevElement h2 with
+        | Some x when x.Name <> "div" && x.Name <> "br" ->
+            ignore (h2.ParentNode.InsertBefore(HtmlAgilityPack.HtmlNode.CreateNode("<br>"), h2))
+        | _ -> ()
+
+        ignore (h2.ParentNode.InsertAfter(HtmlAgilityPack.HtmlNode.CreateNode("<hr style=\"opacity: 0.1;\">"), h2))
+
+
+    for code in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "code" && not (d.Attributes.Contains "style") && d.ParentNode.Name <> "pre") |> Seq.toList do
+        code.Attributes.Add("style", "background-color: #d7d7d7; color: black;")
+
+
+    for a in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "a" && d.Attributes.Contains "href") |> Seq.toList do
+        a.Attributes.Add("rel", "noopener noreferrer")
+        a.Attributes.Add("target", "_blank")
 
     let html = htmlDoc.DocumentNode.InnerHtml
     rawText html
