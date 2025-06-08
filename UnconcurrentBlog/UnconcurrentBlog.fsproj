@@ -14,7 +14,9 @@
     <Compile Include="JS.fs" />
     <Compile Include="ArticleType.fs" />
     <Compile Include="ArticleTools.fs" />
+    <None Include="Articles\ArticleSoloDBvsLiteDB.md" />
     <Compile Include="Articles\ArticleTypeProvider.fs" />
+    <Compile Include="Articles\ArticleSoloDBvsLiteDB.fs" />
     <Compile Include="Articles.fs" />
     <Compile Include="DefaultStyle.fs" />
     <Compile Include="WebBuilder.fs" />
@@ -25,7 +27,7 @@
     <PackageReference Include="Giraffe.ViewEngine" Version="1.4.0" />
     <PackageReference Include="HtmlAgilityPack" Version="1.12.1" />
     <PackageReference Include="Jint" Version="4.2.2" />
-    <PackageReference Include="Microsoft.PowerShell.MarkdownRender" Version="7.2.1" />
+    <PackageReference Include="Markdig" Version="0.41.2" />
   </ItemGroup>
 
 </Project>

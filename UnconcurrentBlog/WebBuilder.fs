@@ -91,14 +91,14 @@ let internal pages = [
     let directory (name: string) (pages: (string * XmlNode) list) = pages |> List.map(fun (fileName, p) -> $"{name}/{fileName}", p)
 
     page "index.html" [
-        meta [ _name "description"; _content "Unconcurrent's blog for in-depth technical articles, interesting libraries and programming." ]
+        meta [ _name "description"; _content "Unconcurrent's blog for in-depth technical articles, interesting libraries and general programming." ]
         title [] [ str blogName ] 
     ] [
         // Header
         header [] [
             div [ _class "container" ] [
                 p [ _class "blog-description" ] [
-                    str "This is my blog for in-depth technical articles, interesting libraries and programming."
+                    str "This is my blog for in-depth technical articles, interesting libraries and general programming."
                 ]
             ]
         ]
@@ -142,4 +142,4 @@ let readerWebsiteInto (dirPath: string) =
     File.Copy (Path.Combine(__SOURCE_DIRECTORY__, "fonts", "Slabo27px-Regular.ttf"), filePath)
     copyFile "LICENSE.md" (__SOURCE_DIRECTORY__ + "/..") dirPath
     let licenseMarkdown = File.ReadAllText (__SOURCE_DIRECTORY__ + "/../" + "LICENSE.md")
-    File.WriteAllText (Path.Combine(dirPath, "LICENSE.html"), $"<html><body>{ArticleTools.renderMarkdown licenseMarkdown}</body></html>")
+    File.WriteAllText (Path.Combine(dirPath, "LICENSE.html"), $"<html><body>{ArticleTools.renderASCIIMarkdown licenseMarkdown}</body></html>")

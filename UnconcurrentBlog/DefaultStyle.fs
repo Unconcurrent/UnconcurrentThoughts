@@ -15,16 +15,17 @@ let internal mediumGray = "#ced4da"
 let internal darkGray = "#6c757d"
 
 let internal webIconBase64 = File.ReadAllBytes(__SOURCE_DIRECTORY__ + "/webIcon.svg") |> Convert.ToBase64String
+let internal fontBase64 = File.ReadAllBytes(__SOURCE_DIRECTORY__ + "/fonts/Slabo27px-Regular.woff2") |> Convert.ToBase64String
 
 let internal defaultMetas = [
     meta [ _charset "UTF-8" ]
-    meta [ _name "viewport"; _content "width=device-width,initial-scale=1.0" ]
+    meta [ _name "viewport"; _content "width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes" ]
     meta [ _name "robots"; _content "index,follow" ]
     meta [ _name "author"; _content "Unconcurrent" ]
     link [_rel "icon"; _href (sprintf "data:image/svg+xml;base64,%s" webIconBase64); _type "image/svg+xml"]
-    let fontUrl = "/fonts/Slabo27px-Regular.ttf"
+    let fontUrl = $"data:data:font/woff2;charset=utf-8;base64,{fontBase64}"// "/fonts/Slabo27px-Regular.ttf"
     // force to wait for the font to load before rendering.
-    link [_rel "preload"; _href fontUrl; XmlAttribute.KeyValue("as", "font"); XmlAttribute.KeyValue("crossorigin", "anonymous")]
+    // link [_rel "preload"; _href fontUrl; XmlAttribute.KeyValue("as", "font"); XmlAttribute.KeyValue("crossorigin", "anonymous")]
     style [] [(sprintf """
             :root {
                 --primary-color: %s;
@@ -282,6 +283,11 @@ let internal defaultMetas = [
                     text-align: center;
                     gap: 1rem;
                 }
+
+                .hljs {
+                    font-size: 0.8rem;
+                    overflow-x: auto;
+                  }
             }
         """ primaryColor secondaryColor accentColor backgroundColor textColor lightGray mediumGray darkGray fontUrl
     ) |> Minify.css |> rawText]

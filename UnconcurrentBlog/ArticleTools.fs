@@ -1,7 +1,8 @@
 ﻿module private ArticleTools
-open Microsoft.PowerShell.MarkdownRender
+open Markdig
 open Giraffe.ViewEngine
 open System
+open System.Web
 
 // Helper function to create a paragraph with justified text
 let text (txt: string) = p [_style "text-align: justify;"] [str txt]
@@ -41,6 +42,42 @@ let chapter name = div [] [
     line
 ]
 
+let pipeline = MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+
 let renderMarkdown mark =
+    Markdown.ToHtml(markdown = mark, pipeline = pipeline)
+
+let renderASCIIMarkdown mark =
     for c in mark do if c >= char 127 then failwithf "Non ASCII char found in markdown: '%c'." c
-    MarkdownConverter.Convert(mark, MarkdownConversionType.HTML, PSMarkdownOptionInfo()).Html
+    Markdown.ToHtml(markdown = mark, pipeline = pipeline)
+
+let markdown (mark: string) =
+    let mark = mark.Replace("@line", "--------------------------------------------------------")
+    let html = renderMarkdown mark
+
+    let htmlDoc = HtmlAgilityPack.HtmlDocument()
+    htmlDoc.LoadHtml html
+
+
+    for codeElements in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "pre" && not (d.HasClass "hljs") && d.HasChildNodes && d.FirstChild.Name = "code" && d.FirstChild.GetClasses() |> Seq.exists(fun c -> c.StartsWith "language-")) |> Seq.toList do
+        let innerText = codeElements.FirstChild.InnerHtml
+        let innerText = HttpUtility.HtmlDecode innerText
+        let lang = codeElements.FirstChild.GetClasses() |> Seq.find(fun c -> c.StartsWith "language-")
+        let lang = lang.Substring("language-".Length)
+        let highTxt = JS.highlight lang innerText
+        ignore (codeElements.ParentNode.ReplaceChild(HtmlAgilityPack.HtmlNode.CreateNode(highTxt),codeElements))
+
+    for h2 in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "h2" && d.PreviousSibling <> null && d.PreviousSibling.Name <> "div") |> Seq.toList do
+        ignore (h2.ParentNode.InsertBefore(HtmlAgilityPack.HtmlNode.CreateNode("<br>"), h2))
+        ignore (h2.ParentNode.InsertAfter(HtmlAgilityPack.HtmlNode.CreateNode("<hr style=\"opacity: 0.1;\">"), h2))
+
+    for h3 in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "h3" && d.PreviousSibling <> null && d.PreviousSibling.Name <> "div") |> Seq.toList do
+        ignore (h3.ParentNode.InsertBefore(HtmlAgilityPack.HtmlNode.CreateNode("<br>"), h3))
+
+    for hr in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "hr" && not(d.Attributes.Contains "style")) |> Seq.toList do
+        hr.Attributes.Add("style", "opacity: 0.1;")
+
+
+    let html = htmlDoc.DocumentNode.InnerHtml
+    rawText html
+

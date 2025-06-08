@@ -2,5 +2,6 @@
 
 
 let internal allArticles = [
+    ArticleSoloDBvsLiteDB.get()
     ArticleTypeProvider.get()
 ]

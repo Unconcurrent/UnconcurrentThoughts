@@ -36,3 +36,10 @@ let highlightFS (fileName: string) (code: string) =
 
     sprintf "<pre class=\"hljs\"><span class=\"code-block-name\">%s</span><br/><code>%O</code></pre>" (HttpUtility.HtmlEncode fileName) value
     |> Stylize.injectIntoHTML Stylize.highlitherCss
+
+let highlight (lang: string) (code: string) =
+    let value = jsEngine.Invoke ("highlightLang", code, lang)
+    if value.Type <> Jint.Runtime.Types.String then failwithf "The highlightLang func returned an invalid value type: %A" value.Type
+
+    sprintf "<pre class=\"hljs\"><code>%O</code></pre>" value
+    |> Stylize.injectIntoHTML Stylize.highlitherCss
