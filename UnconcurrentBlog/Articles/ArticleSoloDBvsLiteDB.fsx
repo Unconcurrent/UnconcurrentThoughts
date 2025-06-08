@@ -18,6 +18,6 @@ let internal get() = {
     Tags = ["SoloDB"; "LiteDB"; "Comparison"; "Showcase"]
     Title = "SoloDB vs LiteDB: A Performance and Usability Deep Dive"
     Authors = [Authors.Unconcurrent]
-    Description = "An in-depth comparison of SoloDB and LiteDB, showcasing SoloDB’s faster query performance, superior DX, and dramatic memory savings."
+    Description = "Benchmarking SoloDB and LiteDB: how different architectural approaches impact performance, memory usage, and developer experience."
     Body = body
 }
