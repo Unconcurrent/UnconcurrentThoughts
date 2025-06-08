@@ -1,49 +1,44 @@
 ## Preface
 
-After months of work, I finally present to you a new embedded database: SoloDB - an ACID, No-SQL and SQL hybrid on top of [SQLite's JSONB](https://sqlite.org/jsonb.html) format. It is a contender to any .NET document database, including LiteDB, MongoDB, and RavenDB, but on a smaller scale.
+I'm introducing SoloDB - an embedded database that delivers ACID compliance, NoSQL flexibility, and SQL compatibility through [SQLite's JSONB](https://sqlite.org/jsonb.html) format. It offers an alternative approach to .NET document databases.
 
 Let me share my experience and show you why SoloDB might be the better choice for your next project.
 
 ## Why was it created
 
 SoloDB was created to simultaneously address these problems: NoSQL flexibility, SQL compatibility, full filesystem support, and strong ACID guarantees.
-No existing .NET database offered all these features.
+While excellent databases like LiteDB already existed, each had different design tradeoffs.
 
 ## The Comparison
 
-I ran comprehensive benchmarks comparing SoloDB against LiteDB, while trying to make the tests as optimized as possible for both contenders. The results are appended to this document, and are positive for SoloDB.
+I ran comprehensive benchmarks comparing SoloDB against LiteDB, while trying to make the tests as optimized as possible for both contenders. The results are appended to this document.
 
-### The Improvements That Matter
+### The Improvements
 
 In a "GroupBy and count users by username's first letter" query, SoloDB is **57% faster** than LiteDB (21,50 ms vs 50,08 ms). But it's not just about raw speed - it's about ease of achieving these speeds.
 
-LiteDB's [ILiteQueryable](https://github.com/litedb-org/LiteDB/blob/master/LiteDB/Client/Database/ILiteQueryable.cs#L8) interface limits the methods you can use and when, sometimes requiring a fallback to its [custom query language](https://www.litedb.org/api/).
-SoloDB supports [39 different](https://github.com/Unconcurrent/SoloDB/blob/035ae3f7f0cb6774bc80e4498548efad287d5632/SoloDB/Queryable.fs#L17) nested [IQueryable\<T\>](https://learn.microsoft.com/en-us/dotnet/api/system.linq.iqueryable-1) methods, all of which convert directly into SQL.
+LiteDB uses its [ILiteQueryable](https://github.com/litedb-org/LiteDB/blob/master/LiteDB/Client/Database/ILiteQueryable.cs#L8) interface with a custom query language, while SoloDB takes a different approach with standard [IQueryable\<T\>](https://learn.microsoft.com/en-us/dotnet/api/system.linq.iqueryable-1) support
 
 And the most dramatic improvement was memory allocation. For the same query, LiteDB allocates **30,37 MB** while SoloDB uses just **56,05 KB** - that's a **99.8% reduction**!
 
-By leveraging SQLite's optimized query engine instead of reinventing the wheel, SoloDB achieves managed memory efficiency that LiteDB simply cannot match without a rewrite of the full project.
+These performance improvements are primarily due to SQLite's highly optimized query engine and mature storage architecture that SoloDB builds upon.
 
-## The GroupBy Problem
+## The GroupBy Comparison
 
-SoloDB outperforms LiteDB, and it does so with style:
+In a GroupBy query SoloDB outperforms LiteDB, here is how it is made:
 
 In SoloDB, the test is implemented with LINQ:
 
 ```csharp
-// Natural, idiomatic LINQ
 var letterCounts = users
     .GroupBy(x => x.Username[0])
     .Select(x => new { Key = x.Key, Count = x.Count() })
     .ToDictionary(k => k.Key.ToString(), e => e.Count);
 ```
 
-This is clean, type-safe, known by all .NET engineers, and enforced at compile time.
-
-But in LiteDB you need this *contraption*.
+But in LiteDB is implemented using their query language(for speed):
 
 ```csharp
-// LiteDB's workaround using string-based expressions
 var letterCounts = users
     .Query()
     .GroupBy(BsonExpression.Create("SUBSTRING(Username, 0, 1)"))
@@ -52,21 +47,19 @@ var letterCounts = users
     .ToDictionary(k => k["key"].AsString, e => e["count"].AsInt64);
 ```
 
-I spent 10 minutes trying to get this to run within the LiteDB's engine, just to keep the benchmark fair. I couldn't figure out how to [select](https://www.litedb.org/api/query/) multiple fields, so I guessed until the JSON format worked. The syntax is opaque to a .NET developer.
+LiteDB's query language offers powerful capabilities, though it requires learning syntax that differs from standard LINQ patterns.
 
-This is disconnected from the language's type system, difficult to debug, and easy to get wrong: Imagine you've optimized your app using string-based queries. Later, after a refactor, these queries silently break. You don't know until it's too late. Now you must track them down, fix them by hand, and pray your tests catch everything. It's a mess.
+## IQueryable Support
 
-## Real IQueryable Support
-
-SoloDB, by contrast, provides standard `IQueryable` support that translates directly to SQL. No hacks, no special syntax — just pure LINQ. This means:
+SoloDB, by contrast, provides standard `IQueryable` support that translates directly to SQL with:
 
 - Full IntelliSense integration
-- No need to learn a special query language
+- No need to learn a query language
 - Compile-time type safety
 - Predictable performance characteristics
 - No need for *.AsEnumerable()* workarounds.
 
-A query like `users.Where(x => x.Username.StartsWith("a"))` compiles to SQL, taking advantage of indexes when available. If needed, you can manually fine-tune for performance.
+A query like `users.Where(x => x.Username.StartsWith("a"))` compiles to SQL, taking advantage of indexes when available, which LiteDB also does.
 
 Here's the SQL SoloDB generates under the hood for that query, it was retrieved by using `SoloDB.GetSQL(...)`:
 
@@ -91,7 +84,7 @@ SEARCH UserSoloDB USING INDEX UserSoloDB_index_jsonb_extractValueUsername (<expr
 
 ## The Architecture Advantage
 
-SoloDB's foundation is fundamentally different and better. By building on SQLite's JSONB support, we get:
+SoloDB's foundation takes a different approach by building directly on SQLite's capabilities. And from them we get:
 
 1. **Battle-tested reliability**: Used in everything from browsers to spacecraft, SQLite is the most battle-tested database in existence.
 2. **Proper transactions**: Full ACID compliance with SQLite's proven transaction system
@@ -102,11 +95,9 @@ SoloDB's foundation is fundamentally different and better. By building on SQLite
 
 I claim no credit for these features — SoloDB simply stands on the shoulders of the giants behind SQLite.
 
-## File System Integration That Makes Sense
+## Different File System Integration
 
-Both databases support file storage, but SoloDB's integrated filesystem is far more elegant and powerful.
-
-### With SoloDB's virtual filesystem, you can:
+Both databases support file storage, but SoloDB implements a hierarchical virtual filesystem that offers:
 
 1. Retrieve entities by Unix-style paths.
 2. List files and directories using a built-in index.
@@ -116,17 +107,9 @@ Both databases support file storage, but SoloDB's integrated filesystem is far m
 6. Attach and query metadata for richer file context.
 7. Perform indexed hash-based file lookups.
 
-### Retrieving 100 files with associated usernames and metadata
+## Performance
 
-- LiteDB: 17,26 ms, 17,07 MB allocated;
-- SoloDB: 2,46 ms, 6,99 KB allocated.
-
-That's an **85,7%** speed improvement and nearly 100% less memory.
-Why? SoloDB's filesystem is not bolted on — it's baked into the SQL engine itself.
-
-## Performance Across the Board
-
-Let me share more benchmark highlights:
+By leveraging SQLite's mature architecture we can obtain the following results:
 
 ### Operations Where SoloDB Excels
 
@@ -150,7 +133,7 @@ Let me share more benchmark highlights:
 
 <br>
 
-I admit that writing to the filestorage is faster on LiteDB, because SoloDB performs more work during file writes, including:
+LiteDB excels at file write operations with without the overhead of:
 
 - Storing creation and modification timestamps.
 - Updating all parent directory timestamps.
@@ -159,11 +142,11 @@ I admit that writing to the filestorage is faster on LiteDB, because SoloDB perf
 - Enforcing valid path rules and length limits.
 - Preventing illegal names (e.g., `..`, or malformed paths).
 
-This tradeoff was intentional — I built SoloDB to prioritize integrity and completeness, even if it means sacrificing performance in a few places.
+If these features are not required, then LiteDB is better.
 
 ## The Developer Experience
 
-Beyond performance, SoloDB offers a superior developer experience:
+SoloDB provides a different developer experience:
 
 ```csharp
 // SoloDB - intuitive and discoverable
@@ -192,7 +175,7 @@ db.WithTransaction(tx => {
 });
 ```
 
-No `BsonExpression`s, no custom syntax, no surprises — just C# that reads like C#.
+Just C# that reads like C#.
 
 ## Advanced Features
 
@@ -208,20 +191,26 @@ Here are some modern features that were not highlighted yet.
 
 ## The Verdict
 
-After weighing the benchmarks, architecture, and day-to-day coding experience, one thing is clear: **SoloDB is better**.
+The benchmarks show that SoloDB's approach of building on SQLite's foundation delivers strong performance benefits for many common operations. This is largely thanks to SQLite's decades of optimization work.
 
-1. Faster common operations,
-2. 90–99% lower memory usage overall, 
-3. and seamless LINQ support that just feels right.
-4. No fragile strings.
-5. No surprises during refactors.
-6. Just clean, expressive queries backed by the full power of SQLite.
+oth databases are excellent choices with different architectural philosophies:
 
-That alone would be a strong case. But SoloDB also brings peace of mind: ACID transactions you can trust, a mature storage engine proven in thousands of applications, and first-class compatibility with the entire SQLite ecosystem.
+**SoloDB excels when you need:**
+- Standard LINQ support without learning new syntax
+- SQLite's proven ACID guarantees  
+- Integration with existing SQLite tooling
+- Lower GC memory usage for complex queries
 
-**Try it!** Download the [SoloDB Nuget package](https://www.nuget.org/packages/SoloDB#readme-body-tab) and start building with it.
+**LiteDB remains excellent for:**
+- Array property indexing (which SoloDB doesn't support yet)
+- Faster file write operations
+- Simpler deployment scenarios
+- Projects already using LiteDB successfully
 
-And if you don't like it?
+
+**Ready to choose?** Download [SoloDB](https://www.nuget.org/packages/SoloDB) if SQLite's foundation appeals to you, or stick with [LiteDB](https://www.nuget.org/packages/LiteDB) if it's already serving you well.
+
+And if you don't like SoloDB?
 Just *delete it* — and keep using your data directly with SQL.
 After all, all the way down, it's just plain old SQLite.
 
