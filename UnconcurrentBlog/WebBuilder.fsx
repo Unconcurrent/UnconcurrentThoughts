@@ -44,13 +44,8 @@ let private page (fileName: string) headItems bodyItems =
             nav [] [
                 div [ _class "container nav-container" ] [
                     a [ _href "/index.html"; _class "logo" ] [
-
                         str "Unconcurrent "
                         span [] [ str "Thoughts" ]
-                    ]
-                    ul [ _class "nav-links" ] [
-                        let navLink href text = li [] [ a [ _href href; if href = fileName then _class "active" ] [ str text ] ]
-                        navLink "/index.html" "Home"
                     ]
                 ]
             ]
