@@ -103,7 +103,7 @@ let internal pages = [
 
     page "index.html" [
         meta [ _name "description"; _content "Unconcurrent's blog for in-depth technical articles, interesting libraries and general programming." ]
-        title [] [ str blogName ] 
+        title [] [ str blogName ]
     ] [
         // Header
         header [] [
@@ -113,11 +113,36 @@ let internal pages = [
                 ]
             ]
         ]
-            
+
         // Main Content
         main [] [
             div [ _class "container"; _style "width: 100%; padding: 0px;" ] [
                 div [ _class "articles" ] (Articles.allArticles |> List.map renderArticleCard)
+            ]
+        ]
+    ]
+
+    let licenseMd = File.ReadAllText (Path.Combine(__SOURCE_DIRECTORY__, "..", "LICENSE.md"))
+    page "LICENSE.html" [
+        meta [ _name "description"; _content "Legal information for Unconcurrent Thoughts." ]
+        title [] [ str "Legal - Unconcurrent Thoughts" ]
+    ] [
+        main [] [
+            div [ _class "container" ] [
+                article [ _style "max-width: 800px; margin: 0 auto; font-size: 18px; text-align: justify;" ] [
+                    h1 [] [ str "Legal" ]
+
+                    ArticleTools.markdown licenseMd
+
+                    h2 [] [ str "Font License" ]
+                    p [] [
+                        str "This website uses "
+                        strong [] [ str "Slabo 27px" ]
+                        str " (Copyright © 2013, Tiro Typeworks Ltd), licensed under the "
+                        a [ _href "https://openfontlicense.org"; _target "_blank"; _rel "noopener" ] [ str "SIL Open Font License, Version 1.1" ]
+                        str "."
+                    ]
+                ]
             ]
         ]
     ]
@@ -154,6 +179,3 @@ let readerWebsiteInto (dirPath: string) =
         ignore (Directory.CreateDirectory fileDir)
 
     File.Copy (Path.Combine(__SOURCE_DIRECTORY__, "fonts", "Slabo27px-Regular.ttf"), filePath)
-    copyFile "LICENSE.md" (__SOURCE_DIRECTORY__ + "/..") dirPath
-    let licenseMarkdown = File.ReadAllText (__SOURCE_DIRECTORY__ + "/../" + "LICENSE.md")
-    File.WriteAllText (Path.Combine(dirPath, "LICENSE.html"), $"<html><body>{ArticleTools.renderASCIIMarkdown licenseMarkdown}</body></html>")
