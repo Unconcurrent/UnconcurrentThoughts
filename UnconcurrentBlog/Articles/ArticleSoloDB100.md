@@ -70,7 +70,7 @@ A hierarchical virtual filesystem with transactional guarantees:
 ```csharp
 var fs = db.FileSystem;
 
-// Upload with automatic compression and hashing
+// Upload with automatic compression
 using var stream = File.OpenRead("report.pdf");
 fs.Upload("/reports/2024/quarterly.pdf", stream);
 
