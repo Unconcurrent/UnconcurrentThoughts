@@ -6,9 +6,11 @@
 #load "Articles/ArticleTypeProvider.fsx"
 #load "Articles/ArticleSoloDBvsLiteDB.fsx"
 #load "Articles/ArticleSoloDBOrg.fsx"
+#load "Articles/ArticleSoloDB100.fsx"
 #endif
 
 let internal allArticles = [
+    ArticleSoloDB100.get()
     ArticleSoloDBOrg.get()
     ArticleSoloDBvsLiteDB.get()
     ArticleTypeProvider.get()
