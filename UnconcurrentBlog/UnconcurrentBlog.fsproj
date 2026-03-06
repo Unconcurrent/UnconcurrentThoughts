@@ -19,7 +19,9 @@
     <None Include="Articles\ArticleSoloDBvsLiteDB.md" />
     <None Include="Articles\ArticleSoloDBOrg.md" />
     <None Include="Articles\ArticleSoloDB100.md" />
+    <None Include="Articles\ArticleSoloDB110.md" />
     <Compile Include="Articles\ArticleTypeProvider.fsx" />
+    <Compile Include="Articles\ArticleSoloDB110.fsx" />
     <Compile Include="Articles\ArticleSoloDBvsLiteDB.fsx" />
     <Compile Include="Articles\ArticleSoloDBOrg.fsx" />
     <Compile Include="Articles\ArticleSoloDB100.fsx" />

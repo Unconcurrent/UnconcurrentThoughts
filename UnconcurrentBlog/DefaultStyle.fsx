@@ -262,7 +262,29 @@ let internal defaultMetas = [
             .copyright {
                 color: var(--dark-gray);
             }
-                    
+
+            table:has(> thead) {
+                width: 100%%;
+                border-collapse: collapse;
+                margin: 1rem 0;
+            }
+
+            table:has(> thead) > thead th,
+            table:has(> thead) > tbody td {
+                border: 1px solid var(--medium-gray);
+                padding: 0 0.4rem;
+                text-align: left;
+            }
+
+            table:has(> thead) > thead th {
+                background-color: var(--light-gray);
+                font-weight: 600;
+            }
+
+            table:has(> thead) > tbody tr:nth-child(even) {
+                background-color: var(--background-color);
+            }
+
             /* Responsive Design */
             @media (max-width: 768px) {
                 .articles {

@@ -101,7 +101,7 @@ let markdown (mark: string) =
     for p in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "p") |> Seq.toList do
         match nextElement p with
         | None -> ()
-        | Some x when x.Name = "br" || x.Name = "pre" || x.Name = "ol" || x.Name = "ul" -> ()
+        | Some x when x.Name = "br" || x.Name = "pre" || x.Name = "ol" || x.Name = "ul" || x.Name = "table" -> ()
         | Some _ ->
             // safe to insert <br>
             p.ParentNode.InsertAfter(HtmlNode.CreateNode("<br>"), p)
