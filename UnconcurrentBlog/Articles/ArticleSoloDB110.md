@@ -202,4 +202,4 @@ Install from NuGet:
 dotnet add package SoloDB
 ```
 
-Then copy the first example into a console project, replace `"memory:blog-110"` with a file path, and you have a working relational document database. The docs cover the broader API surface, including `Include` and `Exclude`, `UpdateMany` relation diffs, and the full delete policy matrix.
+Then copy the first example into a console project, replace `"memory:blog-110"` with a file path, and you have a working relational document database. The [full relations documentation](https://solodb.org/docs.html#relations) covers the broader API surface, including `Include` and `Exclude`, `UpdateMany` relation diffs, and the full delete policy matrix.
