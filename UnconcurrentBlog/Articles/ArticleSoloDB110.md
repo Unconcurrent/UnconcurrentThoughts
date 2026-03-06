@@ -6,6 +6,8 @@ SoloDB 1.1 moves that burden into the database engine. References are typed. Del
 
 ## Typed Relations
 
+*Foreign key constraints, built into your document model.*
+
 The first thing that breaks in a document database without relation support is the shape of your model. You start storing foreign keys as raw longs or strings, writing manual lookups every time you need the referenced object, and hoping the types survive the next refactor.
 
 Most document databases leave this to you because they store documents as isolated blobs. Even when a reference helper exists, it usually behaves like a convenience wrapper around an id field, not like a real engine-level relation.
@@ -60,6 +62,8 @@ That gets data in cleanly. The harder problem is what happens when you delete so
 
 ## Delete Safety
 
+*Declare the delete rule. The engine walks every reference.*
+
 Every developer who has stayed with a document database long enough has written some version of this: before deleting a record, search every collection that might reference it, then either block the delete or try to clean up the orphaned data. It is tedious, easy to miss on one path, and exactly the sort of thing that rots in service code.
 
 The structural reason is simple. If the storage layer has no relation metadata, the engine cannot enforce referential rules for you. Cleanup lives in application code because the database does not know what should happen.
@@ -75,7 +79,7 @@ public sealed record Member(long Id, string Name);
 public sealed class Team
 {
     public long Id { get; set; }
-    // These are the defaults, shown for reference.
+    // Explicit defaults — see SoloRef Policy Reference below.
     [SoloRef(OnDelete = DeletePolicy.Restrict,
         OnOwnerDelete = DeletePolicy.Deletion)]
     public DBRef<Member> Lead { get; set; } = DBRef<Member>.None;
@@ -102,6 +106,8 @@ When the rule lives in the engine, you stop rediscovering the same delete bug in
 
 ## SoloRef Policy Reference
 
+*What each delete policy does, and when the engine applies it.*
+
 `[SoloRef]` controls what the engine does when a referenced entity or its owner is deleted.
 
 **OnDelete** — when the *referenced* (target) entity is deleted:
@@ -123,6 +129,8 @@ When the rule lives in the engine, you stop rediscovering the same delete bug in
 `Cascade` is not valid for `OnOwnerDelete` — use `Deletion` instead.
 
 ## Nested Rollback
+
+*SQLite savepoints let inner steps fail without rolling back the outer transaction.*
 
 Once relations matter, workflows become multi-step by default. You insert a parent, derive related records, enrich metadata, and then something in the middle fails. In a flat transaction model the choices are ugly: roll everything back or start writing compensating code.
 
@@ -158,6 +166,8 @@ db.WithTransaction(tx =>
 The inner insert vanishes. The outer work survives. That is the difference between retrying entire workflows and handling failure where it actually happened.
 
 ## Querying Across Relations
+
+*Your LINQ predicate becomes a real SQL query with JOINs and EXISTS.*
 
 Typed references, delete policies, and nested rollback all matter less if every cross-collection query still collapses into loading both sides and filtering in memory. That is exactly what most document databases force you to do: store a reference, load the owner, load the target, stitch them together in application code, and hope the dataset stays small enough for the approach to hold.
 
@@ -195,6 +205,8 @@ No other embedded .NET document database offers this full combination today: typ
 That is the point of SoloDB 1.1. You keep the flexibility that made you choose a document model in the first place without inheriting relation correctness as application debt.
 
 ## Getting Started
+
+*One NuGet package, one file, working relational documents.*
 
 Install from NuGet:
 

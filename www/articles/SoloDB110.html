@@ -3,6 +3,7 @@
 <p>Then you discover the gap that document databases keep handing back to application code: referential integrity. You check whether targets still exist before you use them. You write cleanup jobs for orphans and null guards for records deleted three days ago. None of that logic is transactional, none of it is enforced by the engine, and all of it becomes your problem forever.</p><br>
 <p>SoloDB 1.1 moves that burden into the database engine. References are typed. Deletes are policy-governed. Queries cross collection boundaries in LINQ. Nested work uses SQLite savepoints instead of retry-everything application code.</p><br>
 <h2 id="typed-relations">Typed Relations</h2><hr style="opacity: 0.1;">
+<p><em>Foreign key constraints, built into your document model.</em></p><br>
 <p>The first thing that breaks in a document database without relation support is the shape of your model. You start storing foreign keys as raw longs or strings, writing manual lookups every time you need the referenced object, and hoping the types survive the next refactor.</p><br>
 <p>Most document databases leave this to you because they store documents as isolated blobs. Even when a reference helper exists, it usually behaves like a convenience wrapper around an id field, not like a real engine-level relation.</p><br>
 <p>SoloDB models references as part of the type system. A single reference is <code style="background-color: #d7d7d7; color: black;">DBRef&lt;T&gt;</code>. A collection reference is <code style="background-color: #d7d7d7; color: black;">DBRefMany&lt;T&gt;</code>. The engine persists them through dedicated link tables and can query through them because the relation exists below your service layer, not only in your C# conventions.</p>
@@ -49,6 +50,7 @@ Console.WriteLine(<span class="hljs-string" style="color: #D69D85;">$&quot;<span
 <p><code style="background-color: #d7d7d7; color: black;">DBRef.To(...)</code> points to an existing entity. <code style="background-color: #d7d7d7; color: black;">DBRef.From(...)</code> creates one inline. Either way, inserting the order wires the references and cascades any new items in one transaction.</p><br>
 <p>That gets data in cleanly. The harder problem is what happens when you delete something.</p><br>
 <h2 id="delete-safety">Delete Safety</h2><hr style="opacity: 0.1;">
+<p><em>Declare the delete rule. The engine walks every reference.</em></p><br>
 <p>Every developer who has stayed with a document database long enough has written some version of this: before deleting a record, search every collection that might reference it, then either block the delete or try to clean up the orphaned data. It is tedious, easy to miss on one path, and exactly the sort of thing that rots in service code.</p><br>
 <p>The structural reason is simple. If the storage layer has no relation metadata, the engine cannot enforce referential rules for you. Cleanup lives in application code because the database does not know what should happen.</p><br>
 <p>SoloDB persists relations through dedicated link tables and relation metadata. That gives the engine enough information to enforce delete policies the way a relational database enforces foreign key rules, without giving up document-shaped models. The default target-side rule is <code style="background-color: #d7d7d7; color: black;">Restrict</code>. The default owner-side rule is <code style="background-color: #d7d7d7; color: black;">Deletion</code>. If your domain needs something else, define it once with <code style="background-color: #d7d7d7; color: black;">[SoloRef(...)]</code> and the engine carries it from there.</p>
@@ -60,7 +62,7 @@ Console.WriteLine(<span class="hljs-string" style="color: #D69D85;">$&quot;<span
 <span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-keyword" style="color: #569CD6;">sealed</span> <span class="hljs-keyword" style="color: #569CD6;">class</span> <span class="hljs-title">Team</span>
 {
     <span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-built_in" style="color: #4EC9B0;">long</span> Id { <span class="hljs-keyword" style="color: #569CD6;">get</span>; <span class="hljs-keyword" style="color: #569CD6;">set</span>; }
-    <span class="hljs-comment" style="color: #57A64A; font-style: italic;">// These are the defaults, shown for reference.</span>
+    <span class="hljs-comment" style="color: #57A64A; font-style: italic;">// Explicit defaults — see SoloRef Policy Reference below.</span>
     [<span class="hljs-meta" style="color: #9B9B9B;">SoloRef(OnDelete = DeletePolicy.Restrict,
         OnOwnerDelete = DeletePolicy.Deletion)</span>]
     <span class="hljs-keyword" style="color: #569CD6;">public</span> DBRef&lt;Member&gt; Lead { <span class="hljs-keyword" style="color: #569CD6;">get</span>; <span class="hljs-keyword" style="color: #569CD6;">set</span>; } = DBRef&lt;Member&gt;.None;
@@ -83,6 +85,7 @@ teams.Delete(teamId); <span class="hljs-comment" style="color: #57A64A; font-sty
 <p>That is the practical gap with LiteDB's <code style="background-color: #d7d7d7; color: black;">DbRef</code>: references exist, but SoloDB adds database-enforced delete behavior instead of leaving referential cleanup to application code.</p><br>
 <p>When the rule lives in the engine, you stop rediscovering the same delete bug in every service boundary.</p><br>
 <h2 id="soloref-policy-reference">SoloRef Policy Reference</h2><hr style="opacity: 0.1;">
+<p><em>What each delete policy does, and when the engine applies it.</em></p><br>
 <p><code style="background-color: #d7d7d7; color: black;">[SoloRef]</code> controls what the engine does when a referenced entity or its owner is deleted.</p><br>
 <p><strong>OnDelete</strong> — when the <em>referenced</em> (target) entity is deleted:</p>
 <table>
@@ -132,6 +135,7 @@ teams.Delete(teamId); <span class="hljs-comment" style="color: #57A64A; font-sty
 </table>
 <p><code style="background-color: #d7d7d7; color: black;">Cascade</code> is not valid for <code style="background-color: #d7d7d7; color: black;">OnOwnerDelete</code> — use <code style="background-color: #d7d7d7; color: black;">Deletion</code> instead.</p><br>
 <h2 id="nested-rollback">Nested Rollback</h2><hr style="opacity: 0.1;">
+<p><em>SQLite savepoints let inner steps fail without rolling back the outer transaction.</em></p><br>
 <p>Once relations matter, workflows become multi-step by default. You insert a parent, derive related records, enrich metadata, and then something in the middle fails. In a flat transaction model the choices are ugly: roll everything back or start writing compensating code.</p><br>
 <p>Many document databases stop at a single transaction boundary. They can commit or abort, but they do not give you a structured way to let one inner step fail without throwing away the outer work that should survive.</p><br>
 <p>SoloDB uses SQLite savepoints for nested <code style="background-color: #d7d7d7; color: black;">WithTransaction(...)</code> calls. An inner scope becomes a savepoint, not a second transaction. If the inner work throws, only that inner scope is rolled back. The outer transaction can catch the failure, continue, and still commit the valid work around it.</p>
@@ -160,6 +164,7 @@ db.WithTransaction(tx =&gt;
 </code></pre>
 <p>The inner insert vanishes. The outer work survives. That is the difference between retrying entire workflows and handling failure where it actually happened.</p><br>
 <h2 id="querying-across-relations">Querying Across Relations</h2><hr style="opacity: 0.1;">
+<p><em>Your LINQ predicate becomes a real SQL query with JOINs and EXISTS.</em></p><br>
 <p>Typed references, delete policies, and nested rollback all matter less if every cross-collection query still collapses into loading both sides and filtering in memory. That is exactly what most document databases force you to do: store a reference, load the owner, load the target, stitch them together in application code, and hope the dataset stays small enough for the approach to hold.</p><br>
 <p>It turns what should be a database capability into service-layer debt. Every relation-aware query becomes another place where correctness and performance depend on handwritten loading logic.</p><br>
 <p>SoloDB translates supported relation predicates into SQL joins through the same link-table metadata it uses for insert and delete. The query in the first example, <code style="background-color: #d7d7d7; color: black;">o.Customer.Value.Name == &quot;Ada&quot; &amp;&amp; o.Items.Any(...)</code>, is not a cosmetic convenience. SQLite evaluates it as part of the real query:</p>
@@ -188,6 +193,7 @@ db.WithTransaction(tx =&gt;
 <p>No other embedded .NET document database offers this full combination today: typed references, enforced delete policies, nested savepoints, and LINQ-queryable relation predicates in one embedded library.</p><br>
 <p>That is the point of SoloDB 1.1. You keep the flexibility that made you choose a document model in the first place without inheriting relation correctness as application debt.</p><br>
 <h2 id="getting-started">Getting Started</h2><hr style="opacity: 0.1;">
+<p><em>One NuGet package, one file, working relational documents.</em></p><br>
 <p>Install from NuGet:</p>
 <pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; width: 100%; min-width: fit-content; padding: 0.5em; border-radius: 0.2em;"><code>dotnet add package SoloDB
 </code></pre>
