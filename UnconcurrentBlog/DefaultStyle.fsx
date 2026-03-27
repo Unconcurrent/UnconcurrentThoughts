@@ -27,7 +27,7 @@ let internal defaultMetas = [
     meta [ _name "robots"; _content "index,follow" ]
     meta [ _name "author"; _content "Unconcurrent" ]
     link [_rel "icon"; _href (sprintf "data:image/svg+xml;base64,%s" webIconBase64); _type "image/svg+xml"]
-    let fontUrl = $"data:data:font/woff2;charset=utf-8;base64,{fontBase64}"// "/fonts/Slabo27px-Regular.ttf"
+    let fontUrl = $"data:font/woff2;charset=utf-8;base64,{fontBase64}"// "/fonts/Slabo27px-Regular.ttf"
     // force to wait for the font to load before rendering.
     // link [_rel "preload"; _href fontUrl; XmlAttribute.KeyValue("as", "font"); XmlAttribute.KeyValue("crossorigin", "anonymous")]
     style [] [(sprintf """
