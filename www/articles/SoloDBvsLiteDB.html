@@ -15,13 +15,13 @@ While excellent databases like LiteDB already existed, each had different design
 <h2 id="the-groupby-comparison">The GroupBy Comparison</h2><hr style="opacity: 0.1;">
 <p>In a GroupBy query, SoloDB outperforms LiteDB, here is how it is done:</p><br>
 <p>In SoloDB, the test is implemented with LINQ:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> letterCounts = users
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> letterCounts = users
     .GroupBy(x =&gt; x.Username[<span class="hljs-number" style="color: #B8D7A3;">0</span>])
     .Select(x =&gt; <span class="hljs-keyword" style="color: #569CD6;">new</span> { Key = x.Key, Count = x.Count() })
     .ToDictionary(k =&gt; k.Key.ToString(), e =&gt; e.Count);
 </code></pre></div>
 <p>But in LiteDB it is implemented using their query language(for speed):</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> letterCounts = users
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> letterCounts = users
     .Query()
     .GroupBy(BsonExpression.Create(<span class="hljs-string" style="color: #D69D85;">&quot;SUBSTRING(Username, 0, 1)&quot;</span>))
     .Select(BsonExpression.Create(<span class="hljs-string" style="color: #D69D85;">&quot;{key: @key, count: COUNT(*)}&quot;</span>))
@@ -40,7 +40,7 @@ While excellent databases like LiteDB already existed, each had different design
 </ul>
 <p>A query like <code style="background-color: #d7d7d7; color: black;">users.Where(x =&gt; x.Username.StartsWith(&quot;a&quot;))</code> compiles to SQL, taking advantage of indexes when available, which LiteDB also does.</p><br>
 <p>Here's the SQL SoloDB generates under the hood for that query, it was retrieved by using <code style="background-color: #d7d7d7; color: black;">SoloDB.GetSQL(...)</code>:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">SELECT</span> Id, <span class="hljs-keyword" style="color: #569CD6;">Value</span> <span class="hljs-keyword" style="color: #569CD6;">as</span> ValueJSON
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">SELECT</span> Id, <span class="hljs-keyword" style="color: #569CD6;">Value</span> <span class="hljs-keyword" style="color: #569CD6;">as</span> ValueJSON
 <span class="hljs-keyword" style="color: #569CD6;">FROM</span> (
     <span class="hljs-keyword" style="color: #569CD6;">SELECT</span> Id, jsonb_extract(&quot;UserSoloDB&quot;.<span class="hljs-keyword" style="color: #569CD6;">Value</span>, <span class="hljs-string" style="color: #D69D85;">&#x27;$&#x27;</span>) <span class="hljs-keyword" style="color: #569CD6;">as</span> <span class="hljs-keyword" style="color: #569CD6;">Value</span>
     <span class="hljs-keyword" style="color: #569CD6;">FROM</span> &quot;UserSoloDB&quot;
@@ -52,7 +52,7 @@ While excellent databases like LiteDB already existed, each had different design
 )
 </code></pre></div>
 <p>And its query plan with <code style="background-color: #d7d7d7; color: black;">SoloDB.ExplainQueryPlan(...)</code>:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">SEARCH</span> UserSoloDB <span class="hljs-keyword" style="color: #569CD6;">USING</span> INDEX UserSoloDB_index_jsonb_extractValueUsername (<span class="hljs-operator">&lt;</span>expr<span class="hljs-operator">&gt;&gt;</span>? <span class="hljs-keyword" style="color: #569CD6;">AND</span> <span class="hljs-operator">&lt;</span>expr<span class="hljs-operator">&gt;</span><span class="hljs-operator">&lt;</span>?)
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">SEARCH</span> UserSoloDB <span class="hljs-keyword" style="color: #569CD6;">USING</span> INDEX UserSoloDB_index_jsonb_extractValueUsername (<span class="hljs-operator">&lt;</span>expr<span class="hljs-operator">&gt;&gt;</span>? <span class="hljs-keyword" style="color: #569CD6;">AND</span> <span class="hljs-operator">&lt;</span>expr<span class="hljs-operator">&gt;</span><span class="hljs-operator">&lt;</span>?)
 </code></pre></div>
 <h2 id="the-architecture-advantage">The Architecture Advantage</h2><hr style="opacity: 0.1;">
 <p>SoloDB's foundation takes a different approach by building directly on SQLite's capabilities. This gives us:</p>
@@ -121,7 +121,7 @@ For ultra-fast, cache-resident queries, LiteDB may outperform SoloDB due to smal
 <p>If these features are not required, then LiteDB is better.</p><br>
 <h2 id="the-developer-experience">The Developer Experience</h2><hr style="opacity: 0.1;">
 <p>SoloDB provides a different developer experience:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-comment" style="color: #57A64A; font-style: italic;">// SoloDB - intuitive and discoverable</span>
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-comment" style="color: #57A64A; font-style: italic;">// SoloDB - intuitive and discoverable</span>
 <span class="hljs-keyword" style="color: #569CD6;">using</span> <span class="hljs-keyword" style="color: #569CD6;">var</span> db = <span class="hljs-keyword" style="color: #569CD6;">new</span> SoloDB(<span class="hljs-string" style="color: #D69D85;">&quot;./mydb.db&quot;</span>);
 <span class="hljs-keyword" style="color: #569CD6;">var</span> users = db.GetCollection&lt;User&gt;();
 

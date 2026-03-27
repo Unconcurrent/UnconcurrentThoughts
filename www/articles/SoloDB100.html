@@ -16,7 +16,7 @@
 <br><h2 id="the-complete-feature-set">The Complete Feature Set</h2><hr style="opacity: 0.1;">
 <h3 id="linq-support">LINQ Support</h3>
 <p>SoloDB provides standard <code style="background-color: #d7d7d7; color: black;">IQueryable&lt;T&gt;</code> support that translates directly to SQL:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> users = db.GetCollection&lt;User&gt;();
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> users = db.GetCollection&lt;User&gt;();
 
 <span class="hljs-comment" style="color: #57A64A; font-style: italic;">// Complex queries translate to optimized SQL</span>
 <span class="hljs-keyword" style="color: #569CD6;">var</span> activeAdmins = users
@@ -34,7 +34,7 @@
 <p>The generated SQL uses indexes when available. Use <code style="background-color: #d7d7d7; color: black;">SoloDB.GetSQL(...)</code> to inspect the translation and <code style="background-color: #d7d7d7; color: black;">SoloDB.ExplainQueryPlan(...)</code> to verify index usage.</p><br>
 <h3 id="transactions">Transactions</h3>
 <p>SQLite's proven transaction system is exposed through a straightforward API:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code>db.WithTransaction(tx =&gt; {
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code>db.WithTransaction(tx =&gt; {
     <span class="hljs-keyword" style="color: #569CD6;">var</span> accounts = tx.GetCollection&lt;Account&gt;();
 
     <span class="hljs-keyword" style="color: #569CD6;">var</span> source = accounts.GetById(sourceId);
@@ -51,7 +51,7 @@
 </code></pre></div>
 <h3 id="file-storage">File Storage</h3>
 <p>A hierarchical virtual filesystem with transactional guarantees:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> fs = db.FileSystem;
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> fs = db.FileSystem;
 
 <span class="hljs-comment" style="color: #57A64A; font-style: italic;">// Upload with automatic compression</span>
 <span class="hljs-keyword" style="color: #569CD6;">using</span> <span class="hljs-keyword" style="color: #569CD6;">var</span> stream = File.OpenRead(<span class="hljs-string" style="color: #D69D85;">&quot;report.pdf&quot;</span>);
@@ -67,7 +67,7 @@ fs.SetMetadata(<span class="hljs-string" style="color: #D69D85;">&quot;/reports/
 <p>Files are chunked and compressed with <a href="https://github.com/brantburnett/Snappier" rel="noopener noreferrer" target="_blank">Snappy</a>.</p><br>
 <h3 id="polymorphic-collections">Polymorphic Collections</h3>
 <p>Store objects of different derived types within a single collection:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-keyword" style="color: #569CD6;">abstract</span> <span class="hljs-keyword" style="color: #569CD6;">class</span> <span class="hljs-title">Shape</span> { <span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-built_in" style="color: #4EC9B0;">long</span> Id { <span class="hljs-keyword" style="color: #569CD6;">get</span>; <span class="hljs-keyword" style="color: #569CD6;">set</span>; } }
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-keyword" style="color: #569CD6;">abstract</span> <span class="hljs-keyword" style="color: #569CD6;">class</span> <span class="hljs-title">Shape</span> { <span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-built_in" style="color: #4EC9B0;">long</span> Id { <span class="hljs-keyword" style="color: #569CD6;">get</span>; <span class="hljs-keyword" style="color: #569CD6;">set</span>; } }
 <span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-keyword" style="color: #569CD6;">class</span> <span class="hljs-title">Circle</span> : <span class="hljs-title">Shape</span> { <span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-built_in" style="color: #4EC9B0;">double</span> Radius { <span class="hljs-keyword" style="color: #569CD6;">get</span>; <span class="hljs-keyword" style="color: #569CD6;">set</span>; } }
 <span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-keyword" style="color: #569CD6;">class</span> <span class="hljs-title">Rectangle</span> : <span class="hljs-title">Shape</span> { <span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-built_in" style="color: #4EC9B0;">double</span> Width { <span class="hljs-keyword" style="color: #569CD6;">get</span>; <span class="hljs-keyword" style="color: #569CD6;">set</span>; } <span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-built_in" style="color: #4EC9B0;">double</span> Height { <span class="hljs-keyword" style="color: #569CD6;">get</span>; <span class="hljs-keyword" style="color: #569CD6;">set</span>; } }
 
@@ -80,7 +80,7 @@ shapes.Insert(<span class="hljs-keyword" style="color: #569CD6;">new</span> Rect
 </code></pre></div>
 <h3 id="indexing">Indexing</h3>
 <p>Attribute-based or programmatic index creation:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-keyword" style="color: #569CD6;">class</span> <span class="hljs-title">User</span>
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-keyword" style="color: #569CD6;">class</span> <span class="hljs-title">User</span>
 {
     <span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-built_in" style="color: #4EC9B0;">long</span> Id { <span class="hljs-keyword" style="color: #569CD6;">get</span>; <span class="hljs-keyword" style="color: #569CD6;">set</span>; }
 
@@ -97,7 +97,7 @@ users.EnsureUniqueAndIndex(u =&gt; u.Email);
 </code></pre></div>
 <h3 id="custom-id-generation">Custom ID Generation</h3>
 <p>Extensible ID strategy support:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-keyword" style="color: #569CD6;">class</span> <span class="hljs-title">GuidIdGenerator</span> : <span class="hljs-title">IIdGenerator</span>&lt;<span class="hljs-title">Document</span>&gt;
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-keyword" style="color: #569CD6;">class</span> <span class="hljs-title">GuidIdGenerator</span> : <span class="hljs-title">IIdGenerator</span>&lt;<span class="hljs-title">Document</span>&gt;
 {
     <span class="hljs-function"><span class="hljs-keyword" style="color: #569CD6;">public</span> <span class="hljs-built_in" style="color: #4EC9B0;">object</span> <span class="hljs-title">GenerateId</span>(<span class="hljs-params">ISoloDBCollection&lt;Document&gt; collection, Document item</span>)</span>
         =&gt; Guid.NewGuid().ToString(<span class="hljs-string" style="color: #D69D85;">&quot;N&quot;</span>);
@@ -158,7 +158,7 @@ users.EnsureUniqueAndIndex(u =&gt; u.Email);
 </tbody>
 </table>
 <h3 id="validation-with-rollback">Validation with Rollback</h3>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> users = db.GetCollection&lt;User&gt;();
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> users = db.GetCollection&lt;User&gt;();
 
 users.OnInserting(ctx =&gt; {
     <span class="hljs-keyword" style="color: #569CD6;">if</span> (<span class="hljs-built_in" style="color: #4EC9B0;">string</span>.IsNullOrEmpty(ctx.Item.Email))
@@ -173,7 +173,7 @@ users.OnInserting(ctx =&gt; {
 <p>Throwing an exception rolls back the entire operation. The handler remains registered for future operations.</p><br>
 <h3 id="cross-collection-operations">Cross-Collection Operations</h3>
 <p>The event context implements <code style="background-color: #d7d7d7; color: black;">ISoloDB</code>, enabling transactional operations across collections:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code>users.OnUpdating(ctx =&gt; {
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code>users.OnUpdating(ctx =&gt; {
     <span class="hljs-keyword" style="color: #569CD6;">var</span> auditLog = ctx.GetCollection&lt;AuditEntry&gt;();
 
     auditLog.Insert(<span class="hljs-keyword" style="color: #569CD6;">new</span> AuditEntry {
@@ -189,7 +189,7 @@ users.OnInserting(ctx =&gt; {
 </code></pre></div>
 <h3 id="one-shot-handlers">One-Shot Handlers</h3>
 <p>Return <code style="background-color: #d7d7d7; color: black;">RemoveHandler</code> to auto-unregister after execution:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code>users.OnInserted(ctx =&gt; {
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code>users.OnInserted(ctx =&gt; {
     Console.WriteLine(<span class="hljs-string" style="color: #D69D85;">$&quot;First user created: <span class="hljs-subst" style="color: #DCDCDC;">{ctx.Item.Id}</span>&quot;</span>);
     <span class="hljs-keyword" style="color: #569CD6;">return</span> SoloDBEventsResult.RemoveHandler; <span class="hljs-comment" style="color: #57A64A; font-style: italic;">// Runs once, then unregisters</span>
 });
@@ -214,10 +214,10 @@ users.OnInserting(ctx =&gt; {
 <p>The public API will remain stable to a reasonable degree — bug fixes ship, internal-but-public details may evolve, but your code won't break on minor updates.</p><br>
 <h2 id="getting-started">Getting Started</h2><hr style="opacity: 0.1;">
 <p>Install from NuGet:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code>dotnet add package SoloDB
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code>dotnet add package SoloDB
 </code></pre></div>
 <p>Basic usage:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">using</span> SoloDatabase;
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">using</span> SoloDatabase;
 
 <span class="hljs-comment" style="color: #57A64A; font-style: italic;">// Create or open a database</span>
 <span class="hljs-keyword" style="color: #569CD6;">using</span> <span class="hljs-keyword" style="color: #569CD6;">var</span> db = <span class="hljs-keyword" style="color: #569CD6;">new</span> SoloDB(<span class="hljs-string" style="color: #D69D85;">&quot;myapp.db&quot;</span>);

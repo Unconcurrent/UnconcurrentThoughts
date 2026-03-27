@@ -4,7 +4,6 @@
     padding: 0.5em;
     border-radius: 0.2em;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
 }
 
 .hljs-keyword,

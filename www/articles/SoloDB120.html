@@ -16,7 +16,7 @@
 <h2 id="what-it-enabled">What it enabled</h2><hr style="opacity: 0.1;">
 <p>With the typed path in place, the supported <code style="background-color: #d7d7d7; color: black;">DBRefMany</code> LINQ surface expanded substantially. Filtering, aggregation, ordering, paging, projection, set operations, and grouped joins over <code style="background-color: #d7d7d7; color: black;">DBRefMany</code> now translate to SQL for supported compositions. Not because I added more special cases to the old generator, but because the typed representation can express these shapes and the optimizer can simplify them before emission.</p><br>
 <p>Here is a concrete example. Find all ledgers where the three smallest expenses sum to exactly 60:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> result = ledgers
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> result = ledgers
     .Where(l =&gt; l.Expenses
         .OrderBy(e =&gt; e.Amount)
         .Take(<span class="hljs-number" style="color: #B8D7A3;">3</span>)
@@ -25,7 +25,7 @@
 </code></pre></div>
 <p>That translates to a single SQLite statement. The <code style="background-color: #d7d7d7; color: black;">OrderBy</code>, <code style="background-color: #d7d7d7; color: black;">Take</code>, and <code style="background-color: #d7d7d7; color: black;">Sum</code> over the <code style="background-color: #d7d7d7; color: black;">DBRefMany</code> collection all stay inside the database.</p><br>
 <p><code style="background-color: #d7d7d7; color: black;">GroupJoin</code> works the same way. For each event, count tickets and sum VIP revenue:</p><br>
-<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto; -webkit-overflow-scrolling: touch;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> summary = events.AsQueryable()
+<div class="code-block"><pre class="hljs" style="background: #1E1E1E; color: #DCDCDC; padding: 0.5em; border-radius: 0.2em; overflow-x: auto;"><code><span class="hljs-keyword" style="color: #569CD6;">var</span> summary = events.AsQueryable()
     .GroupJoin(
         tickets.AsQueryable(),
         e =&gt; e.Id,
