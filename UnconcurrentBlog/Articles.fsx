@@ -4,6 +4,7 @@
 #load "Authors.fsx"
 #load "ArticleTools.fsx"
 #load "Articles/ArticleTypeProvider.fsx"
+#load "Articles/ArticleSoloDB120.fsx"
 #load "Articles/ArticleSoloDB110.fsx"
 #load "Articles/ArticleSoloDBvsLiteDB.fsx"
 #load "Articles/ArticleSoloDBOrg.fsx"
@@ -11,6 +12,7 @@
 #endif
 
 let internal allArticles = [
+    ArticleSoloDB120.get()
     ArticleSoloDB110.get()
     ArticleSoloDB100.get()
     ArticleSoloDBOrg.get()

@@ -75,12 +75,41 @@ let internal defaultMetas = [
                 background-color: white;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 padding: 1rem 0;
-                top: 0;
-                z-index: 100;
+            }
+
+            pre {
+                overflow-x: auto;
+
+            }
+
+            .code-block {
+                position: relative;
+                margin: 0 0 1rem;
+            }
+
+            .code-block pre {
+                margin: 0;
+                max-width: 100%%;
+                overflow-x: auto;
+
             }
 
             .code-block-name {
                 background-color: #2a3c40;
+            }
+
+            .hljs {
+                display: block;
+                width: auto;
+                min-width: 0;
+                max-width: 100%%;
+                overflow-x: auto;
+
+                font-size: 0.9rem;
+            }
+
+            .hljs code {
+                white-space: pre;
             }
                     
             .nav-container {
@@ -285,6 +314,20 @@ let internal defaultMetas = [
                 background-color: var(--background-color);
             }
 
+            a:focus-visible,
+            button:focus-visible {
+                outline: 2px solid var(--primary-color);
+                outline-offset: 2px;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *, *::before, *::after {
+                    animation-duration: 0.01ms !important;
+                    transition-duration: 0.01ms !important;
+                }
+                html { scroll-behavior: auto; }
+            }
+
             /* Responsive Design */
             @media (max-width: 768px) {
                 .articles {
@@ -311,9 +354,8 @@ let internal defaultMetas = [
                 }
 
                 .hljs {
-                    font-size: 0.8rem;
-                    overflow-x: auto;
-                  }
+                    font-size: 0.9rem;
+                }
             }
         """ primaryColor secondaryColor accentColor backgroundColor textColor lightGray mediumGray darkGray fontUrl
     ) |> Minify.css |> rawText]

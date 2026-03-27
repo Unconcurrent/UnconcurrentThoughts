@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +20,9 @@
     <None Include="Articles\ArticleSoloDBOrg.md" />
     <None Include="Articles\ArticleSoloDB100.md" />
     <None Include="Articles\ArticleSoloDB110.md" />
+    <None Include="Articles\ArticleSoloDB120.md" />
     <Compile Include="Articles\ArticleTypeProvider.fsx" />
+    <Compile Include="Articles\ArticleSoloDB120.fsx" />
     <Compile Include="Articles\ArticleSoloDB110.fsx" />
     <Compile Include="Articles\ArticleSoloDBvsLiteDB.fsx" />
     <Compile Include="Articles\ArticleSoloDBOrg.fsx" />

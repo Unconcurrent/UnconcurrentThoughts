@@ -29,7 +29,7 @@ var users = db.GetCollection<User>();
 // Complex queries translate to optimized SQL
 var activeAdmins = users
     .Where(u => u.IsActive && u.Role == "Admin")
-    .OrderByDescending(u => u.LastLogin)
+    .OrderByDescending(u => u.Department)
     .Take(10)
     .ToList();
 
@@ -80,11 +80,9 @@ fs.SetMetadata("/reports/2024/quarterly.pdf", "Author", "Finance Team");
 // Recursive listing
 var allReports = fs.RecursiveListEntriesAt("/reports/").ToList();
 
-// Hash-based lookup
-var fileByHash = fs.GetFileByHash(knownHash);
 ```
 
-Files are chunked, compressed with [Snappy](https://github.com/brantburnett/Snappier), and SHA-1 hashed for integrity verification.
+Files are chunked and compressed with [Snappy](https://github.com/brantburnett/Snappier).
 
 ### Polymorphic Collections
 
@@ -120,8 +118,8 @@ public class User
 }
 
 // Or create indexes at runtime
-users.EnsureIndex(u => u.LastLogin);
-users.EnsureUniqueIndex(u => u.Username);
+users.EnsureIndex(u => u.Department);
+users.EnsureUniqueAndIndex(u => u.Email);
 ```
 
 ### Custom ID Generation

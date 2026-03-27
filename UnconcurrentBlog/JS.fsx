@@ -39,12 +39,14 @@ let highlightFS (fileName: string) (code: string) =
     let value = jsEngine.Invoke ("highlightLang", code, "fsharp")
     if value.Type <> Jint.Runtime.Types.String then failwithf "The highlightLang func returned an invalid value type: %A" value.Type
 
-    sprintf "<pre class=\"hljs\"><span class=\"code-block-name\">%s</span><br/><code>%O</code></pre>" (HttpUtility.HtmlEncode fileName) value
+    sprintf "<div class=\"code-block\"><pre class=\"hljs\"><span class=\"code-block-name\">%s</span><br/><code>%O</code></pre></div>" (HttpUtility.HtmlEncode fileName) value
     |> Stylize.injectIntoHTML Stylize.highlitherCss
+    |> fun html -> html.Replace("width: 100%;", "").Replace("min-width: fit-content;", "").Replace("max-width: 100%;", "")
 
 let highlight (lang: string) (code: string) =
     let value = jsEngine.Invoke ("highlightLang", code, lang)
     if value.Type <> Jint.Runtime.Types.String then failwithf "The highlightLang func returned an invalid value type: %A" value.Type
 
-    sprintf "<pre class=\"hljs\"><code>%O</code></pre>" value
+    sprintf "<div class=\"code-block\"><pre class=\"hljs\"><code>%O</code></pre></div>" value
     |> Stylize.injectIntoHTML Stylize.highlitherCss
+    |> fun html -> html.Replace("width: 100%;", "").Replace("min-width: fit-content;", "").Replace("max-width: 100%;", "")
