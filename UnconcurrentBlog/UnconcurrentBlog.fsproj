@@ -16,6 +16,14 @@
     <Compile Include="Authors.fsx" />
     <Compile Include="ArticleType.fsx" />
     <Compile Include="ArticleTools.fsx" />
+    <Compile Include="ArticlePreprocessor.fsx" />
+    <None Include="Articles\CommonUnderground\ARTICLE.md" />
+    <None Include="Articles\CommonUnderground\sim3-timelapse.fragment.html" />
+    <None Include="Articles\CommonUnderground\images\Screenshot_20260706_094137.q40.avif" />
+    <None Include="Articles\CommonUnderground\images\Screenshot_20260706_130651.q40.avif" />
+    <None Include="Articles\CommonUnderground\images\Screenshot_20260706_151651.q40.avif" />
+    <None Include="Articles\CommonUnderground\images\Screenshot_20260710_222611.q40.avif" />
+    <Compile Include="Articles\ArticleCommonUnderground.fsx" />
     <None Include="Articles\ArticleSoloDBvsLiteDB.md" />
     <None Include="Articles\ArticleSoloDBOrg.md" />
     <None Include="Articles\ArticleSoloDB100.md" />

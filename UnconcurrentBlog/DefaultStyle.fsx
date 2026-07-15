@@ -292,6 +292,32 @@ let internal defaultMetas = [
                 color: var(--dark-gray);
             }
 
+            blockquote.markdown-blockquote {
+                margin: 1.25rem 0 1.5rem;
+                padding: 0.65rem 1rem;
+                border-left: 4px solid #1f6b4f;
+                background: #edf5f0;
+                color: #174b38;
+            }
+
+            blockquote.markdown-blockquote > p {
+                margin: 0.5rem 0;
+            }
+
+            blockquote.markdown-blockquote > p:first-child {
+                margin-top: 0;
+            }
+
+            blockquote.markdown-blockquote > p:last-child {
+                margin-bottom: 0;
+            }
+
+            blockquote.markdown-blockquote > .markdown-blockquote-attribution {
+                margin-top: 0.75rem;
+                color: #315f50;
+                font-size: 0.9em;
+            }
+
             table:has(> thead) {
                 width: 100%%;
                 border-collapse: collapse;

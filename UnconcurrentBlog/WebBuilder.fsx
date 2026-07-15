@@ -168,6 +168,13 @@ let readerWebsiteInto (dirPath: string) =
     for (fileName, page) in pages do
         writeWww fileName page
 
+    for sourcePath, relativeDestination in Articles.staticFiles do
+        let destination = Path.Combine(dirPath, relativeDestination)
+        let destinationDirectory = Path.GetDirectoryName destination
+        if not (Directory.Exists destinationDirectory) then
+            ignore (Directory.CreateDirectory destinationDirectory)
+        File.Copy(sourcePath, destination)
+
     let filePath = Path.Combine (dirPath, "fonts/Slabo27px-Regular.ttf")
     let fileDir = Path.GetDirectoryName filePath
     if not (Directory.Exists fileDir) then

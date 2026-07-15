@@ -98,14 +98,23 @@ let markdown (mark: string) =
     for hr in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "hr" && not(d.Attributes.Contains "style")) |> Seq.toList do
         hr.Attributes.Add("style", "opacity: 0.1;")
 
+    for blockquote in htmlDoc.DocumentNode.Descendants("blockquote") |> Seq.toList do
+        blockquote.Attributes.Add("class", "markdown-blockquote")
+        blockquote.Descendants("p")
+        |> Seq.tryLast
+        |> Option.filter (fun paragraph -> paragraph.InnerText.TrimStart().StartsWith("—", StringComparison.Ordinal))
+        |> Option.iter (fun attribution -> attribution.Attributes.Add("class", "markdown-blockquote-attribution"))
+
     for p in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "p") |> Seq.toList do
-        match nextElement p with
-        | None -> ()
-        | Some x when x.Name = "br" || x.Name = "pre" || x.Name = "ol" || x.Name = "ul" || x.Name = "table" -> ()
-        | Some _ ->
-            // safe to insert <br>
-            p.ParentNode.InsertAfter(HtmlNode.CreateNode("<br>"), p)
-            |> ignore
+        let insideBlockquote = p.Ancestors("blockquote") |> Seq.isEmpty |> not
+        if not insideBlockquote then
+            match nextElement p with
+            | None -> ()
+            | Some x when x.Name = "br" || x.Name = "pre" || x.Name = "ol" || x.Name = "ul" || x.Name = "table" -> ()
+            | Some _ ->
+                // safe to insert <br>
+                p.ParentNode.InsertAfter(HtmlNode.CreateNode("<br>"), p)
+                |> ignore
 
     for h2 in htmlDoc.DocumentNode.Descendants() |> Seq.filter(fun d -> d.Name = "h2") |> Seq.toList do
         match prevElement h2 with
