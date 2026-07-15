@@ -1,4 +1,4 @@
-# I Made 6 Agents Rebuild Civilization
+# I Gave Five AI Agents Empires to Govern
 
 <!-- interactive: sim3-timelapse -->
 
