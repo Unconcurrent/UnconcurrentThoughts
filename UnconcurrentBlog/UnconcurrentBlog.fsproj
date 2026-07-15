@@ -37,6 +37,7 @@
     <Compile Include="Articles\ArticleSoloDB100.fsx" />
     <Compile Include="Articles.fsx" />
     <Compile Include="DefaultStyle.fsx" />
+    <Compile Include="Rss.fsx" />
     <Compile Include="WebBuilder.fsx" />
     <Compile Include="Program.fsx" />
   </ItemGroup>

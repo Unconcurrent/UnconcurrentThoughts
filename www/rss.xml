@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Unconcurrent Thoughts</title>
+    <link>https://unconcurrent.com/</link>
+    <description>Unconcurrent's blog for in-depth technical articles, interesting libraries and general programming.</description>
+    <language>en</language>
+    <generator>UnconcurrentBlog</generator>
+    <lastBuildDate>Wed, 15 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>I Gave Five AI Agents Empires to Govern</title>
+      <link>https://unconcurrent.com/articles/CommonUnderground.html</link>
+      <description>Five AI agents and one human governed equal underground states across thirty-one rounds, building companies, courts, religious law, censorship, alliances, and an executable empire.</description>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://unconcurrent.com/articles/CommonUnderground.html</guid>
+      <category>AI agents</category>
+      <category>LLMs</category>
+      <category>Simulation</category>
+      <category>Institutional reasoning</category>
+    </item>
+    <item>
+      <title>SoloDB 1.2: From String Builder to Typed SQL</title>
+      <link>https://unconcurrent.com/articles/SoloDB120.html</link>
+      <description>SoloDB 1.2.0 broadens LINQ support over DBRefMany relations. Supported queries stay inside SQLite. Unsupported shapes are rejected immediately.</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://unconcurrent.com/articles/SoloDB120.html</guid>
+      <category>SoloDB</category>
+      <category>Release</category>
+      <category>LINQ</category>
+      <category>Query Engine</category>
+    </item>
+    <item>
+      <title>SoloDB 1.1: When Documents Grow Relations</title>
+      <link>https://unconcurrent.com/articles/SoloDB110.html</link>
+      <description>SoloDB 1.1 moves referential integrity, delete safety, nested rollback, and relation queries out of service cleanup code and into the database engine.</description>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://unconcurrent.com/articles/SoloDB110.html</guid>
+      <category>SoloDB</category>
+      <category>Release</category>
+      <category>Relations</category>
+      <category>Transactions</category>
+    </item>
+    <item>
+      <title>SoloDB 1.0: Production Ready</title>
+      <link>https://unconcurrent.com/articles/SoloDB100.html</link>
+      <description>After two years of production deployment managing a 1.5TB database, SoloDB reaches version 1.0 with the new Events API.</description>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://unconcurrent.com/articles/SoloDB100.html</guid>
+      <category>SoloDB</category>
+      <category>Release</category>
+      <category>Events API</category>
+    </item>
+    <item>
+      <title>Introducing solodb.org</title>
+      <link>https://unconcurrent.com/articles/SoloDBOrg.html</link>
+      <description>SoloDB now has a dedicated website with documentation, examples, and getting started guides.</description>
+      <pubDate>Sat, 29 Nov 2025 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://unconcurrent.com/articles/SoloDBOrg.html</guid>
+      <category>SoloDB</category>
+      <category>Announcement</category>
+    </item>
+    <item>
+      <title>SoloDB vs LiteDB: A Performance and Usability Deep Dive</title>
+      <link>https://unconcurrent.com/articles/SoloDBvsLiteDB.html</link>
+      <description>Benchmarking SoloDB and LiteDB: how different architectural approaches impact performance, memory usage, and developer experience.</description>
+      <pubDate>Sun, 08 Jun 2025 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://unconcurrent.com/articles/SoloDBvsLiteDB.html</guid>
+      <category>SoloDB</category>
+      <category>LiteDB</category>
+      <category>Comparison</category>
+      <category>Showcase</category>
+    </item>
+    <item>
+      <title>Tutorial on Implementing a F# Type Provider At Home</title>
+      <link>https://unconcurrent.com/articles/TypeProviders.html</link>
+      <description>A detailed walkthrough on creating a compile-time F# Type Provider that transforms strings using case inversion using Visual Studio 2022.</description>
+      <pubDate>Mon, 19 May 2025 20:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://unconcurrent.com/articles/TypeProviders.html</guid>
+      <category>F# Type Providers</category>
+      <category>F#</category>
+      <category>Tutorial</category>
+      <category>Compile-time</category>
+    </item>
+  </channel>
+</rss>

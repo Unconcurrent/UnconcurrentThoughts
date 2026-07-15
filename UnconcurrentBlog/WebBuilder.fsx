@@ -4,12 +4,20 @@
 #load "ArticleType.fsx"
 #load "Articles.fsx"
 #load "DefaultStyle.fsx"
+#load "Rss.fsx"
 #endif
 
 open ArticleType
 open Giraffe.ViewEngine
 open DefaultStyle
 open System.IO
+
+let private blogName = "Unconcurrent Thoughts"
+
+let private blogDescription =
+    "Unconcurrent's blog for in-depth technical articles, interesting libraries and general programming."
+
+let private siteUrl = "https://unconcurrent.com"
 
 // Helper function to render a single tag
 let private renderTag (tag: string) =
@@ -37,6 +45,12 @@ let private page (fileName: string) headItems bodyItems =
     fileName, html [ _lang "en" ] [
         head [] [
             yield! defaultMetas
+            link [
+                attr "rel" "alternate"
+                attr "type" "application/rss+xml"
+                attr "title" blogName
+                attr "href" "/rss.xml"
+            ]
             yield! headItems
         ]
         body [] [
@@ -62,6 +76,10 @@ let private page (fileName: string) headItems bodyItems =
 
                     div [ _class "footer-links" ] [
                         a [_href "/LICENSE.html"] [str "Terms of Use"]
+                    ]
+
+                    div [ _class "footer-links" ] [
+                        a [ _href "/rss.xml" ] [ str "RSS" ]
                     ]
                 ]
             ]
@@ -91,13 +109,11 @@ let private renderArticle (article: Article) =
     ]
 
 
-let private blogName = "Unconcurrent Thoughts"
-
 let internal pages = [
     let directory (name: string) (pages: (string * XmlNode) list) = pages |> List.map(fun (fileName, p) -> $"{name}/{fileName}", p)
 
     page "index.html" [
-        meta [ _name "description"; _content "Unconcurrent's blog for in-depth technical articles, interesting libraries and general programming." ]
+        meta [ _name "description"; _content blogDescription ]
         title [] [ str blogName ]
     ] [
         // Header
@@ -154,19 +170,27 @@ let private copyFile fileName sourceDir destDir =
     File.Copy(s, d)
 
 let readerWebsiteInto (dirPath: string) =
-    let writeWww fileName text =
+    let writeTextFile (fileName: string) (text: string) =
         let filePath = Path.Combine (dirPath, fileName)
         let fileDir = Path.GetDirectoryName filePath
         if not (Directory.Exists fileDir) then
             ignore (Directory.CreateDirectory fileDir)
 
         if File.Exists filePath then
-            failwithf "File rendered page already exists: %s" filePath
+            failwithf "Rendered file already exists: %s" filePath
 
-        File.WriteAllText (filePath, RenderView.AsString.htmlDocument text)
+        File.WriteAllText(filePath, text)
+
+    let writePage fileName page =
+        page
+        |> RenderView.AsString.htmlDocument
+        |> writeTextFile fileName
 
     for (fileName, page) in pages do
-        writeWww fileName page
+        writePage fileName page
+
+    Rss.render siteUrl blogName blogDescription Articles.allArticles
+    |> writeTextFile "rss.xml"
 
     for sourcePath, relativeDestination in Articles.staticFiles do
         let destination = Path.Combine(dirPath, relativeDestination)
