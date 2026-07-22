@@ -68,7 +68,14 @@ let splitArticleParts (markdownText: string) =
 
     introduction, parts
 
-let renderPartSections (partNumber: int) (nextPartAnchor: string option) (markdownText: string) =
+let renderPartSectionsFor
+    (cssNamespace: string)
+    (topAnchor: string)
+    (keyboardScrollableTables: bool)
+    (partNumber: int)
+    (nextPartAnchor: string option)
+    (markdownText: string)
+    =
     let lines = markdownText.Replace("\r\n", "\n").Split('\n')
     let sectionLines =
         lines
@@ -78,7 +85,7 @@ let renderPartSections (partNumber: int) (nextPartAnchor: string option) (markdo
     let sections =
         sectionLines
         |> Array.mapi (fun sectionIndex (lineIndex, _) ->
-            lineIndex, sectionIndex, $"common-underground-section-{partNumber}-{sectionIndex + 1}")
+            lineIndex, sectionIndex, $"{cssNamespace}-section-{partNumber}-{sectionIndex + 1}")
 
     let sectionByLine =
         sections
@@ -92,7 +99,7 @@ let renderPartSections (partNumber: int) (nextPartAnchor: string option) (markdo
         else
             match nextPartAnchor with
             | Some nextPart -> nextPart, "Skip to the next Part →", "Next Part →"
-            | None -> "abstract", "Back to the Abstract ↑", "Abstract ↑"
+            | None -> topAnchor, "Back to the Abstract ↑", "Abstract ↑"
 
     let sectionReplacements =
         sections
@@ -102,9 +109,9 @@ let renderPartSections (partNumber: int) (nextPartAnchor: string option) (markdo
             let skipMarker = $"<!--cu-skip-{partNumber}-{sectionIndex + 1}-->"
             (
                 anchorMarker,
-                $"<div id=\"{anchor}\" class=\"common-underground-anchor\" aria-hidden=\"true\"></div>",
+                $"<div id=\"{anchor}\" class=\"{cssNamespace}-anchor\" aria-hidden=\"true\"></div>",
                 skipMarker,
-                $"<a class=\"common-underground-section-skip\" href=\"#{target}\" aria-label=\"{label}\"><span class=\"common-underground-section-skip-long\" aria-hidden=\"true\">{label}</span><span class=\"common-underground-section-skip-short\" aria-hidden=\"true\">{shortLabel}</span></a>"
+                $"<a class=\"{cssNamespace}-section-skip\" href=\"#{target}\" aria-label=\"{label}\"><span class=\"{cssNamespace}-section-skip-long\" aria-hidden=\"true\">{label}</span><span class=\"{cssNamespace}-section-skip-short\" aria-hidden=\"true\">{shortLabel}</span></a>"
             ))
 
     let marked =
@@ -133,13 +140,21 @@ let renderPartSections (partNumber: int) (nextPartAnchor: string option) (markdo
         let heading = html.Substring(headingStart, headingEnd - headingStart)
         let betweenHeadingAndMarker = html.Substring(headingEnd, markerIndex - headingEnd)
         html.Substring(0, headingStart)
-        + $"<div class=\"common-underground-section-heading\">{heading}{link}</div>"
+        + $"<div class=\"{cssNamespace}-section-heading\">{heading}{link}</div>"
         + betweenHeadingAndMarker
         + html.Substring(markerIndex + marker.Length)
 
     marked
     |> markdown
     |> RenderView.AsString.htmlNode
+    |> fun rendered ->
+        if keyboardScrollableTables then
+            rendered.Replace(
+                "<table>",
+                $"<table class=\"{cssNamespace}-data-table\" tabindex=\"0\">",
+                StringComparison.Ordinal)
+        else
+            rendered
     |> fun rendered ->
         sectionReplacements
         |> Array.fold (fun (html: string) (anchorMarker, anchor, _, _) ->
@@ -233,3 +248,209 @@ let renderWithEmbeds (embeds: (string * XmlNode) list) (markdownText: string) =
             failwithf "Article embed marker is duplicated: %s" marker
 
     render markdownText embeds
+
+let private longFormArticleCss = """
+        .__LONGFORM__-article img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            margin: 1.25rem auto 0.5rem;
+        }
+
+        .__LONGFORM__-timelapse-frame {
+            position: relative;
+            box-sizing: border-box;
+            width: 100%;
+            height: 1080px;
+            margin: 1.5rem 0 0;
+        }
+
+        .__LONGFORM__-timelapse-loading {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-content: center;
+            margin: 0;
+            color: inherit;
+            line-height: 1.5;
+            text-align: center;
+            opacity: 0.68;
+        }
+
+        .__LONGFORM__-timelapse {
+            position: relative;
+            z-index: 1;
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: transparent;
+            visibility: hidden;
+        }
+
+        .__LONGFORM__-timelapse-frame.is-loaded .__LONGFORM__-timelapse {
+            visibility: visible;
+        }
+
+        .__LONGFORM__-timelapse-frame.is-loaded .__LONGFORM__-timelapse-loading {
+            display: none;
+        }
+
+        .__LONGFORM__-part {
+            --__LONGFORM__-part-overhang: clamp(1.25rem, 6vw, 3rem);
+            box-sizing: border-box;
+            width: calc(100% + var(--__LONGFORM__-part-overhang));
+            max-width: calc(100vw - 0.5rem);
+            margin: 2rem 0 2.5rem 50%;
+            padding: 0;
+            transform: translateX(-50%);
+            border: 0;
+            background: transparent;
+        }
+
+        .__LONGFORM__-part > summary {
+            box-sizing: border-box;
+            display: list-item;
+            width: calc(100% - var(--__LONGFORM__-part-overhang));
+            margin: 0 auto;
+            padding: 1rem 0;
+            cursor: pointer;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .__LONGFORM__-part > summary::marker {
+            color: currentColor;
+            font-size: 0.78em;
+        }
+
+        .__LONGFORM__-part > summary:hover,
+        .__LONGFORM__-part > summary:focus-visible {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.2em;
+        }
+
+        .__LONGFORM__-part[open] > summary {
+            border-bottom: 1px solid rgba(128, 128, 128, 0.32);
+        }
+
+        .__LONGFORM__-part-number {
+            font-size: 0.8em;
+            letter-spacing: 0.1em;
+            margin-right: 0.75rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .__LONGFORM__-part-title {
+            font-size: 1.22em;
+        }
+
+        .__LONGFORM__-part-content {
+            box-sizing: border-box;
+            width: calc(100% - var(--__LONGFORM__-part-overhang));
+            margin: 0 auto;
+            padding: 1rem 0 1.5rem;
+        }
+
+        .__LONGFORM__-anchor {
+            display: block;
+            position: relative;
+            top: -1rem;
+            visibility: hidden;
+        }
+
+        .__LONGFORM__-section-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: baseline;
+            column-gap: 1rem;
+        }
+
+        .__LONGFORM__-section-heading > h2 {
+            min-width: 0;
+        }
+
+        .__LONGFORM__-section-skip {
+            align-self: baseline;
+            font-size: 0.82em;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .__LONGFORM__-section-skip-short {
+            display: none;
+        }
+
+        @media (max-width: 760px) {
+            .__LONGFORM__-timelapse-frame {
+                height: 900px;
+            }
+
+            .__LONGFORM__-section-heading {
+                column-gap: 0.55rem;
+            }
+
+            .__LONGFORM__-section-skip-long {
+                display: none;
+            }
+
+            .__LONGFORM__-section-skip-short {
+                display: inline;
+            }
+        }
+    """
+
+let private renderLongFormArticleStyles cssNamespace =
+    longFormArticleCss.Replace("__LONGFORM__", cssNamespace)
+    |> rawText
+    |> List.singleton
+    |> style []
+
+let renderLongFormArticle
+    (cssNamespace: string)
+    (topAnchor: string)
+    (keyboardScrollableTables: bool)
+    (additionalBodyNodes: XmlNode list)
+    (introduction: string)
+    (embeds: (string * XmlNode) list)
+    (parts: ArticlePart list)
+    =
+    let renderPart partIndex part =
+        let partAnchor = $"{cssNamespace}-part-{part.Roman.ToLowerInvariant()}"
+        let nextPartAnchor =
+            parts
+            |> List.tryItem (partIndex + 1)
+            |> Option.map (fun next -> $"{cssNamespace}-part-{next.Roman.ToLowerInvariant()}")
+        let attributes =
+            [
+                _class $"{cssNamespace}-part"
+                _id partAnchor
+                attr "open" "open"
+            ]
+        details attributes [
+            summary [] [
+                span [ _class $"{cssNamespace}-part-number" ] [str $"Part {part.Roman}"]
+                span [ _class $"{cssNamespace}-part-title" ] [str part.Title]
+            ]
+            div [ _class $"{cssNamespace}-part-content" ] [
+                renderPartSectionsFor
+                    cssNamespace
+                    topAnchor
+                    keyboardScrollableTables
+                    (partIndex + 1)
+                    nextPartAnchor
+                    part.Markdown
+            ]
+        ]
+
+    div [ _class $"article-text {cssNamespace}-article"; _style "font-size: 18px; text-align: justify;" ] [
+        renderLongFormArticleStyles cssNamespace
+        yield! additionalBodyNodes
+        yield! introduction |> renderWithEmbeds embeds
+        yield! parts |> List.mapi renderPart
+    ]

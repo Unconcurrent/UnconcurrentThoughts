@@ -4,6 +4,7 @@
 #load "Authors.fsx"
 #load "ArticleTools.fsx"
 #load "ArticlePreprocessor.fsx"
+#load "Articles/ArticleCommonUndergroundII.fsx"
 #load "Articles/ArticleCommonUnderground.fsx"
 #load "Articles/ArticleTypeProvider.fsx"
 #load "Articles/ArticleSoloDB120.fsx"
@@ -14,6 +15,7 @@
 #endif
 
 let internal allArticles = [
+    ArticleCommonUndergroundII.get()
     ArticleCommonUnderground.get()
     ArticleSoloDB120.get()
     ArticleSoloDB110.get()
@@ -24,5 +26,6 @@ let internal allArticles = [
 ]
 
 let internal staticFiles = [
+    yield! ArticleCommonUndergroundII.staticFiles
     yield! ArticleCommonUnderground.staticFiles
 ]
