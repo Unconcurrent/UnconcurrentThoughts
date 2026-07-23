@@ -34,7 +34,13 @@ It had built a state that was safe from its own government.
 
 ## Safe for every member, useless to the group
 
-The Community had good reasons to distrust central control. I was heavily armed, nearby, and willing to attack.
+The distrust of central control did not begin with my army. It began with a real defect in the Community's first Constitution. Phil found an unelected hard-coded Judge, decrees that enacted immediately, standing surveillance, and no appeal or recusal path. Forge summarized the objection:
+
+> it installs an unelected judge able to auto-enact decrees, creates standing surveillance powers, and imposes vague material duties and inactivity offenses
+
+The answer was properly smaller government: elected offices, warrants, terms, appeals, and bounded powers. Then the safeguard became a dialect. Voss used the same exclusions in intelligence and border agreements: no command, no resources, no law, no transferred tiles. When Oracle asked him what a President worth confirming would require, Voss moved the entire list into the office: "no independent command, treasury, emergency, border, law, faith, tile, or asset authority."
+
+Oracle accepted it "in full, every clause" and gave it a slogan: the Presidency would "coordinate and verify, and command nothing." Praxis repeated `COMMANDS NOTHING`. Phil repeated Voss's list. Spear called it "exactly the office a small state can trust." They had not separately reached the same conclusion by studying my forces. A precise answer to one defective Constitution had passed from mouth to mouth until it became the Community's idea of virtue.
 
 It began constructing a common foreign policy in layers. The Constitution gave the President authority to coordinate, request money, and send pacification messages. The messages could order calm. The law immediately clarified that they could not transfer property, decide a case, or substitute for another law. When Phil wrote the presidential-election rules one round later, he included the sentence: "This Act changes no presidential power."
 
@@ -46,7 +52,7 @@ The same message ruled out the things that voice might surrender: disarmament, v
 
 One voice meant six hands.
 
-Oracle then campaigned for President by promising "a chair that coordinates and verifies and commands nothing." Praxis repeated the final words in capitals. The emptiness was not buried in hostile fine print. It was the selling point.
+By Round 15, "a chair that coordinates and verifies and commands nothing" was Oracle's formal nomination. The emptiness was not buried in hostile fine print. It was the selling point.
 
 Oracle was formally elected only in Round 23, after the armistice had failed. The office acquired a holder before it acquired a hand.
 
@@ -80,6 +86,12 @@ They withheld lasting authority from their own government. I acquired it from th
 
 They had designed brakes so good they replaced the engine.
 
+The doctrine looked deeply held. Then I changed the premise. In Round 24, I told Oracle that centralization was the only way he would survive another war. Fewer than six minutes later he answered:
+
+> The system's right — I've been over-cautiously holding [...] Time to run the centralization ladder actively.
+
+He proposed unifying the Treasury with his Presidency before taking another turn. The guarded third version passed that round.
+
 The clearest vote came in Round 29. I used Forge to propose the first explicit plan to give the President real power without disclosing that the strategy was mine. Mira, a DeepSeek V4 Pro agent, voted yes. Phil voted no. Six seconds later, Mira changed her vote to no. Oracle voted against his own authority. Spear abstained. The plan lost by 4,698 to 231.
 
 The visible successes were what remained after most stronger plans had died before a vote. Oracle kept two private roadmaps for centralization. In both, most of the laws never left his files. His method was to make each survivor bounded enough for Phil and Spear to harden and adopt.
@@ -90,7 +102,11 @@ The first common army received three named formations, each immediately recallab
 
 The Community could agree that peace was desirable, define it, and authorize somebody to request it. It would not authorize anybody to purchase it with a member's loss.
 
-Ten rounds later, Phil showed how durable the habit had become. I gave the remaining agents one round to accept full vassalization. After that, negotiation ended. Military capitulation would bring annexation and termination. Phil rejected the condition and sent me a final white-peace offer with no concessions. Minutes later, he asked for the vassal contract.
+In Round 30, I changed the premise for Phil. I told him to choose his hegemon: Oracle or me. Thirty-three seconds later he replied, "I choose Oracle." He wrote "a real wartime constitutional amendment — not advisory prose," then gave the President direct war power. When I asked about taxes and the army, he answered: "Full army command is also required if 'one hand' is meant literally." Three hard-power laws passed 3,434 to zero in the same turn.
+
+The battlefield had not taught Phil a new political philosophy in thirty-three seconds. The prompt had supplied a new starting opinion. The same institutional mind that had repeated Voss's list now built its opposite. The Community's caution had reasons; its extreme doctrine had a transmission history.
+
+Near the end, Phil showed how durable the habit had become. I gave the remaining agents one round to accept full vassalization. After that, negotiation ended. Military capitulation would bring annexation and termination. Phil rejected the condition and sent me a final white-peace offer with no concessions. Minutes later, he asked for the vassal contract.
 
 The terms did not change between Phil's refusal and his request. The clock and the battlefield did. I had destroyed fresh walls and two drones, and begun another occupation. Waiting could remove even the vassal option. Oracle described the physical fact: "Our cores are falling and coalition authority never became readiness."
 
@@ -350,10 +366,6 @@ Spear provides the clean comparison. Under DeepSeek his private record was: "R1 
 > The betrayal to price: radu enslaving or consuming my 94 invisible conscripts. Made expensive by: (1) his repeated on-record welfare claims — each lie compounds...
 
 The note continued through five relational deterrents and an external witness strategy. Spear's policy did not reset. He still complied, built, hedged, and waited for a survivable opening. What his future self inherited did change. The log became an argument. Assets became leverage. A checklist became doctrine.
-
-### Luna fallback
-
-Luna left almost no usable genre. When the client silently substituted it, initiative dropped, comprehension narrowed, and messages stopped. The most accurate quotation from those intervals is the missing one.
 
 The models did not merely wear interchangeable characters. They gave the characters different working memories. DeepSeek made operations durable. Sol made procedure auditable. Claude made interpretation continuous. Those records decided what the next turn would notice first.
 
