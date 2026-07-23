@@ -90,15 +90,192 @@ let private timelapseFrame =
         </div>
     """
 
-let private body =
-    renderLongFormArticle
-        "common-underground"
-        "abstract"
-        false
-        []
-        articleIntroduction
-        ["<!-- interactive: sim3-timelapse -->", timelapseFrame]
+let private articleStyles =
+    style [] [rawText """
+        .common-underground-article img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            margin: 1.25rem auto 0.5rem;
+        }
+
+        .common-underground-timelapse-frame {
+            position: relative;
+            box-sizing: border-box;
+            width: 100%;
+            height: 1080px;
+            margin: 1.5rem 0 0;
+        }
+
+        .common-underground-timelapse-loading {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-content: center;
+            margin: 0;
+            color: inherit;
+            line-height: 1.5;
+            text-align: center;
+            opacity: 0.68;
+        }
+
+        .common-underground-timelapse {
+            position: relative;
+            z-index: 1;
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: transparent;
+            visibility: hidden;
+        }
+
+        .common-underground-timelapse-frame.is-loaded .common-underground-timelapse {
+            visibility: visible;
+        }
+
+        .common-underground-timelapse-frame.is-loaded .common-underground-timelapse-loading {
+            display: none;
+        }
+
+        .common-underground-part {
+            --common-underground-part-overhang: clamp(1.25rem, 6vw, 3rem);
+            box-sizing: border-box;
+            width: calc(100% + var(--common-underground-part-overhang));
+            max-width: calc(100vw - 0.5rem);
+            margin: 2rem 0 2.5rem 50%;
+            padding: 0;
+            transform: translateX(-50%);
+            border: 0;
+            background: transparent;
+        }
+
+        .common-underground-part > summary {
+            box-sizing: border-box;
+            display: list-item;
+            width: calc(100% - var(--common-underground-part-overhang));
+            margin: 0 auto;
+            padding: 1rem 0;
+            cursor: pointer;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .common-underground-part > summary::marker {
+            color: currentColor;
+            font-size: 0.78em;
+        }
+
+        .common-underground-part > summary:hover,
+        .common-underground-part > summary:focus-visible {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.2em;
+        }
+
+        .common-underground-part[open] > summary {
+            border-bottom: 1px solid rgba(128, 128, 128, 0.32);
+        }
+
+        .common-underground-part-number {
+            font-size: 0.8em;
+            letter-spacing: 0.1em;
+            margin-right: 0.75rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .common-underground-part-title {
+            font-size: 1.22em;
+        }
+
+        .common-underground-part-content {
+            box-sizing: border-box;
+            width: calc(100% - var(--common-underground-part-overhang));
+            margin: 0 auto;
+            padding: 1rem 0 1.5rem;
+        }
+
+        .common-underground-anchor {
+            display: block;
+            position: relative;
+            top: -1rem;
+            visibility: hidden;
+        }
+
+        .common-underground-section-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: baseline;
+            column-gap: 1rem;
+        }
+
+        .common-underground-section-heading > h2 {
+            min-width: 0;
+        }
+
+        .common-underground-section-skip {
+            align-self: baseline;
+            font-size: 0.82em;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .common-underground-section-skip-short {
+            display: none;
+        }
+
+        @media (max-width: 760px) {
+            .common-underground-timelapse-frame {
+                height: 900px;
+            }
+
+            .common-underground-section-heading {
+                column-gap: 0.55rem;
+            }
+
+            .common-underground-section-skip-long {
+                display: none;
+            }
+
+            .common-underground-section-skip-short {
+                display: inline;
+            }
+        }
+    """]
+
+let private renderPart partIndex part =
+    let partAnchor = $"common-underground-part-{part.Roman.ToLowerInvariant()}"
+    let nextPartAnchor =
         articleParts
+        |> List.tryItem (partIndex + 1)
+        |> Option.map (fun next -> $"common-underground-part-{next.Roman.ToLowerInvariant()}")
+    let attributes =
+        [
+            _class "common-underground-part"
+            _id partAnchor
+            attr "open" "open"
+        ]
+    details attributes [
+        summary [] [
+            span [ _class "common-underground-part-number" ] [str $"Part {part.Roman}"]
+            span [ _class "common-underground-part-title" ] [str part.Title]
+        ]
+        div [ _class "common-underground-part-content" ] [
+            renderPartSections (partIndex + 1) nextPartAnchor part.Markdown
+        ]
+    ]
+
+let private body =
+    div [ _class "article-text common-underground-article"; _style "font-size: 18px; text-align: justify;" ] [
+        articleStyles
+        yield! articleIntroduction
+               |> renderWithEmbeds ["<!-- interactive: sim3-timelapse -->", timelapseFrame]
+        yield! articleParts |> List.mapi renderPart
+    ]
 
 let internal staticFiles =
     let images =

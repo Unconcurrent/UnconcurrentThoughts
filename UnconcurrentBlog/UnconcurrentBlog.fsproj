@@ -17,8 +17,6 @@
     <Compile Include="ArticleType.fsx" />
     <Compile Include="ArticleTools.fsx" />
     <Compile Include="ArticlePreprocessor.fsx" />
-    <None Include="Articles\CommonUndergroundII\ARTICLE.md" />
-    <Compile Include="Articles\ArticleCommonUndergroundII.fsx" />
     <None Include="Articles\CommonUnderground\ARTICLE.md" />
     <None Include="Articles\CommonUnderground\sim3-timelapse.fragment.html" />
     <None Include="Articles\CommonUnderground\images\Screenshot_20260706_094137.q40.avif" />

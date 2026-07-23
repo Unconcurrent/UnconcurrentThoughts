@@ -6,18 +6,7 @@
     <description>Unconcurrent's blog for in-depth technical articles, interesting libraries and general programming.</description>
     <language>en</language>
     <generator>UnconcurrentBlog</generator>
-    <lastBuildDate>Wed, 22 Jul 2026 00:00:00 GMT</lastBuildDate>
-    <item>
-      <title>Seven AI Governors Built a Second Civilization. Model Labels Did Not Predict Their Fate</title>
-      <link>https://unconcurrent.com/articles/CommonUndergroundII.html</link>
-      <description>A forty-round seat-level comparison of Codex, Claude, and DeepSeek showing that objectives, leverage, memory, interfaces, and operator policy explained outcomes better than model labels.</description>
-      <pubDate>Wed, 22 Jul 2026 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://unconcurrent.com/articles/CommonUndergroundII.html</guid>
-      <category>AI agents</category>
-      <category>LLMs</category>
-      <category>Simulation</category>
-      <category>Institutional reasoning</category>
-    </item>
+    <lastBuildDate>Wed, 15 Jul 2026 00:00:00 GMT</lastBuildDate>
     <item>
       <title>I Gave Five AI Agents Empires to Govern</title>
       <link>https://unconcurrent.com/articles/CommonUnderground.html</link>
