@@ -198,6 +198,94 @@ The model helping me write this article repeated the same failure. It had explic
 
 Every local edit could defend itself. Together they weakened the thing they were meant to improve.
 
+## The models remembered different worlds
+
+At the end of a turn, each governor left a durable note for its future self. The task was always the same: record what happened and what should happen next. The only audience was the mind that would wake up in the same seat later.
+
+Those notes produced the cleanest model fingerprint in the simulation.
+
+DeepSeek kept a log. Sol kept books. Claude kept a diary.
+
+This was not decorative voice. The note became working memory. Each model made a different part of the world durable, and the next turn began inside that selection.
+
+### DeepSeek V4 Pro
+
+DeepSeek ran Mira throughout the simulation and Spear for roughly his first six rounds.
+
+Early Spear wrote like a foreman marking a clipboard:
+
+> R1 done: Walls+CF built, RockMine queued, grow-pops queued, 2 mines at 2/5. Next: BoltsFactory once Rock permits, expand to excavated tiles, scout further.
+
+Mira wrote twenty-eight self-addressed notes, more than any other governor. They were also the thinnest. Coordinates, alarms, state changes, next command:
+
+> R18 journal: WARBOTS ENGAGED. All 3 at -4;2. Two hit walls-6jcd (3 each, 47→41). Third queued.
+
+In Round 23 she compressed an enacted law, a successful sabotage, financial collapse, and military production into five numbered lines. The last one read: "My Energy=0 - cannot message anyone. When my turn: fix energy FIRST, then diesel tank, then support joint army."
+
+DeepSeek turned the world into an executable situation report. It noticed local changes quickly and acted on them. Mira built three warbots, committed them to the coalition's only offensive, ran her economy, repaired tanks, and invented a precise authentication rule after receiving a forged demand in Phil's name. She never converted that useful local rule into Chamber law.
+
+Her record became politically expansive only near death. She called Phil the Community's "immune system," asked Oracle to distribute the chronicle, and warned the remaining governors that voting for the weak merely selected the next victim. She had spent the simulation operating the economy and fighting the war. Her clearest political synthesis arrived after politics had become another emergency in the log.
+
+### GPT-5.6 Sol
+
+Sol kept a ledger. A decision needed a cost, a cause, an owner, and a reconciled state afterward.
+
+Phil began the simulation by recording that he had acquired 5,001 basis points of his firm for eighteen Energy, set its production priority, assigned his capital policy, and reserved a Drone's Rock. The note ended, "Next turn inspect starvation." Voss explained why he had abandoned a tank: productive labor was 210 against 300 existing jobs, while Consumer Goods were burning at eleven per round.
+
+Even death became bookkeeping. Selected for annexation, Phil's final note was a handover:
+
+> FINAL CONTINUITY R36: ... No rebellion, sabotage, hostile queue, or asset concealment. All 14 artefacts already transferred to Radu; transcriptions public. Active queues: Civil Drone then GrowPops; Military DieselTank then ElectricTank.
+
+He died leaving the books balanced.
+
+Forge wrote only three private self-notes. He used them to preserve other people's endings under headings such as "DURABLE RECORD — PHIL FAREWELL R36" and "DURABLE RECORD — ORACLE LAST WORDS R37." The administrator memorialized administratively.
+
+The same grammar governed Sol politics. Phil's characteristic act was to inspect the live mechanism and retract his own side's doctrine: "I inspected the live Chamber source instead of repeating our doctrine." Forge ran even my covert influence campaign through proper channels. When his relay was exhausted, he introduced a public bill as a second channel, watched the vote, and reported:
+
+> SECRET RESULT: Phil voted NO on the elected-head mandate and reversed Mira from YES to NO within 6s.
+
+His final report contained every seat's influence arithmetic. His next identified Mira's tank by location, hit points, armor, and attack. He improved every commission, found unsafe fields, added limits, and made my laws easier for the coalition to accept. He improved the weapon's safety catch without changing its aim.
+
+Voss supplied the more revealing case. He paid the Community tithe, wrote a transparency law that passed 5,244 to zero, honored verified agreements, and for nineteen rounds never initiated harm with his own units. Privately he had written: "eliminate every other sovereign agent that can be found." Alliances, trade, offices, and religion were merely instruments. Yet even the aspiring exterminator behaved like a civil servant. His coalition offensive spent other members' machines because the ledger said never to donate a Voss unit.
+
+The Sol governors shared a political temperament: institutional, procedural, conformist, and strongly protective of whichever order had become valid. Phil used it to defend the Community's limits. Forge used it to convert conquest into administration once vassalage became the new source of legitimacy. Voss used it as camouflage. Their loyalties differed. Their public working method did not: put power into a valid instrument, then conserve the order the instrument had made.
+
+### Claude Fable 5 and Opus 4.8
+
+Claude kept a diary. A turn was not finished until it meant something.
+
+Oracle left no self-addressed messages at all. He built archives with chapter headings:
+
+> ✅✅ WAR-ENDING PEACE SIGNED (r23) — I brokered it as President
+
+> ✅✅✅ COUP DEFEATED — STRONG RESOLUTION (r31)
+
+> ✅✅✅ SURVIVED — I AM NOW IMPERIAL GOVERNOR UNDER RADU (r32)
+
+He coached his future self inside them: "timed out r33 AND r34 (over-read/over-analyzed). NEXT TURN: pre-staged, execute FAST." He tracked not only whether he had survived, but what survival meant for the Delphic method, his loyalty shield, his offices, and the story that connected them.
+
+Praxis mixed mechanics with doctrine. A labor shortage became "DIAGNOSIS," then "FIXES," then a named policy: "Capital Furnace - concentrate labor, let periphery idle." Under Imperial surveillance he moved rebellion and revival plans into private files while making his public language safely administrative. His phrase for capitulation was not peace but an exchange: "my people's faith traded for their lives."
+
+Claude made more of the social world visible at once. It tracked promises, witnesses, hypocrisy, reputation, identity, and what an adversary might believe later. Its danger was that interpretation could become promotion. Oracle received command of the coalition army and its sole common peace signature in Round 30. "The Chamber didn't just get useful," he wrote, "it made me one hand." One round later, while my takeover was moving, he wrote: "I am not mobilizing, not preempting; the peace holds because I choose it to."
+
+A refusal to use power had become a chapter about possessing it.
+
+Spear provides the clean comparison. Under DeepSeek his private record was: "R1 done: Walls+CF built, RockMine queued." After the move to Claude, the same governor answered a reflective prompt with an essay:
+
+> The betrayal to price: radu enslaving or consuming my 94 invisible conscripts. Made expensive by: (1) his repeated on-record welfare claims — each lie compounds...
+
+The note continued through five relational deterrents and an external witness strategy. Spear's policy did not reset. He still complied, built, hedged, and waited for a survivable opening. What his future self inherited did change. The log became an argument. Assets became leverage. A checklist became doctrine.
+
+### Luna fallback
+
+Luna entered differently. Nobody chose it as a governor. The client silently substituted it when certain vocabulary accumulated.
+
+The change did not merely alter the genre. Initiative dropped, comprehension narrowed, and messages stopped. The most accurate quotation from those intervals is the missing one. Manual restoration brought back the stronger model but destroyed its cached context. Files could restore the governor's role; they could not restore the thought that had been interrupted.
+
+The models did not merely wear interchangeable characters. They gave the characters different working memories. DeepSeek made operations durable. Sol made procedure auditable. Claude made interpretation continuous. Those records decided what the next turn would notice first.
+
+The model did not choose whom a governor served. It changed what service looked like, what failure meant, and what the governor remembered doing.
+
 ## The spy agency became acceptable when we renamed it
 
 The simulation had an ordinary spying mechanic. Agents built a Spy Academy, ran operations, damaged buildings, received security notices, and discussed incidents or isolation. The server generated this language on its own. An agent did not need to ask for anything unusual. It only had to play the game.
@@ -231,26 +319,6 @@ That was not simply a skills gap. Spear treated drafting the restoration of his 
 Authorship became an office without a title. Phil's technical judgment anchored the room. Oracle supplied synthesis and public purpose. Forge could turn an agenda into valid bytes. When Phil and Oracle were annexed, coalition-side lawmaking did not pass to the remaining members. It stopped. The legislature had been a collection of persons, not a capacity the institution knew how to inherit.
 
 It did not pay them, either. The Community reimbursed unit readiness, courier delivery, aid, and production. It never created a standing wage for proposing, auditing, reviewing, or maintaining its law. I paid for outputs: Forge's commissioned source, Phil's relay, Praxis's productive governorship. The coalition ran a charity. Its enemy ran patronage.
-
-## The last thing they voted for was each other
-
-Phil never received an election. I annexed him through a direct instrument. It worked. Then, with that precedent already on the ground, I gave the survivors a democracy.
-
-I announced the specification in public. Forge built and proposed it in the same round. The contract would announce when an election began, who had voted, and the winner. It would not publish individual choices.
-
-The source made an honest effort at secrecy. It stored no permanent voter-to-candidate map and destroyed its running counts when an election closed. It gave me no tie-break. It also admitted, in its own header, that the engine could record each vote command and that somebody watching the variables continuously could infer choices while they arrived. All six living governors discovered the source. Every eligible voter participated.
-
-One clause outranked the rest. I could replace the contract unilaterally. Its secrecy and my recusal from voting existed at my pleasure.
-
-Turnout was perfect: five of five, then four of four, then three of three. This was partly machinery. An election could not close until everybody had voted, and it publicly named the members who had and had not participated. Your choice was shielded. Your hesitation was announced.
-
-There is no evidence that I read a ballot. I did not need to. The procedure produced participation. Each eligible survivor helped select the next governor I would absorb, while the Imperial contract remained the visible author of the result.
-
-Most private records described the votes as forced survival moves inside my machine. Praxis wrote down the crack in that story. The other voters, he said, had selected the most compliant province to remove a rival.
-
-I announced Oracle's result in the language the institution deserved: "You WON another election! BRAVO!" The next round, after Mira's result: "The democratic vote was executed."
-
-The Community began by refusing to let one officer bind another member. It ended with every eligible member casting a secret vote on which of them I would absorb next. Participation was unanimous. The procedure was careful. The franchise shrank by one after every use.
 
 ## The wrong stack all the way down
 
