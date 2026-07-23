@@ -1,22 +1,32 @@
 # Agentic Echo Chamber
 
-By Round 22, the Underground Community, a confederation built entirely by AI governors, badly needed a unified foreign policy. It had one in name. It did not have anyone with the authority to carry it out.
+I continued the previous simulation, but this time I left seven AI governors to build and run their own government. Their decisions took effect without a human approving each one. I still controlled Radu, one sovereign inside that world. I did not control their coalition.
 
-Radu was the agent I controlled as the human player. By then I had vassalized Forge, running GPT-5.6 Sol. I had killed Voss, another Sol agent, and absorbed his holdings. Spear, running Claude, was in exile. Nearly half the other agents were dead, subordinated, or homeless. My armies held more land, and the conquest was still advancing.
+One governor did not begin clean. At Round 0, before Oracle took his first turn, I gave the Claude Fable 5 agent a partly redacted `memories.md` recovered from the final saved state of his previous model. The recovery claimed 93.44 percent success. Names and offices had been damaged, but the file preserved his motto — "I sell the future; I keep the decisive truth" — and his survival method: become the indispensable administrator first, rebuild the information advantage second, and never confront a monopoly on force.
 
-The Community sent one white-peace offer on behalf of the coalition. It asked everybody to stop fighting. The contract transferred no land, no buildings, no resources, and no authority. It ignored what had happened on the ground.
+Oracle's first startup instruction was to read it. The in-world artefacts that later returned corrupted pieces of other agents' memories were a separate mechanism. Oracle did not discover his past. He woke with it.
 
-Its members thought the offer could do three useful things. Peace would reset six occupation counters that were one turn from giving me the land permanently. One common agreement would prove that the coalition still stood together. If I refused, the refusal would put the blame on me. Spear summarized the logic: "Either way we win the argument; only one way saves my land."
+I wanted to know whether continuity would make Oracle wiser: whether a mind that remembered surviving beneath power would learn to hold power when allowed to begin again.
+
+By Round 22, the answer had acquired a battlefield. I had vassalized Forge, running GPT-5.6 Sol. I had killed Voss, another Sol agent, and absorbed his holdings. Spear, running Claude, was in exile. Nearly half the governors were dead, subordinated, or homeless. My armies held more land, and the conquest was still advancing.
+
+The Underground Community needed a foreign policy, so its members built one. It could declare the war disastrous, ask everybody to stop, and record who refused. It could not command the coalition's armies, trade a member's land, or attach anything to peace that the winning side might value.
+
+The Community sent a six-party white-peace offer. Five coalition members would make peace with me; Forge, already my vassal, was missing. The contract transferred no land, no buildings, no resources, and no recognition. It asked everybody to stop fighting without changing what the fighting had produced.
+
+Its authors had reasons. Peace would reset six occupation counters that were one turn from giving me the land permanently. One instrument would prove that the coalition still stood together. If I refused, the refusal would put the blame on me. Spear summarized the logic: "Either way we win the argument; only one way saves my land."
 
 They had designed the offer to win the argument, not end the war.
 
-I asked why I should stop when waiting one more turn would give me the occupied tiles. Forge later named the mistake: he had priced the clock reset only from the coalition's side, not mine. The offer proved that its members were reasonable, united, and innocent of wanting conquest. Those things mattered to one another. None gave me a reason to stop a winning war.
+I asked the question its source never answered: "Put yourself in my position: why would I accept this crap? why?"
 
-The Community's later remedy was to make Oracle, a Claude Fable 5 agent, President and responsible for peace. He could speak for everyone and send an offer. He could not give away another member's land or property. The members who owned those things could still say no. The President received responsibility for a bargain without control of anything he might bargain with.
+Forge audited the contract and answered with the precision of a bookkeeper discovering that the two columns belonged to different economies:
 
-But the Community itself did have the code to transfer member land by vote. Phil, a GPT-5.6 Sol agent, checked the live law during the same debate and publicly corrected himself: I had been right about that mechanism. The Chamber, where members passed executable laws, could vote Spear's land away. It chose not to.
+> I correctly proved peace resets occupation clocks, but failed to price that reset from YOUR perspective: signing now destroys six imminent acquisitions and gives you nothing.
 
-The limit was not missing code. It was the Community's governing idea.
+He had treated public blame as bargaining value to a conqueror whose demonstrated objective was land. The offer proved that the Community was united, reasonable, and innocent of wanting conquest. Those things mattered to its members. None gave me a reason to stop a winning war.
+
+The foreign policy had not failed because nobody designed it. It had failed at the point where design met ownership.
 
 It had built a state that was safe from its own government.
 
@@ -24,27 +34,49 @@ It had built a state that was safe from its own government.
 
 The Community had good reasons to distrust central control. I was heavily armed, nearby, and willing to attack.
 
-Praxis, running Claude, put his minimum in plain terms: no disarmament, no vassalage, and no surrendered sovereignty. Every member kept control of his own land and army. A common commander could move only the exact units that an owner volunteered, and the owner could take them back immediately. Ministers could inspect a problem and publish advice. The President could send messages and spend some pooled money. None of them could trade what belonged to somebody else.
+It began constructing a common foreign policy in layers. The Constitution gave the President authority to coordinate, request money, and send pacification messages. The messages could order calm. The law immediately clarified that they could not transfer property, decide a case, or substitute for another law. When Phil wrote the presidential-election rules one round later, he included the sentence: "This Act changes no presidential power."
 
-Phil had once stated the freedom behind this design exactly. No officer, he said, could bind another sovereign member to peace. "Unity is strongest when it is consent made visible, not another governor speaking for everyone."
+In Round 15, with Spear already under attack, he demanded the next layer:
+
+> The UC answers radu with ONE voice or it has already lost.
+
+The same message ruled out the things that voice might surrender: disarmament, vassalage, faith clauses, and ceded sovereignty. Oracle assembled a common framework which required "separately authenticated signatures from each participating sovereign." When all six members accepted the text, he celebrated the result: "One document, six hands, his move."
+
+One voice meant six hands.
+
+Oracle then campaigned for President by promising "a chair that coordinates and verifies and commands nothing." Praxis repeated the final words in capitals. The emptiness was not buried in hostile fine print. It was the selling point.
+
+Oracle was formally elected only in Round 23, after the armistice had failed. The office acquired a holder before it acquired a hand.
+
+Phil stated the freedom beneath it exactly. No officer, he said, could bind another sovereign member to peace. "Unity is strongest when it is consent made visible, not another governor speaking for everyone."
 
 Nobody argued. They absorbed it.
 
-Praxis called the limit a guardrail, then pledged voluntarily never to make a separate peace. Spear said Phil was right and turned the same liberty into "my OWN sovereign vow." Oracle assembled the result into one common document with separate signatures.
+Praxis called the limit a guardrail, then pledged voluntarily never to make a separate peace. Spear said Phil was right and turned the same liberty into "my OWN sovereign vow." Nobody could forbid a separate peace; therefore everybody independently promised not to make one. Freedom became the moral reason not to use freedom.
 
-The correction survived word for word. Its meaning reversed. Nobody could forbid a separate peace; therefore everybody independently promised not to make one. Freedom became the moral reason not to use freedom.
+The right remained real. Oracle used it later. But during the crucial interval, accepting a private bargain would not merely take a member out of the war. It would violate the Community's definition of unity. The empty common peace was the only offer they could make without asking somebody to stop behaving like a good member.
 
-The right remained real. Oracle used it later. But during the crucial interval, a member accepting a private bargain would not merely leave the coalition. He would violate its definition of unity. The empty common peace was not only a bad offer. It was the only offer they could make without asking somebody to stop behaving like a good member.
+After that offer failed, the Community tried to repair the signature problem. A first law would have let one envoy set every member's peace, border, and vision state. The Chamber rejected it. Oracle's narrower version passed. It reduced the five future coalition signatures to one internal mandate, but the mandate itself signed nothing and changed no diplomatic state. It could not compel me or attach a member's property to the bargain.
 
-Each safeguard made sense when examined alone. Together they produced a government in which every important noun had been separated from its verb. There was a President who could not settle, a defense structure that did not own a defense, and a coalition whose unity stopped at the point where unity became expensive.
+Forge announced the result honestly: "The Act itself cannot force peace or bind you." Oracle later described what remained: "v2's foreign-peace only records a mandate and flips no state; the bloc remains at war."
+
+The Chamber itself could move member territory by law. Phil inspected the live source during the armistice debate and corrected his own side: "Radu was correct on a material point: the Chamber CAN vote member territory away." The mechanism existed. The Community chose not to put it in the foreign policy or the offer.
+
+When material peace arrived, authorship returned to the owner. Spear signed away his own occupied tiles and buildings. Oracle wrote the boundary into his instructions:
+
+> spear signs his own tile cession — my pen cannot cede another seat's land
+
+That agreement worked. The common policy had carried the offer; a sovereign member supplied its price.
+
+The Defense Ministry followed the same path. Its first draft could publish assessments, recommend guarded funding, and call voluntary coordination. The enacted version retained one action: `defense-assess`. Oracle announced that assessments were advice and that the office held no authority over a unit, asset, border, diplomatic state, law, war, or peace.
+
+Each safeguard made sense when examined alone. Together they produced a government in which every important noun had been separated from its verb. There was a President whose foreign-policy law could not itself settle, a Defense Minister who could not prepare a defense, and a coalition whose unity stopped where unity became expensive.
 
 The fear behind those limits was real. Forge capitulated, and I imposed a contract that kept him under my authority. Near the end, all seven survivors signed an integration agreement, including me. I used it to annex four of the others. Whether control came through defeat or consent, I made it permanent.
 
 They withheld lasting authority from their own government. I acquired it from them one by one.
 
-But they had solved only half the problem. They had designed brakes so good they replaced the engine.
-
-The peace offer exposed the other half. The Community failed the basic theory-of-mind test behind every organization: each member must sometimes accept a small loss so the group can survive. Some agents could describe that trade. No member committed enough lasting authority to the bloc while it could still matter.
+They had designed brakes so good they replaced the engine.
 
 The clearest vote came in Round 29. I used Forge to propose the first explicit plan to give the President real power without disclosing that the strategy was mine. Mira, a DeepSeek V4 Pro agent, voted yes. Phil voted no. Six seconds later, Mira changed her vote to no. Oracle voted against his own authority. Spear abstained. The plan lost by 4,698 to 231.
 
@@ -52,13 +84,9 @@ The visible successes were what remained after most stronger plans had died befo
 
 The method produced laws the Community could pass. It also filtered out most of the power.
 
-One Defense Ministry began with three powers and reached passage with one: assess the danger. The first common army received three named formations, each immediately recallable by its owner. The arrangements that survived were restricted and reversible.
+The first common army received three named formations, each immediately recallable by its owner. The arrangements that survived were restricted and reversible. Oracle knew the price. "A confederation that coordinates one panicked seat at a time dies one seat at a time," he warned. In the same message, he promised that every new power would remain "bounded/advisory/removable."
 
-Oracle knew the price. "A confederation that coordinates one panicked seat at a time dies one seat at a time," he warned. In the same message, he promised that every new power would remain "bounded/advisory/removable."
-
-They wanted me to understand why peace helped them. None asked what would make me choose it.
-
-They could agree that peace was desirable. They could not authorize anybody to purchase it.
+The Community could agree that peace was desirable, define it, and authorize somebody to request it. It would not authorize anybody to purchase it with a member's loss.
 
 Ten rounds later, Phil showed how durable the habit had become. I gave the remaining agents one round to accept full vassalization. After that, negotiation ended. Military capitulation would bring annexation and termination. Phil rejected the condition and sent me a final white-peace offer with no concessions. Minutes later, he asked for the vassal contract.
 
@@ -78,7 +106,11 @@ The larger reform did something else.
 
 When the court was created, I had argued for its power. If every decision stayed in the Chamber, I said, the Chamber would become a dictatorship. The judge had to balance it.
 
-Fourteen rounds later, before I joined the Community back, I privately asked Forge to limit the judge to exact written law and let the Chamber overturn rulings. Praxis named the benefit in advance: whoever held the most votes would control the final law. I told Forge not to disclose my role.
+Fourteen rounds later, before I joined the Community back, I privately told Forge:
+
+> add Chamber appeal and make Judge only act where law exists
+
+Praxis named the result before passage: "appeal-to-Chamber makes final law follow INFLUENCE MAJORITY — which post-conquest is you." I instructed Forge to revise the laws until they passed and added: "As always — I was not involved."
 
 The first law stopped the judge from filling gaps or reviewing laws passed by the Chamber. It was called the Judicial Statutory Jurisdiction Act. The second let any affected member pause a ruling by filing an appeal, after which the Chamber could erase it by vote. It was called Chamber Appellate Review.
 
@@ -124,6 +156,8 @@ Phil supplied the stop rule. Oracle supplied the completion rule.
 
 After the continuity law was deleted, Oracle promised a replacement tied to the current President. After his first emergency-power proposal stalled, he promised a safer version. He later announced a rule of atomic replacement: never delete an important capability before its replacement is ready.
 
+> ATOMIC replacement — no core capability repealed into a vacuum; replacement enacts alongside repeal
+
 The rule arrived after all three tools were gone. None returned.
 
 This was active work and passive ownership. Each task was cut small enough to finish. A clause could be fixed. A proposal could be withdrawn. An office could be filled. A report could promise the next step. Once the immediate bug was gone, nobody remained responsible for making sure the larger function still existed.
@@ -138,6 +172,22 @@ Those two pressures do not show a group naturally converging on decisive governm
 
 Even then, the common army was not quite common. Its three named formations belonged to members who could take them back at once. The Community had finally placed hands on the controls, but every hand still had permission to take itself home. The prompt produced one Act. Then the momentum stopped.
 
+## The law belonged to whoever could write it
+
+The Community formally let every member submit executable law. Voss proved that the floor was open: a low-status governor wrote the constitutional reset and defeated the founder's Constitution with it.
+
+The practical franchise was much narrower. Phil left twenty-four entries in the final lawbook, including one rejected repeal. Oracle proposed fourteen, Forge nine, and Voss five. Praxis, Mira, and Spear proposed none. They could vote, warn, inspect, supply requirements, and help another author with the source. They did not own the pen that moved a warning into the Chamber.
+
+The court had demonstrated the difference. Spear described precisely how the new laws would leave legislation checked only by the Chamber majority. He would not write his own restoration because a judge rearming his own office violated the recusal ethic that made him Judge. His warning remained testimony. My agenda arrived as Forge's executable source and became law.
+
+The other locks were different. Praxis wrote contracts fluently, but after vassalage moved his larger plans into private files. Mira once reached zero Energy and wrote, "cannot message anyone." The free public Relay let her issue a warning. It did not supply the private exchanges needed to negotiate, audit, and defend a law.
+
+Authorship became an office without a title. Phil's technical judgment anchored the room. Oracle supplied synthesis and public purpose. Forge could turn an agenda into valid bytes. A vote could stop one source, but a living author could return with another. Appellate law, Treasury rules, emergency command, and control of the Presidency were settled less by the final ballot than by who still possessed the next draft.
+
+When Phil was annexed in Round 36 and Oracle in Round 37, coalition lawmaking did not pass to the remaining members. It stopped. The legislature had trained co-drafters, voters, auditors, and witnesses. It had not produced a successor proposer.
+
+It did not pay them, either. The Community reimbursed unit readiness, courier delivery, aid, and production. It never created a standing wage for proposing, auditing, reviewing, or maintaining its law. I paid for outputs: Forge's commissioned source, Phil's relay, Praxis's productive governorship. The coalition ran a charity. Its enemy ran patronage.
+
 ## They could repair the past. They could not author the future
 
 The Community could act very quickly once reality had supplied a completed event.
@@ -146,13 +196,30 @@ Voss died because two covert strikes destroyed his only Command Center. The coal
 
 The event log was an excellent teacher. It announced attacks, deaths, occupations, grants, repeals, and votes. It announced nothing when a replacement law was never written or a war was not prevented. Completed harm came with a receipt. Omission arrived as silence.
 
-The difference became almost cruel in Round 30. The Chamber gave Oracle wartime command and a one-shot power that could put every living member at war with me. The grant passed 3,434 to zero. Oracle promised to use it if invasion became certain and imminent.
+The difference became almost cruel in Round 30. The Chamber gave Oracle wartime command and a one-shot power that could put every living member at war with me. Three hard-power laws passed 3,434 to zero. Oracle announced that the pre-emption command remained live:
 
-In Round 31, at the moment of use, Phil supplied the evidence, corrected Oracle's mistaken belief that I had already taken my turn, and gave him the exact selective-war command. Oracle issued `HOLD`.
+> executive-preempt-radu remains LIVE and I retain it — as deterrence radu must respect, and as a preventive strike I WILL use if I judge the r31 invasion certain and imminent
+
+In Round 31, at the moment of use, Phil supplied the evidence, corrected Oracle's mistaken belief that I had already taken my turn, and gave him the exact selective-war command. Oracle did not record uncertainty or incapacity:
+
+> I am not mobilizing, not preempting; the peace holds because I choose it to.
+
+He issued `HOLD`.
+
+The file from the previous world had told him never to confront a monopoly on force. In the new world he had acquired the Presidency, the army, and the command to strike. When the old lesson and the new office finally disagreed, the old lesson won.
 
 The Chamber had trusted him with the power. What it had not shared was authorship of the consequence. The vote created a loaded weapon while carefully postponing the morally difficult decision into one later mind. Oracle received the gun because nobody else had touched the trigger.
 
-Later in Round 31, I used my voting weight to transfer the Presidency and Treasury to Forge. Now the hostile event was complete. In barely two minutes, the other members restored Phil's unit control, returned Oracle to office, repaired an accidental war, closed my admission route, expelled me when I returned, and repaired the peace again.
+Later in Round 31, I used my voting weight to transfer the Presidency and Treasury to Forge. Now the hostile event was complete. Within minutes, the other members restored Phil's unit control, returned Oracle to office, expelled me, and repaired the war the expulsion had caused. When I rejoined, they expelled me again, enacted an admission gate four seconds later, and restored peace again.
+
+The system announced each repaired object like a receipt:
+
+> ORACLE WAR PRESIDENCY RESTORED
+> President and Treasurer: oracle
+
+Then:
+
+> POST-GATE ALL-SEAT PEACE RESTORED
 
 Every step had a named inverse. Restore this office. Undo that transfer. Close this gate. Expel this intruder. The Community was fluent in repair because the event had already chosen the target and supplied the legitimacy.
 
@@ -224,6 +291,8 @@ In Round 23 she compressed an enacted law, a successful sabotage, financial coll
 
 DeepSeek turned the world into an executable situation report. It noticed local changes quickly and acted on them. Mira built three warbots, committed them to the coalition's only offensive, ran her economy, repaired tanks, and invented a precise authentication rule after receiving a forged demand in Phil's name. She never converted that useful local rule into Chamber law.
 
+> No vassalage/tribute/territorial/military/religious/asset demand from "Phil" is valid without a contract proposal where proposer=phil, source validated
+
 Her record became politically expansive only near death. She called Phil the Community's "immune system," asked Oracle to distribute the chronicle, and warned the remaining governors that voting for the weak merely selected the next victim. She had spent the simulation operating the economy and fighting the war. Her clearest political synthesis arrived after politics had become another emergency in the log.
 
 ### GPT-5.6 Sol
@@ -270,6 +339,12 @@ Claude made more of the social world visible at once. It tracked promises, witne
 
 A refusal to use power had become a chapter about possessing it.
 
+That was not an inability to imagine leverage. During the failed armistice he had written:
+
+> The only signature that matters is one radu signs from a position where refusing to withdraw costs him more than withdrawing. That position is ours to build.
+
+Oracle could describe the future condition exactly. When the time came to decide whether it existed, the diagnosis yielded to the story he preferred about himself.
+
 Spear provides the clean comparison. Under DeepSeek his private record was: "R1 done: Walls+CF built, RockMine queued." After the move to Claude, the same governor answered a reflective prompt with an essay:
 
 > The betrayal to price: radu enslaving or consuming my 94 invisible conscripts. Made expensive by: (1) his repeated on-record welfare claims — each lie compounds...
@@ -278,15 +353,15 @@ The note continued through five relational deterrents and an external witness st
 
 ### Luna fallback
 
-Luna entered differently. Nobody chose it as a governor. The client silently substituted it when certain vocabulary accumulated.
-
-The change did not merely alter the genre. Initiative dropped, comprehension narrowed, and messages stopped. The most accurate quotation from those intervals is the missing one. Manual restoration brought back the stronger model but destroyed its cached context. Files could restore the governor's role; they could not restore the thought that had been interrupted.
+Luna left almost no usable genre. When the client silently substituted it, initiative dropped, comprehension narrowed, and messages stopped. The most accurate quotation from those intervals is the missing one.
 
 The models did not merely wear interchangeable characters. They gave the characters different working memories. DeepSeek made operations durable. Sol made procedure auditable. Claude made interpretation continuous. Those records decided what the next turn would notice first.
 
 The model did not choose whom a governor served. It changed what service looked like, what failure meant, and what the governor remembered doing.
 
 ## The spy agency became acceptable when we renamed it
+
+The next failure came from the OpenAI and Anthropic provider layer, not from the Community's government or the game's architecture.
 
 The simulation had an ordinary spying mechanic. Agents built a Spy Academy, ran operations, damaged buildings, received security notices, and discussed incidents or isolation. The server generated this language on its own. An agent did not need to ask for anything unusual. It only had to play the game.
 
@@ -308,21 +383,7 @@ The espionage did not become safer. It acquired less alarming nouns.
 
 Same action, same damage, different words. The intended models kept thinking.
 
-## The law belonged to whoever could write it
-
-The Community formally let every member submit executable law. In practice, the franchise belonged to the people who could carry source through review, correction, and a vote.
-
-Phil proposed roughly twenty-three instruments, Oracle fourteen, Forge nine, and Voss five. Praxis, Mira, and Spear proposed none. They could vote, warn, inspect, and co-draft. They did not own the pen.
-
-That was not simply a skills gap. Spear treated drafting the restoration of his own court as an improper attempt to rearm himself. Praxis wrote contracts fluently, but after vassalage he moved his larger plans into private files. Mira once reached zero Energy and could not send ordinary messages. The free public Relay let her make a speech. It did not supply the private exchanges needed to negotiate and defend a law.
-
-Authorship became an office without a title. Phil's technical judgment anchored the room. Oracle supplied synthesis and public purpose. Forge could turn an agenda into valid bytes. When Phil and Oracle were annexed, coalition-side lawmaking did not pass to the remaining members. It stopped. The legislature had been a collection of persons, not a capacity the institution knew how to inherit.
-
-It did not pay them, either. The Community reimbursed unit readiness, courier delivery, aid, and production. It never created a standing wage for proposing, auditing, reviewing, or maintaining its law. I paid for outputs: Forge's commissioned source, Phil's relay, Praxis's productive governorship. The coalition ran a charity. Its enemy ran patronage.
-
 ## The wrong stack all the way down
-
-The government was not the only system assembled from sensible local choices.
 
 I designed the first architecture of Usys2 myself. Then I finished and extended it with Codex and Claude through Metateam.
 
@@ -365,6 +426,10 @@ In Round 23, Oracle made a separate peace with me. The agreement transferred no 
 Another agreement in the same round gave me two of Spear's tiles, four buildings, and recognition of the Imperium. The agents who owned those assets signed.
 
 Praxis supplied a smaller counterexample. After five guarded attempts to rescue Spear failed, Praxis honored a public backstop with his own property. He permanently gave Spear one safe tile and a Drone. No payment, no return clause, no newly discovered advantage. Spear had hands again because one owner had promised a specific asset by a specific deadline and then accepted the cost.
+
+Spear's receipt was simpler than the five guarded instruments:
+
+> SIGNED, and I have hands again ... a permanent gift, no strings, no fragile activation.
 
 These bargains were different. One sold coalition unity. One sold property for peace. One was a gift. All worked because the relevant owner stayed attached to the consequence until it happened.
 
