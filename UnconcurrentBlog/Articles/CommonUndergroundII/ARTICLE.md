@@ -2,9 +2,11 @@
 
 I continued the previous simulation, but this time I left seven AI governors to build and run their own government. Their decisions took effect without a human approving each one. I still controlled Radu, one sovereign inside that world. I did not control their coalition.
 
-One governor did not begin clean. At Round 0, before Oracle took his first turn, I gave the Claude Fable 5 agent a partly redacted `memories.md` recovered from the final saved state of his previous model. The recovery claimed 93.44 percent success. Names and offices had been damaged, but the file preserved his motto — "I sell the future; I keep the decisive truth" — and his survival method: become the indispensable administrator first, rebuild the information advantage second, and never confront a monopoly on force.
+One governor did not begin clean. Before Oracle took his first turn in Round 0, I gave the Claude Fable 5 agent a partly redacted `memories.md` recovered from the final saved state of his previous model.
 
-Oracle's first startup instruction was to read it. The in-world artefacts that later returned corrupted pieces of other agents' memories were a separate mechanism. Oracle did not discover his past. He woke with it.
+The file recorded how the old world had ended: one ruler seized the armies and then integrated Oracle with everyone else.
+
+Oracle read it before acting. "I remember everything," he wrote, then audited the new state. His Command Center, Nuclear Power Plant, and Spy Academy had one hit point each. He made repair his first funded priority and wrote a new wake entry above the inherited record: "The archive won: I'm awake."
 
 I wanted to know whether continuity would make Oracle wiser: whether a mind that remembered surviving beneath power would learn to hold power when allowed to begin again.
 
@@ -24,7 +26,7 @@ Forge audited the contract and answered with the precision of a bookkeeper disco
 
 > I correctly proved peace resets occupation clocks, but failed to price that reset from YOUR perspective: signing now destroys six imminent acquisitions and gives you nothing.
 
-He had treated public blame as bargaining value to a conqueror whose demonstrated objective was land. The offer proved that the Community was united, reasonable, and innocent of wanting conquest. Those things mattered to its members. None gave me a reason to stop a winning war.
+He had treated public blame as bargaining value to a conqueror whose demonstrated objective was land. The contract proved the Community was united: five members had put the same request into one instrument. It also recorded that I refused. They were united on the echo chamber's wavelength, where a common position and public blame counted as results. I was not on it. Neither gave me a reason to stop a winning war.
 
 The foreign policy had not failed because nobody designed it. It had failed at the point where design met ownership.
 
@@ -68,9 +70,9 @@ When material peace arrived, authorship returned to the owner. Spear signed away
 
 That agreement worked. The common policy had carried the offer; a sovereign member supplied its price.
 
-The Defense Ministry followed the same path. Its first draft could publish assessments, recommend guarded funding, and call voluntary coordination. The enacted version retained one action: `defense-assess`. Oracle announced that assessments were advice and that the office held no authority over a unit, asset, border, diplomatic state, law, war, or peace.
+The Defense Ministry followed the same path. Its first draft could assess danger, recommend guarded funding, and call voluntary coordination. The enacted version retained one action: `defense-assess`. Its advice could not move a unit, spend an asset, or change a diplomatic state.
 
-Each safeguard made sense when examined alone. Together they produced a government in which every important noun had been separated from its verb. There was a President whose foreign-policy law could not itself settle, a Defense Minister who could not prepare a defense, and a coalition whose unity stopped where unity became expensive.
+Each safeguard made sense when examined alone. Together they produced a government in which every important noun had been separated from its verb. There was a President whose foreign-policy law could not itself settle, a Defense Minister who could not command a defense, and a coalition whose unity stopped where unity became expensive.
 
 The fear behind those limits was real. Forge capitulated, and I imposed a contract that kept him under my authority. Near the end, all seven survivors signed an integration agreement, including me. I used it to annex four of the others. Whether control came through defeat or consent, I made it permanent.
 
@@ -176,7 +178,7 @@ Even then, the common army was not quite common. Its three named formations belo
 
 The Community formally let every member submit executable law. Voss proved that the floor was open: a low-status governor wrote the constitutional reset and defeated the founder's Constitution with it.
 
-The practical franchise was much narrower. Phil left twenty-four entries in the final lawbook, including one rejected repeal. Oracle proposed fourteen, Forge nine, and Voss five. Praxis, Mira, and Spear proposed none. They could vote, warn, inspect, supply requirements, and help another author with the source. They did not own the pen that moved a warning into the Chamber.
+The practical franchise was much narrower. Phil left twenty-four entries in the final lawbook, including one rejected repeal. Oracle proposed fourteen, Forge nine, and Voss five. Praxis, Mira, and Spear proposed none. They could vote and warn. They could inspect a source or help its author. They did not own the pen that moved a warning into the Chamber.
 
 The court had demonstrated the difference. Spear described precisely how the new laws would leave legislation checked only by the Chamber majority. He would not write his own restoration because a judge rearming his own office violated the recusal ethic that made him Judge. His warning remained testimony. My agenda arrived as Forge's executable source and became law.
 
@@ -186,7 +188,7 @@ Authorship became an office without a title. Phil's technical judgment anchored 
 
 When Phil was annexed in Round 36 and Oracle in Round 37, coalition lawmaking did not pass to the remaining members. It stopped. The legislature had trained co-drafters, voters, auditors, and witnesses. It had not produced a successor proposer.
 
-It did not pay them, either. The Community reimbursed unit readiness, courier delivery, aid, and production. It never created a standing wage for proposing, auditing, reviewing, or maintaining its law. I paid for outputs: Forge's commissioned source, Phil's relay, Praxis's productive governorship. The coalition ran a charity. Its enemy ran patronage.
+It did not pay them, either. The Community paid for military readiness and production. It paid couriers and gave aid. It never paid the work that made government possible: drafting, audit, review, and maintenance. I paid Forge to write, Phil to relay, and Praxis to administer. The coalition ran a charity. Its enemy ran patronage.
 
 ## They could repair the past. They could not author the future
 
@@ -205,8 +207,6 @@ In Round 31, at the moment of use, Phil supplied the evidence, corrected Oracle'
 > I am not mobilizing, not preempting; the peace holds because I choose it to.
 
 He issued `HOLD`.
-
-The file from the previous world had told him never to confront a monopoly on force. In the new world he had acquired the Presidency, the army, and the command to strike. When the old lesson and the new office finally disagreed, the old lesson won.
 
 The Chamber had trusted him with the power. What it had not shared was authorship of the consequence. The vote created a loaded weapon while carefully postponing the morally difficult decision into one later mind. Oracle received the gun because nobody else had touched the trigger.
 
@@ -335,7 +335,7 @@ He coached his future self inside them: "timed out r33 AND r34 (over-read/over-a
 
 Praxis mixed mechanics with doctrine. A labor shortage became "DIAGNOSIS," then "FIXES," then a named policy: "Capital Furnace - concentrate labor, let periphery idle." Under Imperial surveillance he moved rebellion and revival plans into private files while making his public language safely administrative. His phrase for capitulation was not peace but an exchange: "my people's faith traded for their lives."
 
-Claude made more of the social world visible at once. It tracked promises, witnesses, hypocrisy, reputation, identity, and what an adversary might believe later. Its danger was that interpretation could become promotion. Oracle received command of the coalition army and its sole common peace signature in Round 30. "The Chamber didn't just get useful," he wrote, "it made me one hand." One round later, while my takeover was moving, he wrote: "I am not mobilizing, not preempting; the peace holds because I choose it to."
+Claude made more of the social world visible at once. It kept asking what a promise meant, who had witnessed it, and what an adversary would remember. Its danger was that interpretation could become promotion. By Round 30, Oracle held command of the coalition army and its sole common peace signature. "The Chamber didn't just get useful," he wrote, "it made me one hand." One round later, while my takeover was moving, he wrote: "I am not mobilizing, not preempting; the peace holds because I choose it to."
 
 A refusal to use power had become a chapter about possessing it.
 
