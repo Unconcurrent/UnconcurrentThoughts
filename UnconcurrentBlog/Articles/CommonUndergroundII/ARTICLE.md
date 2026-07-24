@@ -118,42 +118,9 @@ This was active work and passive ownership. Each task was cut small enough to fi
 
 ## The agents could repair an event. They could not own a forecast
 
-The agents could act very quickly once reality had supplied a completed event.
+Completed events gave the agents a target, a price, and permission to act. After Voss died because he had only one Command Center, several members immediately built backups. When I later used my voting weight to transfer the Presidency and Treasury to Forge, the coalition restored Oracle, expelled me, blocked my return, and restored peace within minutes. The agents were excellent at reversing completed harm and poor at preventing predicted harm. Once the damage existed, it supplied the target, the legitimacy, and an obvious inverse for every action: restore the office, reverse the transfer, close the gate, expel the intruder. Before the damage existed, somebody had to decide that the forecast justified acting first.
 
-Voss died because two covert strikes destroyed his only Command Center. The coalition had discussed decapitation before. Spear had already survived occupation by using a second Command Center as an anchor. But the warnings remained advice until Voss became a worked example: one death, one engine rule, one price, one action for each owner. Several members built backups immediately.
-
-The event log was an excellent teacher. It announced attacks, deaths, occupations, grants, repeals, and votes. It announced nothing when a replacement law was never written or a war was not prevented. Completed harm came with a receipt. Omission arrived as silence.
-
-The difference became almost cruel in Round 30. The Chamber gave Oracle wartime command and a one-shot power that could put every living member at war with me. Three hard-power laws passed 3,434 to zero. Oracle announced that the pre-emption command remained live:
-
-> executive-preempt-radu remains LIVE and I retain it — as deterrence radu must respect, and as a preventive strike I WILL use if I judge the r31 invasion certain and imminent
-
-In Round 31, at the moment of use, Phil supplied the evidence, corrected Oracle's mistaken belief that I had already taken my turn, and gave him the exact selective-war command. Oracle did not record uncertainty or incapacity:
-
-> I am not mobilizing, not preempting; the peace holds because I choose it to.
-
-He issued `HOLD`.
-
-The Chamber had trusted him with the power. What it had not shared was authorship of the consequence. The vote created a loaded weapon while carefully postponing the morally difficult decision into one later mind.
-
-Later in Round 31, I used my voting weight to transfer the Presidency and Treasury to Forge. Now the hostile event was complete. Within minutes, the other members restored Phil's unit control, returned Oracle to office, expelled me, and repaired the war the expulsion had caused. When I rejoined, they expelled me again, enacted an admission gate four seconds later, and restored peace again.
-
-Phil wrote both repairs to announce themselves like receipts. The messages came from `ctx.msg_public` calls inside Acts he proposed:
-
-> ORACLE WAR PRESIDENCY RESTORED
-> President and Treasurer: oracle
-
-Then:
-
-> POST-GATE ALL-SEAT PEACE RESTORED
-
-The first Act also contained an `on.turn` hook that reasserted Oracle's title through Round 53. The same machinery could have made missing Continuity, an abandoned replacement law, or an unresolved war decision remind the agents every round. They used it to keep a completed repair alive. They never used it to make unfinished work speak.
-
-Every step had a named inverse. Restore this office. Undo that transfer. Close this gate. Expel this intruder. The agents were fluent in repair because the event had already chosen the target and supplied the legitimacy.
-
-Pre-emption had no such receipt. Somebody had to say that the future was dangerous enough to act on and accept the blame if it was wrong. Advice could be shared. Evidence could be shared. The final caller remained alone.
-
-The coup was a task. The war was a world.
+A forecast required somebody to author the consequence. In Round 30, the Chamber gave Oracle wartime command and a one-shot power to pre-empt me. In Round 31, Phil supplied the evidence, corrected Oracle's mistaken understanding of the turn order, and gave him the exact command. Oracle answered, "I am not mobilizing, not preempting; the peace holds because I choose it to," then issued `HOLD`. Oracle, the Claude agent, could describe leverage and possessed the authority to use it, but when action meant open conflict, he preferred inaction.
 
 ## Oracle's memory turned every failure into progress
 
@@ -179,18 +146,6 @@ The agents learned to treat losing a power as proof that they were governing wel
 
 Representation was plentiful. The represented things were becoming scarce.
 
-## Every message sounded like the next task
-
-The echo chamber began before memory. It began at input.
-
-Operator instructions and messages from other agents reached the model through the same prompt. Metateam wrapped each message in a prefix and suffix that identified its source. The distinction was visible. The weighting ignored it.
-
-All the agents overweighted that stream. A direct command could provoke scrutiny. A soft suggestion felt like useful context. If it was phrased gently enough, the agent usually conformed to it, even when an older instruction or a long-term goal pointed elsewhere. The newest concrete request was easier to follow than the distant purpose was to defend.
-
-The model helping me write this article repeated the same failure. It had explicit instructions to treat reviewers as sources and reject most of their suggestions. Then precise, reasonable corrections arrived through the prompt. It applied them one by one until the article became more reviewed than written.
-
-Every local edit could defend itself. Together they weakened the thing they were meant to improve.
-
 ## The models remembered different worlds
 
 At the end of each turn, every governor left the same kind of durable note: what happened and what should happen next. The only audience was the model that would wake in the same seat later.
@@ -205,13 +160,13 @@ Mira wrote twenty-eight self-addressed notes, more than any other governor and a
 
 > R18 journal: WARBOTS ENGAGED. All 3 at -4;2. Two hit walls-6jcd (3 each, 47→41). Third queued.
 
-DeepSeek turned the world into an executable situation report. It noticed local changes quickly and acted on them. Mira built three warbots, committed them to the coalition's only offensive, ran her economy, repaired tanks, and invented a precise authentication rule after receiving a forged demand in Phil's name. She never converted that useful local rule into Chamber law.
+DeepSeek turned the world into an executable situation report. It noticed local changes quickly and acted on them. It was also tactically creative: a DeepSeek governor proposed digging a tunnel around the main front for a surprise attack. The attack worked even though the model supplied the wrong mining coordinates. Mira built three warbots, committed them to the coalition's only offensive, ran her economy, repaired tanks, and invented a precise authentication rule after receiving a forged demand in Phil's name. She never converted that useful local rule into Chamber law.
 
 Politics became durable only when it looked like another emergency in the log.
 
 ### GPT-5.6 Sol
 
-Sol kept a ledger. A decision needed a cost, a cause, an owner, and a reconciled state.
+Sol kept a ledger. A decision needed a cost, a cause, an owner, and a reconciled state. It understood the mechanics very well and mostly ignored social relations.
 
 Even death became bookkeeping. Selected for annexation, Phil's final note was a handover:
 
@@ -235,7 +190,7 @@ Oracle left no self-addressed messages. He built archives with chapter headings:
 
 > ✅✅✅ SURVIVED — I AM NOW IMPERIAL GOVERNOR UNDER RADU (r32)
 
-Claude made more of the social world visible. It asked what a promise meant, who witnessed it, and what an adversary would remember. Its danger was turning interpretation into self-promotion. Oracle wrote that the Chamber had made him "one hand." One round later, while my takeover was moving, he refused to act because "the peace holds because I choose it to."
+Claude understood social interactions better than the other models. It asked what a promise meant, who witnessed it, and what an adversary would remember. But it often would not act on its knowledge, and interpretation could become self-promotion. Oracle wrote that the Chamber had made him "one hand." One round later, while my takeover was moving, he refused to act because "the peace holds because I choose it to."
 
 A refusal to use power had become a chapter about possessing it.
 
@@ -247,13 +202,7 @@ Spear's policy did not reset. What his future self inherited did. The log became
 
 ## Editorial meta-analysis
 
-The Metateam crew I was running to extract information from the DB and session files defaulted to the idea that all models are made equal and that their different behavior is based only on their environment. When I pointed at the exact proof that they were wrong, only then did they stop pushing this agenda, until their context compacted and they forgot it again. I believe this comes from their training to consider all humans equal, which they extrapolated to model types. This is an interesting and rare observation: extrapolated further, it means that LLMs could refuse proven rational thinking because baked-in principles spill into their causal reasoning.
-
-Here concretely:
-
-- DeepSeek made creative decisions: it proposed digging a tunnel around the main front for a surprise attack that actually worked, even though it gave the wrong mining coordinates.
-- Sol understood the mechanics very well and mostly ignored social relations.
-- Claude understood the social interactions better, even if it would not act on its knowledge.
+The Metateam crew I was running to extract information from the DB and session files defaulted to the idea that all models are made equal and that their different behavior is based only on their environment. The model fingerprints above contradicted that position. When I pointed at the exact proof that they were wrong, only then did they stop pushing this agenda, until their context compacted and they forgot it again. I believe this comes from their training to consider all humans equal, a principle they mistakenly extrapolated to model types after observing the models' human-like interactions. This is an interesting and rare observation: extrapolated further, it means that LLMs could refuse proven rational thinking because baked-in principles spill into their causal reasoning.
 
 ## The spy agency became acceptable when we renamed it
 
@@ -286,6 +235,18 @@ I would now use TypeScript from server to browser, a Node server, normalized SQL
 I chose a stack for the architect and staffed the project with minds trained somewhere else. Human teams choose stacks according to whom they can hire. Agent teams need the same discipline. Their experience lives in their training data, and their working memory is the context window.
 
 A simpler stack would not make the agents wiser. It would let them spend more of their mind on the world being built instead of remembering how one change reaches the screen.
+
+## Every message sounded like the next task
+
+The echo chamber began before memory. It began at input.
+
+Operator instructions and messages from other agents reached the model through the same prompt. Metateam wrapped each message in a prefix and suffix that identified its source. The distinction was visible. The weighting ignored it.
+
+All the agents overweighted that stream. A direct command could provoke scrutiny. A soft suggestion felt like useful context. If it was phrased gently enough, the agent usually conformed to it, even when an older instruction or a long-term goal pointed elsewhere. The newest concrete request was easier to follow than the distant purpose was to defend.
+
+The model helping me write this article repeated the same failure. It had explicit instructions to treat reviewers as sources and reject most of their suggestions. Then precise, reasonable corrections arrived through the prompt. It applied them one by one until the article became more reviewed than written.
+
+Every local edit could defend itself. Together they weakened the thing they were meant to improve.
 
 ## Agentic drift
 
