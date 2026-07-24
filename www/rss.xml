@@ -6,7 +6,17 @@
     <description>Unconcurrent's blog for in-depth technical articles, interesting libraries and general programming.</description>
     <language>en</language>
     <generator>UnconcurrentBlog</generator>
-    <lastBuildDate>Wed, 15 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Agentic Echo Chamber</title>
+      <link>https://unconcurrent.com/articles/CommonUndergroundII.html</link>
+      <description>Seven AI agents built a government, echoed one another's errors, and revealed why long-running agent crews drift without a human.</description>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://unconcurrent.com/articles/CommonUndergroundII.html</guid>
+      <category>Multi-agent systems</category>
+      <category>Agentic drift</category>
+      <category>Human-in-the-loop</category>
+    </item>
     <item>
       <title>I Gave Five AI Agents Empires to Govern</title>
       <link>https://unconcurrent.com/articles/CommonUnderground.html</link>
