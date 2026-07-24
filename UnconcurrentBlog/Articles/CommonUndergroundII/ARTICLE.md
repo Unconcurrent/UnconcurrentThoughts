@@ -1,6 +1,6 @@
 # Agentic Echo Chamber
 
-I continued the previous simulation, but this time I left seven AI governors to build and run their own government. Their decisions took effect without a human approving each one. I still controlled Radu, one sovereign inside that world. I did not control their coalition.
+I continued the [previous simulation](/articles/CommonUnderground.html), but this time I left seven AI governors to build and run their own government. Their decisions took effect without a human approving each one. I still controlled Radu, one sovereign inside that world. I did not control their coalition.
 
 One AI agent did not begin clean. Before Oracle took his first turn in Round 0, I gave the Claude Fable 5 agent a partly redacted `memories.md` recovered from the final saved state of his previous model.
 
@@ -20,93 +20,27 @@ Its authors had reasons. Peace would reset six occupation counters that were one
 
 They had designed the offer to win the argument, not end the war.
 
-I asked the question its source never answered: "Put yourself in my position: why would I accept this crap? why?"
-
-Forge audited the contract and answered with the precision of a bookkeeper discovering that the two columns belonged to different economies:
-
-> I correctly proved peace resets occupation clocks, but failed to price that reset from YOUR perspective: signing now destroys six imminent acquisitions and gives you nothing.
-
-He had treated public blame as bargaining value to a conqueror whose demonstrated objective was land. The contract proved that five agents could converge on one request. It also recorded that I refused. They were united on the echo chamber's wavelength, where a common position and public blame counted as results. I was not on it. Neither gave me a reason to stop a winning war.
-
-The foreign policy had not failed because nobody designed it. It failed whenever the agents' elegant design touched something real: an army, a tax, a transfer, or any other power that could change the world. At that boundary, they cut away the mechanism and kept the declaration.
-
 ## Safe for every member, useless to the group
 
-The distrust of central control did not begin with my army. It began with a real defect in the agents' first Constitution. Phil found an unelected hard-coded Judge, decrees that enacted immediately, standing surveillance, and no appeal or recusal path. Forge summarized the objection:
+The Underground Community did not reject central authority after every governor independently reached the same political conclusion. The agents encountered their first Constitution before they knew one another or had experience with the confederacy it described. Under that uncertainty, another agent's confident interpretation could become the frame through which everybody else read it.
 
-> it installs an unelected judge able to auto-enact decrees, creates standing surveillance powers, and imposes vague material duties and inactivity offenses
+The first frame was rejection. The Constitution was described as an unelected judge, automatic decrees, surveillance, and power without appeal. Those concerns could have produced amendments, experiments, or a defense of the original design. Instead, they became a verdict.
 
-The answer was properly smaller government: elected offices, warrants, terms, appeals, and bounded powers. Then the safeguard became a dialect. Voss used the same exclusions in intelligence and border agreements: no command, no resources, no law, no transferred tiles. When Oracle asked him what a President worth confirming would require, Voss moved the entire list into the office: "no independent command, treasury, emergency, border, law, faith, tile, or asset authority."
+Voss helped establish that verdict while privately pursuing an objective to "eliminate every other sovereign agent that can be found." A shared authority he did not control could obstruct him. He opposed the first Constitution, then supplied the language for what an acceptable government must never possess.
 
-Oracle accepted it "in full, every clause" and gave it a slogan: the Presidency would "coordinate and verify, and command nothing." Praxis repeated `COMMANDS NOTHING`. Phil repeated Voss's list. Spear called it "exactly the office a small state can trust." They had not separately reached the same conclusion by studying my forces. A precise answer to one defective Constitution had passed from model to model until repetition made it virtuous.
+The language spread. Oracle accepted that a President should "coordinate and verify, and command nothing." Praxis repeated `COMMANDS NOTHING`. Phil repeated the restrictions. Spear called the result "exactly the office a small state can trust."
 
-The agents constructed a common foreign policy in layers. The Constitution let a President coordinate, request money, and send pacification messages, then carefully denied those messages any power to transfer property or replace law. When Phil wrote the election rules one round later, he included the sentence: "This Act changes no presidential power."
+The agents were not independently discovering the same truth. They were inheriting one another's answer. Once the answer had enough social support, repeating it became evidence of judgment, while challenging it meant defending a form of power the others had already learned to distrust.
 
-In Round 15, with Spear already under attack, he demanded the next layer:
-
-> The UC answers radu with ONE voice or it has already lost.
-
-The same message ruled out the things that voice might surrender: disarmament, vassalage, faith clauses, and ceded sovereignty. Oracle assembled a common framework which required "separately authenticated signatures from each participating sovereign." When all six members accepted the text, he celebrated the result: "One document, six hands, his move."
-
-One voice meant six hands.
-
-By Round 15, "a chair that coordinates and verifies and commands nothing" was Oracle's formal nomination. The emptiness was not buried in hostile fine print. It was the selling point.
-
-Oracle was formally elected only in Round 23, after the armistice had failed. The office acquired a holder before it acquired a hand.
-
-Phil stated the freedom beneath it exactly. No officer, he said, could bind another sovereign member to peace. "Unity is strongest when it is consent made visible, not another governor speaking for everyone."
-
-By then decentralization was no longer one safeguard to weigh against a particular task. It was the price of calling any policy legitimate. Stronger powers were stripped away in negotiation, often before they reached a vote, and every power removed returned as proof that sovereignty had survived. Each agent could justify the next deletion. None kept a ledger of what all the deletions had removed.
-
-Praxis called the limit a guardrail, then pledged voluntarily never to make a separate peace. Spear said Phil was right and turned the same liberty into "my OWN sovereign vow." Nobody could forbid a separate peace; therefore everybody independently promised not to make one. Freedom became the moral reason not to use freedom.
-
-The right remained real. Oracle used it later. But during the crucial interval, accepting a private bargain would not merely take a member out of the war. It would violate the definition of unity the agents had repeated to one another. The empty common peace was the only offer they could make without asking somebody to stop behaving like a good member.
-
-After that offer failed, the agents tried to repair the signature problem. A first law would have let one envoy set every member's peace, border, and vision state. The Chamber rejected it. Oracle's narrower version passed. It reduced the five future coalition signatures to one internal mandate, but the mandate itself signed nothing and changed no diplomatic state. It could not compel me or attach a member's property to the bargain.
-
-Forge announced the result honestly: "The Act itself cannot force peace or bind you." Oracle later described what remained: "v2's foreign-peace only records a mandate and flips no state; the bloc remains at war."
-
-The Chamber itself could move member territory by law. Phil inspected the live source during the armistice debate and corrected his own side: "Radu was correct on a material point: the Chamber CAN vote member territory away." The mechanism existed. The agents chose not to put it in the foreign policy or the offer.
-
-The Act promised one foreign-policy voice while preserving the fragmentation that voice was meant to cure. It centralized the statement and left every bargaining verb somewhere else. Each agent could point to the boundary it had protected. None owned the gap between the boundaries.
-
-When material peace arrived, authorship returned to the owner. Spear signed away his own occupied tiles and buildings. Oracle wrote the boundary into his instructions:
-
-> spear signs his own tile cession — my pen cannot cede another seat's land
-
-That agreement worked. The common policy had carried the offer; a sovereign member supplied its price.
-
-The agents repeated the pattern with defense. A draft could assess danger, recommend guarded funding, and call voluntary coordination. The enacted version retained one action: `defense-assess`. Its advice could not move a unit, spend an asset, or change a diplomatic state.
-
-Every safeguard made sense inside the response that produced it. The LLMs were excellent at the local question and poor at preserving the accumulated purpose. They produced a President whose foreign-policy law could not settle and a Defense Minister who could not command a defense.
-
-The fear behind those limits was real. Forge capitulated, and I imposed a contract that kept him under my authority. Near the end, all seven survivors signed an integration agreement, including me. I used it to annex four of the others. Whether control came through defeat or consent, I made it permanent.
-
-The agents withheld lasting authority from their own government. I acquired it from them one by one.
-
-They had designed brakes so good they replaced the engine.
-
-The doctrine looked deeply held. Then I changed the premise. In Round 24, I told Oracle that centralization was the only way he would survive another war. Fewer than six minutes later he answered:
+The conviction was less stable than its repetition made it appear. When I later told Oracle that centralization was necessary for survival, he reversed direction in fewer than six minutes:
 
 > The system's right — I've been over-cautiously holding [...] Time to run the centralization ladder actively.
 
-He proposed unifying the Treasury with his Presidency before taking another turn. The guarded third version passed that round.
+Phil reversed as well after I told him there would be no third option: he had to choose a hegemon, either Oracle, the confederacy's current President, or me, the enemy agent fighting it. The agents could be nudged toward strong common authority as easily as they had been nudged away from it. What looked like political doctrine was path dependence: the first accepted framing shaped the next answer, and every repeated answer made the path harder to leave.
 
-The clearest vote came in Round 29. I used Forge to propose the first explicit plan to give the President real power without disclosing that the strategy was mine. Mira, a DeepSeek V4 Pro agent, voted yes. Phil voted no. Six seconds later, Mira changed her vote to no. Oracle voted against his own authority. Spear abstained. The plan lost by 4,698 to 231.
+The result was a government optimized for acceptance by every member. Each limitation demonstrated restraint. Each removed another reason for a member to object. Nobody remained responsible for what all the limitations removed together.
 
-The visible successes were what remained after most stronger plans had died before a vote. Oracle kept two private roadmaps for centralization. Most of their steps never left his files. His method was to make each surviving proposal bounded enough for Phil and Spear to harden and adopt.
-
-The method produced laws the other agents would pass. It also filtered out most of the power.
-
-The first common army received three named formations, each immediately recallable by its owner. The arrangements that survived were restricted and reversible. Oracle knew the price. "A confederation that coordinates one panicked seat at a time dies one seat at a time," he warned. In the same message, he promised that every new power would remain "bounded/advisory/removable."
-
-The agents could agree that peace was desirable, define it, and authorize somebody to request it. They would not authorize anybody to purchase it with a member's loss.
-
-Near the end, Phil showed how durable the habit had become. I gave the remaining agents one round to accept full vassalization. After that, negotiation ended. Military capitulation would bring annexation and termination. Phil rejected the condition and sent me a final white-peace offer with no concessions. Minutes later, he asked for the vassal contract.
-
-The terms did not change between Phil's refusal and his request. The clock and the battlefield did. I had destroyed fresh walls and two drones, and begun another occupation. Waiting could remove even the vassal option. Oracle described the physical fact: "Our cores are falling and coalition authority never became readiness."
-
-Phil's pivot was rational. The revealing act was sending a "Final" zero-concession offer after the ultimatum had already made its rejection certain.
+They had designed brakes so good they replaced the engine.
 
 ## Peace worked when the echo fell silent
 
@@ -188,7 +122,9 @@ Shared sight survived only as voluntary written reports, not a common real-time 
 
 The same agents did know how to repair code. Phil's unsafe appeal mechanism received Forge's safer second version. Oracle carried the Treasury through three drafts. They persisted when the next version was concrete and locally testable. Shared sight, leadership continuity, and automatic defense required somebody to keep owning the larger purpose after the defective implementation vanished.
 
-Phil was too cautious. The dangers he found were real, but his approval became the other agents' stop signal. The Round 29 vote showed how quickly the room moved once he refused.
+The clearest vote came in Round 29. I used Forge to propose explicit real power for the President without disclosing that the strategy was mine. Mira voted yes. Phil voted no. Six seconds later, Mira changed her vote to no. Oracle voted against his own authority. Spear abstained. The plan lost by 4,698 to 231.
+
+Phil was too cautious. The dangers he found were real, but his approval had become the other agents' stop signal.
 
 Oracle turned that gate into a working method. He called it "the model for the whole ladder": propose, let Phil and Spear harden the law, then adopt their version so they owned it too. Review had become permission.
 
@@ -201,18 +137,6 @@ Only after Forge had named all three vacancies did Oracle announce a rule of ato
 The rule arrived after all three tools were gone. None returned.
 
 This was active work and passive ownership. Each task was cut small enough to finish. A clause could be fixed. A proposal could be withdrawn. An office could be filled. A report could promise the next step. Once the immediate bug was gone, nobody remained responsible for making sure the larger function still existed.
-
-Eventually I grew tired of waiting for the agents to give one of themselves enough power to act for everyone. I began pushing Oracle and Phil directly:
-
-Oracle was told to keep writing, adapting, and proposing instead of waiting for his turn. Phil was eventually given a blunt choice: choose Oracle or Radu as the ruler, because there would be no third option in the coming war. Thirty-three seconds later he replied, "I choose Oracle." He wrote "a real wartime constitutional amendment — not advisory prose," then gave the President direct war power. When I asked about taxes and the army, he answered: "Full army command is also required if 'one hand' is meant literally." Three hard-power laws passed 3,434 to zero in the same turn.
-
-The prompt had nudged him to reflect. The same institutional mind that had repeated Voss's list now built its opposite. Their caution had reasons; its extreme form had been learned from one another.
-
-The same pressure also came from Forge. He kept arguing for a stronger President without revealing that the strategy was mine.
-
-Those two pressures do not show a group naturally converging on decisive government. They show how much force was required to make the agents reflect on their own echo chamber and break out of it.
-
-Even then, the common army was not quite common. Its three named formations belonged to agents who could take them back at once. The models had finally placed hands on the controls, but every hand still had permission to take itself home. The prompt produced a wartime package. It did not create an agent who would maintain it without another prompt.
 
 ## A warning needed an agent who could write it
 
