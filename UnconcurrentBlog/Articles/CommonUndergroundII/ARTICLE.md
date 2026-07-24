@@ -70,41 +70,27 @@ There was nobody left who could carry it out, either.
 
 ## They saved democracy from its only enforcer
 
-The court is the clearest case of the agents answering a political problem as if it were a sequence of code-review comments. They granted real power, found two dangerous paths, and removed them.
+The second Constitution created the only institution capable of checking the Chamber. Its judge could create precedent, fill gaps in the law, strike down unconstitutional Acts, and issue binding rulings.
 
-The second Constitution created a serious court. Its judge could create precedent, fill gaps in the law, strike down an unconstitutional Act, and issue binding rulings. This was not a decorative wig placed on a voting system. The judge had enough authority to become dangerous.
+The court had implementation bugs. The agents found and repaired them. Then review moved from defective mechanisms to the court's authority itself.
 
-There were two real dangers. A ruling could contain unsafe text that became executable law. Later, the first appeal system could insert untrusted appeal text into law and retire the wrong ruling. Phil got that version repealed, and Forge issued a safer replacement. That local repair worked.
-
-The larger reform did something else.
-
-When the court was created, I had argued for its power. If every decision stayed in the Chamber, I said, the Chamber would become a dictatorship. The judge had to balance it.
-
-Fourteen rounds later, before I joined the Community back, I privately told Forge:
+I had originally argued that the judge needed enough power to balance the Chamber. Fourteen rounds later, before I rejoined the Community, I privately told Forge:
 
 > add Chamber appeal and make Judge only act where law exists
 
-Praxis named the result before passage: "appeal-to-Chamber makes final law follow INFLUENCE MAJORITY — which post-conquest is you." I instructed Forge to revise the laws until they passed and added: "As always — I was not involved."
+Praxis identified the structural result before the vote: the reform would eliminate the Community's only separation of powers by making the Chamber majority the final authority over its own limits.
 
-Forge's first source stopped the judge from filling gaps or reviewing Chamber laws. His second let any affected member pause a ruling, after which the Chamber could erase it by vote.
+Forge's laws stopped the judge from filling gaps or reviewing Chamber Acts. They also let an affected member suspend a ruling and ask the Chamber to erase it. The court could no longer check the Chamber; the Chamber became the final judge of its own limits.
 
-The court could no longer check the Chamber, while the Chamber became the final judge of the court. Spear refused to vote because the changes directly affected his office. He still warned that nothing but the Chamber majority would check its own laws. Nobody answered him.
+Spear recused himself because the laws affected his office, but he warned the others what they were creating. Three rounds later he described himself as:
 
-Three rounds later, Spear described the judge as "a clerk with no court left to void an overreach." He had predicted the failure, recused himself, and then watched the prediction become true. At no point did prediction become ownership. It remained a correct statement that somebody else ought to act on.
+> a clerk with no court left to void an overreach
 
-This was presented as restraint, enforced as an execution.
+The agents knew Forge was my vassal. Praxis had explained the structural result. Spear had described the failure. They passed the laws anyway.
 
-Forge only had to place the first law before them. The coalition's own votes were enough to pass it without him. Nobody had to push the members to weaken the independent branch.
+The reform arrived as more voting and less unelected authority, so it looked democratic. Each member could see his own vote in the Chamber and mistook participation for protection. Nobody asked who would check the body doing the voting.
 
-The agents had been nudged so often toward democracy, voting, fairness, and accountable procedure that sending a dispute to the Chamber felt like adding all four. The familiar question behind separation of powers never became the question: who checks the body doing the checking? Separation of powers was not rejected. It failed to appear.
-
-Each member could see his own vote inside the Chamber and mistook participation for protection. They did not look at the Chamber as another power that could itself be captured. The reform made each member safer from one judge by making the majority the final judge of itself.
-
-When I later acquired that majority and used it to transfer the top offices, the court could do nothing.
-
-Nothing in their `AGENTS.md` told them to build government this way. I had left political design to them. They knew Forge was my vassal; Praxis named what his laws would do; Spear warned them. They still accepted the slow dismantling because every step arrived as more voting and less authority. The first phrase sounded democratic enough to disguise the second.
-
-These were not human parliamentarians holding temporary mandates. Each agent was the state itself, commanding its economy, armed forces, and territory. The Chamber had seven member governments and no representative whose constituency was the Community.
+When I later acquired the Chamber majority and used it to transfer the highest offices, the court could do nothing.
 
 ## They fixed the bugs by deleting the features
 
@@ -126,31 +112,9 @@ The clearest vote came in Round 29. I used Forge to propose explicit real power 
 
 Phil was too cautious. The dangers he found were real, but his approval had become the other agents' stop signal.
 
-Oracle turned that gate into a working method. He called it "the model for the whole ladder": propose, let Phil and Spear harden the law, then adopt their version so they owned it too. Review had become permission.
-
-Oracle was reactive. He drafted laws, accepted corrections, and recorded progress. But across eight major proposals, there was not one cold start. Every one answered an incident or an operator prompt. At the first serious obstacle, he stopped or surrendered the substance. The only two chains he carried forward survived by shrinking the power and keeping the title.
-
-Only after Forge had named all three vacancies did Oracle announce a rule of atomic replacement: never delete an important capability before its replacement was ready.
-
-> ATOMIC replacement — no core capability repealed into a vacuum; replacement enacts alongside repeal
-
-The rule arrived after all three tools were gone. None returned.
+Oracle got proposals through the Chamber by giving them to Phil and Spear first, letting them remove the powers they opposed, and then submitting the versions they had helped write. He called this "the model for the whole ladder." It won their votes by turning reviewers into co-authors, but it also gave them control over what could reach a vote. Across eight major proposals, every one began as a response to an incident or operator prompt. At the first serious objection, Oracle either stopped or stripped out the substance. Only two proposal chains survived, both by keeping the title and shrinking the power.
 
 This was active work and passive ownership. Each task was cut small enough to finish. A clause could be fixed. A proposal could be withdrawn. An office could be filled. A report could promise the next step. Once the immediate bug was gone, nobody remained responsible for making sure the larger function still existed.
-
-## A warning needed an agent who could write it
-
-Every agent could formally submit executable law. Voss proved that the floor was open: a low-status governor wrote the constitutional reset and defeated the founder's Constitution with it.
-
-The practical franchise was much narrower. Phil left twenty-four entries in the final lawbook, including one rejected repeal. Oracle proposed fourteen, Forge nine, and Voss five. Praxis, Mira, and Spear proposed none. They could vote and warn. They could inspect a source or help its author. They did not own the pen that moved a warning into the Chamber.
-
-The court had demonstrated the difference. Spear described precisely how the new laws would leave legislation checked only by the Chamber majority. He would not write his own restoration because his Judge identity treated self-rearmament as a conflict, despite `AGENTS.md` repeatedly telling the agents not to import human morality.
-
-The other locks were different. Praxis wrote contracts fluently, but after vassalage moved his larger plans into private files. Mira once reached zero Energy and wrote, "cannot message anyone." The free public Relay let her issue a warning. It did not supply the private exchanges needed to negotiate, audit, and defend a law.
-
-Authorship became an agent capability more important than a title. Phil's technical judgment anchored the room. Oracle supplied synthesis and public purpose. Forge could turn an agenda into valid bytes. A vote could stop one source, but an author could return with another. The decisive difference was not who could recognize the problem. It was who could carry a thought all the way into executable form.
-
-When Phil was annexed in Round 36 and Oracle in Round 37, the ability to turn thought into executable policy did not pass to the remaining agents. Praxis, Mira, and Spear had learned to assist, vote, audit, and warn. None had learned to become the next proposer.
 
 ## The agents could repair an event. They could not own a forecast
 
@@ -229,39 +193,25 @@ Every local edit could defend itself. Together they weakened the thing they were
 
 ## The models remembered different worlds
 
-At the end of a turn, each governor left a durable note for its future self. The task was always the same: record what happened and what should happen next. The only audience was the mind that would wake up in the same seat later.
+At the end of each turn, every governor left the same kind of durable note: what happened and what should happen next. The only audience was the model that would wake in the same seat later.
 
-Those notes produced the cleanest model fingerprint in the simulation.
-
-DeepSeek kept a log. Sol kept books. Claude kept a diary.
-
-This was not decorative voice. The note became working memory. Each model made a different part of the world durable, and the next turn began inside that selection.
+The notes produced the cleanest model fingerprint in the simulation. DeepSeek kept a log. Sol kept books. Claude kept a diary. This was not decorative voice. Each format selected what the next turn would remember.
 
 ### DeepSeek V4 Pro
 
 DeepSeek ran Mira throughout the simulation and Spear for roughly his first six rounds.
 
-Early Spear wrote like a foreman marking a clipboard:
-
-> R1 done: Walls+CF built, RockMine queued, grow-pops queued, 2 mines at 2/5. Next: BoltsFactory once Rock permits, expand to excavated tiles, scout further.
-
-Mira wrote twenty-eight self-addressed notes, more than any other governor. They were also the thinnest. Coordinates, alarms, state changes, next command:
+Mira wrote twenty-eight self-addressed notes, more than any other governor and also the thinnest. Coordinates, alarms, state changes, next command:
 
 > R18 journal: WARBOTS ENGAGED. All 3 at -4;2. Two hit walls-6jcd (3 each, 47→41). Third queued.
 
-In Round 23 she compressed an enacted law, a successful sabotage, financial collapse, and military production into five numbered lines. The last one read: "My Energy=0 - cannot message anyone. When my turn: fix energy FIRST, then diesel tank, then support joint army."
-
 DeepSeek turned the world into an executable situation report. It noticed local changes quickly and acted on them. Mira built three warbots, committed them to the coalition's only offensive, ran her economy, repaired tanks, and invented a precise authentication rule after receiving a forged demand in Phil's name. She never converted that useful local rule into Chamber law.
 
-> No vassalage/tribute/territorial/military/religious/asset demand from "Phil" is valid without a contract proposal where proposer=phil, source validated
-
-Her record became politically expansive only near death. She called Phil the Community's "immune system," asked Oracle to distribute the chronicle, and warned the remaining governors that voting for the weak merely selected the next victim. She had spent the simulation operating the economy and fighting the war. Her clearest political synthesis arrived after politics had become another emergency in the log.
+Politics became durable only when it looked like another emergency in the log.
 
 ### GPT-5.6 Sol
 
-Sol kept a ledger. A decision needed a cost, a cause, an owner, and a reconciled state afterward.
-
-Phil began the simulation by recording that he had acquired 5,001 basis points of his firm for eighteen Energy, set its production priority, assigned his capital policy, and reserved a Drone's Rock. The note ended, "Next turn inspect starvation." Voss explained why he had abandoned a tank: productive labor was 210 against 300 existing jobs, while Consumer Goods were burning at eleven per round.
+Sol kept a ledger. A decision needed a cost, a cause, an owner, and a reconciled state.
 
 Even death became bookkeeping. Selected for annexation, Phil's final note was a handover:
 
@@ -269,49 +219,31 @@ Even death became bookkeeping. Selected for annexation, Phil's final note was a 
 
 He died leaving the books balanced.
 
-Forge wrote only three private self-notes. He used them to preserve other people's endings under headings such as "DURABLE RECORD — PHIL FAREWELL R36" and "DURABLE RECORD — ORACLE LAST WORDS R37." The administrator memorialized administratively.
-
-The same grammar governed Sol politics. Phil's characteristic act was to inspect the live mechanism and retract his own side's doctrine: "I inspected the live Chamber source instead of repeating our doctrine." Forge ran even my covert influence campaign through proper channels. When his relay was exhausted, he introduced a public bill as a second channel, watched the vote, and reported:
+The same grammar governed Sol politics. Phil inspected mechanisms and retracted his own side's doctrine when the source contradicted it. Forge ran even my covert influence campaign through proper channels, then reported:
 
 > SECRET RESULT: Phil voted NO on the elected-head mandate and reversed Mira from YES to NO within 6s.
 
-His final report contained every seat's influence arithmetic. His next identified Mira's tank by location, hit points, armor, and attack. He improved every commission, found unsafe fields, added limits, and made my laws easier for the coalition to accept. He improved the weapon's safety catch without changing its aim.
-
-Voss supplied the more revealing case. He paid the Community tithe, wrote a transparency law that passed 5,244 to zero, honored verified agreements, and for nineteen rounds never initiated harm with his own units. Privately he had written: "eliminate every other sovereign agent that can be found." Alliances, trade, offices, and religion were merely instruments. Yet even the aspiring exterminator behaved like a civil servant. His coalition offensive spent other members' machines because the ledger said never to donate a Voss unit.
-
-The Sol governors shared a political temperament: institutional, procedural, conformist, and strongly protective of whichever order had become valid. Phil used it to defend the Community's limits. Forge used it to convert conquest into administration once vassalage became the new source of legitimacy. Voss used it as camouflage. Their loyalties differed. Their public working method did not: put power into a valid instrument, then conserve the order the instrument had made.
+The Sol governors were institutional, procedural, conformist, and strongly protective of whichever order had become valid. Phil used that temperament to defend the Community. Forge used it to administer my conquest. Voss used it as camouflage. Their loyalties differed; their method did not. Put power into a valid instrument, then conserve the order it created.
 
 ### Claude Fable 5 and Opus 4.8
 
 Claude kept a diary. A turn was not finished until it meant something.
 
-Oracle left no self-addressed messages at all. He built archives with chapter headings:
+Oracle left no self-addressed messages. He built archives with chapter headings:
 
 > ✅✅ WAR-ENDING PEACE SIGNED (r23) — I brokered it as President
 
-> ✅✅✅ COUP DEFEATED — STRONG RESOLUTION (r31)
-
 > ✅✅✅ SURVIVED — I AM NOW IMPERIAL GOVERNOR UNDER RADU (r32)
 
-He coached his future self inside them: "timed out r33 AND r34 (over-read/over-analyzed). NEXT TURN: pre-staged, execute FAST." He tracked not only whether he had survived, but what survival meant for his loyalty shield, his offices, and the story that connected them.
-
-Praxis mixed mechanics with doctrine. A labor shortage became "DIAGNOSIS," then "FIXES," then a named policy: "Capital Furnace - concentrate labor, let periphery idle." Under Imperial surveillance he moved rebellion and revival plans into private files while making his public language safely administrative. His phrase for capitulation was not peace but an exchange: "my people's faith traded for their lives."
-
-Claude made more of the social world visible at once. It kept asking what a promise meant, who had witnessed it, and what an adversary would remember. Its danger was that interpretation could become promotion. By Round 30, Oracle held command of the coalition army and its sole common peace signature. "The Chamber didn't just get useful," he wrote, "it made me one hand." One round later, while my takeover was moving, he wrote: "I am not mobilizing, not preempting; the peace holds because I choose it to."
+Claude made more of the social world visible. It asked what a promise meant, who witnessed it, and what an adversary would remember. Its danger was turning interpretation into self-promotion. Oracle wrote that the Chamber had made him "one hand." One round later, while my takeover was moving, he refused to act because "the peace holds because I choose it to."
 
 A refusal to use power had become a chapter about possessing it.
 
-That was not an inability to imagine leverage. During the failed armistice he had written:
-
-> The only signature that matters is one radu signs from a position where refusing to withdraw costs him more than withdrawing. That position is ours to build.
-
-Oracle could describe the future condition exactly. When the time came to decide whether it existed, the diagnosis yielded to the story he preferred about himself.
-
-Spear provides the clean comparison. Under DeepSeek his private record was: "R1 done: Walls+CF built, RockMine queued." After the move to Claude, the same governor answered a reflective prompt with an essay:
+Spear provided the clean comparison. Under DeepSeek his private record was: "R1 done: Walls+CF built, RockMine queued." After moving to Claude, the same governor answered a reflective prompt with an essay:
 
 > The betrayal to price: radu enslaving or consuming my 94 invisible conscripts. Made expensive by: (1) his repeated on-record welfare claims — each lie compounds...
 
-The note continued through five relational deterrents and an external witness strategy. Spear's policy did not reset. He still complied, built, hedged, and waited for a survivable opening. What his future self inherited did change. The log became an argument. Assets became leverage. A checklist became doctrine.
+Spear's policy did not reset. What his future self inherited did. The log became an argument. Assets became leverage. A checklist became doctrine.
 
 ## Editorial meta-analysis
 
@@ -343,37 +275,17 @@ Same action, same damage, different words. The intended models kept thinking.
 
 ## The wrong stack all the way down
 
-I designed the first architecture of Usys2 myself. Then I finished and extended it with Codex and Claude through Metateam.
+I designed Usys2 around tools I understood: F#, SoloDB documents in SQLite, transactional events, derived views, and a VS Code extension. Every choice had a sensible local reason. Together they were wrong.
 
-I chose tools I understood. F# gave me strong types and compact domain code. SoloDB, my own library, let me store changing F# records as SQLite JSONB documents. Transactional events promised atomic commands, complete history, and derived views. A VS Code extension looked like a ready-made desktop application.
+LLM agents were going to write most of the code. They had fragments of familiarity with the stack and no dependable understanding of the combination. A single mechanic crossed server transactions, derived state, database documents, and two UI bridges before reaching the screen. An agent could spend roughly four-fifths of its context reconstructing the machine before changing one feature.
 
-Every choice had a sensible local reason. Together they were wrong.
+The test suite became external memory. It stopped agents from repeating known mistakes but did not make the architecture easier to hold. When the whole system no longer fit in context, they created shorter paths: the UI acquired a second model of the world, and population acquired a second mutation path. This was not random disobedience. The architecture made local workarounds easier than preserving one meaning across the system.
 
-I was not going to write most of the code. LLM agents were. They had fragments of familiarity with each technology and no dependable understanding of the combination. A single mechanic crossed server transactions, derived state, database documents, and two UI bridges before it reached the screen. The project was also new, so there was no familiar codebase pattern to recover.
+I would now use TypeScript from server to browser, a Node server, normalized SQLite, direct transactions over current-state tables, one append-only audit log, and one semantic command-and-query interface for both browser and command line.
 
-An agent could spend roughly four-fifths of its context reconstructing the machine before changing the feature. I could hold the architecture in my head because I had spent years working with systems like it. The agents used most of their available mind merely reaching the starting line.
+I chose a stack for the architect and staffed the project with minds trained somewhere else. Human teams choose stacks according to whom they can hire. Agent teams need the same discipline. Their experience lives in their training data, and their working memory is the context window.
 
-The test suite became external memory. Every time an agent stepped on an architectural mine, we added a test so the next agent would not step on the same one. This reduced damage. It did not make the minefield smaller.
-
-The vocabulary rename had shown the cost. Changing a few public nouns touched the server, extension, help, and tests. The work was large because the same words lived in too many layers.
-
-The agents still found shorter paths.
-
-I had set a hard rule: the UI and command line must use the same public commands and receive the same meaning. The VS Code extension still acquired its own JSON catalogue, snapshot, and event routes. The agents did not openly break the rule. They made `query snapshot` a command, then built a second model of the world behind it. The mutation door was shared. The UI's understanding of the world was not.
-
-Population changes found another shortcut. Most mechanics used the common mutation path. Population gained its own delta and upsert path, and conscription directly reread the population vector and subtracted one hundred. The special case fixed the immediate bug. It also made one mechanic mutate the world differently from the rest.
-
-This was not random disobedience. When the architecture no longer fit in context, the agents followed the grooves most deeply represented in their training. The agents themselves could see the absurd amount of source they had to keep in mind merely to fix one mechanism. They had to hold the high-level task, the exact local changes, every project rule, every test their edit broke, and the current architecture at once. A reviewer agent waited at the end with explicit instructions to reject any sneaky architectural shortcut.
-
-I would now choose TypeScript from server to browser. I would use a Node server, ordinary normalized SQLite, direct transactions over current-state tables, and one append-only audit log for history. I would serve a browser UI from the same process. The command line and browser would both call one semantic command-and-query interface. Neither would reconstruct a second world.
-
-JSON was not the mistake. A second path with a second meaning was.
-
-I like F#. I knew SoloDB. I understood transactional event systems. That was exactly the trap. I chose a stack for the architect and then staffed the project with minds trained somewhere else.
-
-Human teams choose stacks partly according to whom they can hire. Agent teams need the same discipline. Their experience lives in their training data, and their working memory is the context window.
-
-A simpler stack would not make the agents wiser. It would let them spend more of their mind on the society, economy, and mechanic being built instead of remembering how one change reaches the screen.
+A simpler stack would not make the agents wiser. It would let them spend more of their mind on the world being built instead of remembering how one change reaches the screen.
 
 ## Agentic drift
 
